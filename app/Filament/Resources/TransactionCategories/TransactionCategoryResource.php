@@ -9,16 +9,24 @@ use App\Filament\Resources\TransactionCategories\Schemas\TransactionCategoryForm
 use App\Filament\Resources\TransactionCategories\Tables\TransactionCategoriesTable;
 use App\Models\TransactionCategory;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionCategoryResource extends Resource
 {
     protected static ?string $model = TransactionCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static bool $shouldRegisterNavigation = true;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Finance';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
+
+    protected static ?string $navigationLabel = 'Category';
 
     protected static ?string $recordTitleAttribute = 'transaction category';
 
@@ -46,5 +54,29 @@ class TransactionCategoryResource extends Resource
             'create' => CreateTransactionCategory::route('/create'),
             'edit' => EditTransactionCategory::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        $user = Auth::user();
+        return $user && $user->role === 'admin';
+    }
+
+    public static function canCreate(): bool
+    {
+        $user = Auth::user();
+        return $user && $user->role === 'admin';
+    }
+
+    public static function canEdit($record): bool
+    {
+        $user = Auth::user();
+        return $user && $user->role === 'admin';
+    }
+
+    public static function canDelete($record): bool
+    {
+        $user = Auth::user();
+        return $user && $user->role === 'admin';
     }
 }

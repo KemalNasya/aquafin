@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Galleries;
+namespace App\Filament\Resources\Currencies;
 
-use App\Filament\Resources\Galleries\Pages\CreateGallery;
-use App\Filament\Resources\Galleries\Pages\EditGallery;
-use App\Filament\Resources\Galleries\Pages\ListGalleries;
-use App\Filament\Resources\Galleries\Schemas\GalleryForm;
-use App\Filament\Resources\Galleries\Tables\GalleriesTable;
-use App\Models\Gallery;
+use App\Filament\Resources\Currencies\Pages\CreateCurrency;
+use App\Filament\Resources\Currencies\Pages\EditCurrency;
+use App\Filament\Resources\Currencies\Pages\ListCurrencies;
+use App\Filament\Resources\Currencies\Schemas\CurrencyForm;
+use App\Filament\Resources\Currencies\Tables\CurrenciesTable;
+use App\Models\Currency;
 use BackedEnum;
 use UnitEnum;
 use Filament\Resources\Resource;
@@ -16,28 +16,26 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
-class GalleryResource extends Resource
+class CurrencyResource extends Resource
 {
-    protected static ?string $model = Gallery::class;
+    protected static ?string $model = Currency::class;
 
-    protected static bool $shouldRegisterNavigation = true;
+    protected static string|UnitEnum|null $navigationGroup = 'Settings';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Galleries';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
+    protected static ?string $navigationLabel = 'Currencies';
 
-    protected static ?string $navigationLabel = 'All Galleries';
-
-    protected static ?string $recordTitleAttribute = 'gallery';
+    protected static ?string $recordTitleAttribute = 'currency';
 
     public static function form(Schema $schema): Schema
     {
-        return GalleryForm::configure($schema);
+        return CurrencyForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return GalleriesTable::configure($table);
+        return CurrenciesTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -50,9 +48,9 @@ class GalleryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGalleries::route('/'),
-            'create' => CreateGallery::route('/create'),
-            'edit' => EditGallery::route('/{record}/edit'),
+            'index' => ListCurrencies::route('/'),
+            'create' => CreateCurrency::route('/create'),
+            'edit' => EditCurrency::route('/{record}/edit'),
         ];
     }
 

@@ -9,16 +9,24 @@ use App\Filament\Resources\PostCategories\Schemas\PostCategoryForm;
 use App\Filament\Resources\PostCategories\Tables\PostCategoriesTable;
 use App\Models\PostCategory;
 use BackedEnum;
+use UnitEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Support\Facades\Auth;
 
 class PostCategoryResource extends Resource
 {
     protected static ?string $model = PostCategory::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static bool $shouldRegisterNavigation = true;
+
+    protected static string|UnitEnum|null $navigationGroup = 'Posts';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
+
+    protected static ?string $navigationLabel = 'Category';
 
     protected static ?string $recordTitleAttribute = 'post category';
 
@@ -46,5 +54,29 @@ class PostCategoryResource extends Resource
             'create' => CreatePostCategory::route('/create'),
             'edit' => EditPostCategory::route('/{record}/edit'),
         ];
+    }
+
+    public static function canViewAny(): bool
+    {
+        $user = Auth::user();
+        return $user && in_array($user->role, ['admin', 'owner']);
+    }
+
+    public static function canCreate(): bool
+    {
+        $user = Auth::user();
+        return $user && in_array($user->role, ['admin', 'owner']);
+    }
+
+    public static function canEdit($record): bool
+    {
+        $user = Auth::user();
+        return $user && in_array($user->role, ['admin', 'owner']);
+    }
+
+    public static function canDelete($record): bool
+    {
+        $user = Auth::user();
+        return $user && in_array($user->role, ['admin', 'owner']);
     }
 }

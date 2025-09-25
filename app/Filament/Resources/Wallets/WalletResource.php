@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Galleries;
+namespace App\Filament\Resources\Wallets;
 
-use App\Filament\Resources\Galleries\Pages\CreateGallery;
-use App\Filament\Resources\Galleries\Pages\EditGallery;
-use App\Filament\Resources\Galleries\Pages\ListGalleries;
-use App\Filament\Resources\Galleries\Schemas\GalleryForm;
-use App\Filament\Resources\Galleries\Tables\GalleriesTable;
-use App\Models\Gallery;
+use App\Filament\Resources\Wallets\Pages\CreateWallet;
+use App\Filament\Resources\Wallets\Pages\EditWallet;
+use App\Filament\Resources\Wallets\Pages\ListWallets;
+use App\Filament\Resources\Wallets\Schemas\WalletForm;
+use App\Filament\Resources\Wallets\Tables\WalletsTable;
+use App\Models\Wallet;
 use BackedEnum;
 use UnitEnum;
 use Filament\Resources\Resource;
@@ -16,28 +16,26 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
-class GalleryResource extends Resource
+class WalletResource extends Resource
 {
-    protected static ?string $model = Gallery::class;
+    protected static ?string $model = Wallet::class;
 
-    protected static bool $shouldRegisterNavigation = true;
+    protected static string|UnitEnum|null $navigationGroup = 'Settings';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Galleries';
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWallet;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
+    protected static ?string $navigationLabel = 'Wallets';
 
-    protected static ?string $navigationLabel = 'All Galleries';
-
-    protected static ?string $recordTitleAttribute = 'gallery';
+    protected static ?string $recordTitleAttribute = 'wallet';
 
     public static function form(Schema $schema): Schema
     {
-        return GalleryForm::configure($schema);
+        return WalletForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return GalleriesTable::configure($table);
+        return WalletsTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -50,9 +48,9 @@ class GalleryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGalleries::route('/'),
-            'create' => CreateGallery::route('/create'),
-            'edit' => EditGallery::route('/{record}/edit'),
+            'index' => ListWallets::route('/'),
+            'create' => CreateWallet::route('/create'),
+            'edit' => EditWallet::route('/{record}/edit'),
         ];
     }
 
