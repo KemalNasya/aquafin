@@ -7,6 +7,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class PostForm
@@ -22,10 +23,12 @@ class PostForm
                 Textarea::make('content')
                     ->required()
                     ->columnSpanFull(),
-                TextInput::make('thumbnail'),
-                TextInput::make('post_category_id')
-                    ->required()
-                    ->numeric(),
+                FileUpload::make('thumbnail')
+                    ->image()
+                    ->directory('posts'),
+                Select::make('post_category_id')
+                    ->relationship('category', 'name')
+                    ->required(),
                 Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),

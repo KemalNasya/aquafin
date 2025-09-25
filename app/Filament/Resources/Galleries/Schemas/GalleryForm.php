@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Galleries\Schemas;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 
 class GalleryForm
@@ -17,11 +18,13 @@ class GalleryForm
                     ->required(),
                 Textarea::make('description')
                     ->columnSpanFull(),
-                TextInput::make('photo')
-                    ->required(),
-                TextInput::make('gallery_category_id')
+                FileUpload::make('photo')
+                    ->image()
                     ->required()
-                    ->numeric(),
+                    ->directory('galleries'),
+                Select::make('gallery_category_id')
+                    ->relationship('category', 'name')
+                    ->required(),
                 Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
