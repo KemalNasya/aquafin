@@ -25,9 +25,9 @@ class TransactionForm
                     ->columnSpanFull(),
                 DatePicker::make('transaction_date')
                     ->required(),
-                TextInput::make('transaction_category_id')
-                    ->required()
-                    ->numeric(),
+                Select::make('transaction_category_id')
+                    ->relationship('category', 'name')
+                    ->required(),
                 Select::make('wallet_id')
                     ->relationship('wallet', 'name')
                     ->required(),
