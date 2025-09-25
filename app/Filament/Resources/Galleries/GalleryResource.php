@@ -22,6 +22,8 @@ class GalleryResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
+    protected static ?int $navigationSort = 1;
+
     protected static string|UnitEnum|null $navigationGroup = 'Galleries';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;

@@ -22,6 +22,8 @@ class PostCategoryResource extends Resource
 
     protected static bool $shouldRegisterNavigation = true;
 
+    protected static ?int $navigationSort = 2;
+
     protected static string|UnitEnum|null $navigationGroup = 'Posts';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;

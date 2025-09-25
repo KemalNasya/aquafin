@@ -33,6 +33,8 @@ class Report extends Page implements HasTable
 
     protected static ?string $navigationLabel = 'Reports';
 
+    protected static ?int $navigationSort = 4;
+
     protected static string|UnitEnum|null $navigationGroup = 'Finance';
 
     public static function canAccess(): bool

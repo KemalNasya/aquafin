@@ -20,6 +20,8 @@ class WalletResource extends Resource
 {
     protected static ?string $model = Wallet::class;
 
+    protected static ?int $navigationSort = 2;
+
     protected static string|UnitEnum|null $navigationGroup = 'Settings';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWallet;

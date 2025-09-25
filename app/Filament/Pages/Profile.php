@@ -25,6 +25,8 @@ class Profile extends Page implements HasForms
 
     protected static ?string $navigationLabel = 'Account';
 
+    protected static ?int $navigationSort = 1;
+
     protected static string|UnitEnum|null $navigationGroup = 'Settings';
 
     protected string $view = 'filament.pages.profile';
