@@ -4,11 +4,11 @@ namespace App\Filament\Pages;
 
 use App\Models\User;
 use Filament\Actions\Action;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Forms\Form;
+use Filament\Schemas\Schema;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\Auth;
@@ -47,39 +47,44 @@ class Profile extends Page implements HasForms
         ]);
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Section::make('Profile Information')
-                    ->schema([
-                        TextInput::make('name')
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('email')
-                            ->email()
-                            ->required()
-                            ->maxLength(255),
-                        TextInput::make('current_password')
-                            ->password()
-                            ->label('Current Password')
-                            ->required(fn ($get) => filled($get('password')))
-                            ->dehydrated(false),
-                        TextInput::make('password')
-                            ->password()
-                            ->label('New Password')
-                            ->minLength(8)
-                            ->confirmed()
-                            ->dehydrated(fn ($state) => filled($state)),
-                        TextInput::make('password_confirmation')
-                            ->password()
-                            ->label('Confirm New Password')
-                            ->required(fn ($get) => filled($get('password')))
-                            ->dehydrated(false),
-                    ]),
-            ])
+        return $schema
+            ->schema($this->getFormSchema())
             ->model(Auth::user())
             ->statePath('data');
+    }
+
+    protected function getFormSchema(): array
+    {
+        return [
+            Section::make('Profile Information')
+                ->schema([
+                    TextInput::make('name')
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('email')
+                        ->email()
+                        ->required()
+                        ->maxLength(255),
+                    TextInput::make('current_password')
+                        ->password()
+                        ->label('Current Password')
+                        ->required(fn ($get) => filled($get('password')))
+                        ->dehydrated(false),
+                    TextInput::make('password')
+                        ->password()
+                        ->label('New Password')
+                        ->minLength(8)
+                        ->confirmed()
+                        ->dehydrated(fn ($state) => filled($state)),
+                    TextInput::make('password_confirmation')
+                        ->password()
+                        ->label('Confirm New Password')
+                        ->required(fn ($get) => filled($get('password')))
+                        ->dehydrated(false),
+                ]),
+        ];
     }
 
     public function save(): void
