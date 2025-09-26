@@ -11,59 +11,59 @@ class ArticleController extends Controller
         $articles = [
             [
                 'id' => 1,
-                'title' => 'Pengenalan Microservices Architecture untuk Aplikasi Modern',
-                'excerpt' => 'Pelajari bagaimana microservices architecture dapat meningkatkan skalabilitas dan maintainability aplikasi Anda.',
-                'content' => 'Microservices architecture adalah pendekatan dalam pengembangan software di mana aplikasi dibangun sebagai kumpulan service yang kecil dan terpisah. Setiap service berjalan dalam prosesnya sendiri dan berkomunikasi melalui mekanisme ringan seperti API HTTP.',
-                'author' => 'John Doe',
+                'title' => 'Teknologi IoT dalam Monitoring Kualitas Air Budidaya Ikan',
+                'excerpt' => 'Pelajari bagaimana sensor IoT dapat meningkatkan efisiensi dan kualitas budidaya ikan Anda.',
+                'content' => 'Teknologi IoT telah merevolusi dunia budidaya ikan dengan memungkinkan monitoring real-time parameter kualitas air seperti pH, suhu, dan oksigen terlarut. Sistem ini membantu petani ikan mengambil keputusan yang tepat waktu untuk mencegah kerugian.',
+                'author' => 'Dr. Ahmad Santoso',
                 'author_image' => 'author1.jpg',
                 'published_at' => '2024-01-20',
-                'category' => 'Architecture',
+                'category' => 'Teknologi',
                 'read_time' => '8 min read',
-                'image' => 'https://via.placeholder.com/800x400',
-                'tags' => ['Microservices', 'Architecture', 'Cloud']
+                'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3',
+                'tags' => ['IoT', 'Monitoring', 'Budidaya Ikan']
             ],
             [
                 'id' => 2,
-                'title' => 'Optimasi Database untuk Aplikasi Web yang Scalable',
-                'excerpt' => 'Teknik-teknik optimasi database yang dapat meningkatkan performa aplikasi web secara signifikan.',
-                'content' => 'Optimasi database merupakan hal penting dalam pengembangan aplikasi web modern. Dengan jumlah data yang terus bertambah, performa database menjadi kritis untuk pengalaman pengguna yang baik.',
-                'author' => 'Jane Smith',
+                'title' => 'Optimasi Nutrisi Pakan untuk Pertumbuhan Ikan Maksimal',
+                'excerpt' => 'Teknik-teknik formulasi pakan yang dapat meningkatkan pertumbuhan ikan secara signifikan.',
+                'content' => 'Formulasi pakan yang tepat merupakan kunci sukses dalam budidaya ikan. Dengan memahami kebutuhan nutrisi spesies ikan tertentu, petani ikan dapat mengoptimalkan konversi pakan dan mengurangi limbah organik.',
+                'author' => 'Ir. Siti Nurhaliza',
                 'author_image' => 'author2.jpg',
                 'published_at' => '2024-01-18',
-                'category' => 'Database',
+                'category' => 'Nutrisi',
                 'read_time' => '6 min read',
-                'image' => 'https://via.placeholder.com/800x400',
-                'tags' => ['Database', 'Optimization', 'Performance']
+                'image' => 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3',
+                'tags' => ['Pakan', 'Nutrisi', 'Pertumbuhan']
             ],
             [
                 'id' => 3,
-                'title' => 'Implementasi CI/CD Pipeline dengan GitLab',
-                'excerpt' => 'Panduan lengkap implementasi Continuous Integration dan Continuous Deployment menggunakan GitLab CI/CD.',
-                'content' => 'CI/CD pipeline membantu tim development untuk mengirimkan kode lebih cepat dan dengan kualitas yang lebih baik. GitLab menyediakan tools yang powerful untuk implementasi pipeline yang efisien.',
-                'author' => 'Mike Johnson',
+                'title' => 'Sistem Budidaya Bioflok: Inovasi Berkelanjutan',
+                'excerpt' => 'Panduan lengkap implementasi sistem bioflok untuk budidaya ikan yang efisien dan ramah lingkungan.',
+                'content' => 'Sistem bioflok memanfaatkan mikroorganisme untuk mengolah limbah organik menjadi protein tambahan bagi ikan budidaya. Teknologi ini mengurangi kebutuhan air hingga 90% dan meningkatkan kepadatan tebar ikan.',
+                'author' => 'Dr. Budi Prasetyo',
                 'author_image' => 'author3.jpg',
                 'published_at' => '2024-01-15',
-                'category' => 'DevOps',
+                'category' => 'Inovasi',
                 'read_time' => '10 min read',
-                'image' => 'https://via.placeholder.com/800x400',
-                'tags' => ['CI/CD', 'GitLab', 'DevOps']
+                'image' => 'https://images.unsplash.com/photo-1501436513145-30f24e19fcc8?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3',
+                'tags' => ['Bioflok', 'Berkelanjutan', 'Inovasi']
             ],
             [
                 'id' => 4,
-                'title' => 'Best Practices untuk Kubernetes dalam Production',
-                'excerpt' => 'Praktik terbaik dalam mengelola cluster Kubernetes untuk environment production yang stabil.',
-                'content' => 'Kubernetes telah menjadi standar de facto untuk container orchestration. Namun, mengelola cluster Kubernetes di production membutuhkan pendekatan yang tepat untuk memastikan stabilitas dan keamanan.',
-                'author' => 'Sarah Wilson',
+                'title' => 'Manajemen Penyakit Ikan dengan Pendekatan Preventif',
+                'excerpt' => 'Praktik terbaik dalam pencegahan dan pengendalian penyakit pada budidaya ikan komersial.',
+                'content' => 'Pencegahan penyakit lebih efektif daripada pengobatan. Dengan biosecurity yang ketat, monitoring kesehatan rutin, dan manajemen lingkungan yang baik, tingkat mortalitas dapat ditekan secara signifikan.',
+                'author' => 'Dr. Rina Wijaya',
                 'author_image' => 'author4.jpg',
                 'published_at' => '2024-01-12',
-                'category' => 'Kubernetes',
+                'category' => 'Kesehatan',
                 'read_time' => '12 min read',
-                'image' => 'https://via.placeholder.com/800x400',
-                'tags' => ['Kubernetes', 'Production', 'Best Practices']
+                'image' => 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3',
+                'tags' => ['Penyakit', 'Biosecurity', 'Preventif']
             ]
         ];
 
-        $categories = ['All', 'Architecture', 'Database', 'DevOps', 'Kubernetes', 'Cloud', 'Security'];
+        $categories = ['All', 'Teknologi', 'Nutrisi', 'Inovasi', 'Kesehatan', 'Budidaya', 'Lingkungan'];
 
         return view('article', compact('articles', 'categories'));
     }

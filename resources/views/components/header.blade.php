@@ -2,7 +2,7 @@
     style="background: linear-gradient(90deg, #001f3f 0%, #0074D9 50%, #00bfff 100%); border-bottom: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
     <div class="container">
         <a class="navbar-brand fw-bold text-white fs-3" href="/">
-            <i id="fish-logo" class="fas fa-fish me-2 text-warning"></i>CompanyName
+            <i id="fish-logo" class="fas fa-fish me-2 text-warning"></i>Aquafin
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

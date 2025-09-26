@@ -10,83 +10,140 @@ class GalleryController extends Controller
     {
         $categories = [
             [
-                'name' => 'Event & Konferensi',
-                'icon' => 'bi-calendar-event',
+                'name' => 'Kolam Budidaya',
+                'icon' => 'fas fa-water',
                 'color' => 'primary',
                 'photos' => [
                     [
-                        'title' => 'Tech Conference 2024 Opening',
-                        'description' => 'Pembukaan acara Tech Conference 2024 dengan keynote speaker',
-                        'image' => 'https://via.placeholder.com/400x300/4a90e2/ffffff?text=Conference+Opening',
+                        'title' => 'Kolam Beton Modern',
+                        'description' => 'Kolam beton dengan sistem aerasi canggih untuk budidaya ikan lele',
+                        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                         'date' => '2024-01-15',
-                        'photographer' => 'John Doe',
+                        'photographer' => 'Ahmad Rahman',
                         'views' => 1250,
                         'likes' => 89,
-                        'event' => 'Tech Conference 2024'
+                        'event' => 'Kolam Budidaya'
                     ],
                     [
-                        'title' => 'Workshop Session',
-                        'description' => 'Peserta aktif mengikuti workshop development',
-                        'image' => 'https://via.placeholder.com/400x300/50c878/ffffff?text=Workshop',
+                        'title' => 'Sistem Aerasi Kolam',
+                        'description' => 'Instalasi sistem aerasi untuk menjaga kualitas air kolam budidaya',
+                        'image' => 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                         'date' => '2024-01-16',
-                        'photographer' => 'Jane Smith',
+                        'photographer' => 'Siti Nurhaliza',
                         'views' => 892,
                         'likes' => 67,
-                        'event' => 'Tech Conference 2024'
+                        'event' => 'Kolam Budidaya'
+                    ],
+                    [
+                        'title' => 'Kolam Terpal Ekonomis',
+                        'description' => 'Kolam terpal sebagai alternatif ekonomis untuk budidaya ikan skala kecil',
+                        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                        'date' => '2024-01-17',
+                        'photographer' => 'Budi Santoso',
+                        'views' => 756,
+                        'likes' => 45,
+                        'event' => 'Kolam Budidaya'
                     ]
                 ]
             ],
             [
-                'name' => 'Workshop & Training',
-                'icon' => 'bi-mortarboard',
+                'name' => 'Varietas Ikan',
+                'icon' => 'fas fa-fish',
                 'color' => 'success',
                 'photos' => [
                     [
-                        'title' => 'Laravel Advanced Training',
-                        'description' => 'Sesi training Laravel untuk developer senior',
-                        'image' => 'https://via.placeholder.com/400x300/27ae60/ffffff?text=Laravel+Training',
+                        'title' => 'Ikan Lele Sangkuriang',
+                        'description' => 'Varietas ikan lele unggul dengan pertumbuhan cepat dan daging berkualitas',
+                        'image' => 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                         'date' => '2024-01-10',
-                        'photographer' => 'Mike Johnson',
-                        'views' => 756,
-                        'likes' => 45,
-                        'event' => 'Laravel Workshop'
+                        'photographer' => 'Dewi Kartika',
+                        'views' => 945,
+                        'likes' => 72,
+                        'event' => 'Varietas Ikan'
                     ],
                     [
-                        'title' => 'React Workshop Group Photo',
-                        'description' => 'Foto bersama peserta workshop React development',
-                        'image' => 'https://via.placeholder.com/400x300/3498db/ffffff?text=React+Workshop',
+                        'title' => 'Ikan Nila Merah',
+                        'description' => 'Ikan nila dengan warna merah alami dan rasa daging yang gurih',
+                        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                         'date' => '2024-01-08',
-                        'photographer' => 'Sarah Wilson',
+                        'photographer' => 'Rudi Hartono',
+                        'views' => 1102,
+                        'likes' => 95,
+                        'event' => 'Varietas Ikan'
+                    ],
+                    [
+                        'title' => 'Ikan Gurame Premium',
+                        'description' => 'Ikan gurame dengan kualitas premium untuk pasar ekspor',
+                        'image' => 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                        'date' => '2024-01-12',
+                        'photographer' => 'Maya Sari',
                         'views' => 623,
                         'likes' => 38,
-                        'event' => 'React Workshop'
+                        'event' => 'Varietas Ikan'
                     ]
                 ]
             ],
             [
-                'name' => 'Company Activities',
-                'icon' => 'bi-building',
+                'name' => 'Sertifikasi & Kualitas',
+                'icon' => 'fas fa-certificate',
                 'color' => 'info',
                 'photos' => [
                     [
-                        'title' => 'Team Building 2024',
-                        'description' => 'Aktivitas team building di area outdoor',
-                        'image' => 'https://via.placeholder.com/400x300/f39c12/ffffff?text=Team+Building',
+                        'title' => 'Sertifikasi HACCP',
+                        'description' => 'Proses sertifikasi HACCP untuk standar keamanan pangan',
+                        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                         'date' => '2024-01-05',
-                        'photographer' => 'David Brown',
-                        'views' => 945,
-                        'likes' => 72,
-                        'event' => 'Team Building'
+                        'photographer' => 'Agus Setiawan',
+                        'views' => 756,
+                        'likes' => 45,
+                        'event' => 'Sertifikasi'
                     ],
                     [
-                        'title' => 'Office Anniversary',
-                        'description' => 'Perayaan ulang tahun perusahaan ke-5',
-                        'image' => 'https://via.placeholder.com/400x300/e74c3c/ffffff?text=Anniversary',
+                        'title' => 'Pengujian Kualitas Air',
+                        'description' => 'Laboratorium pengujian kualitas air kolam budidaya',
+                        'image' => 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
                         'date' => '2024-01-03',
-                        'photographer' => 'Lisa Davis',
+                        'photographer' => 'Nina Amelia',
+                        'views' => 892,
+                        'likes' => 67,
+                        'event' => 'Sertifikasi'
+                    ],
+                    [
+                        'title' => 'Standar Organik',
+                        'description' => 'Budidaya ikan dengan standar organik bebas bahan kimia',
+                        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                        'date' => '2024-01-07',
+                        'photographer' => 'Fajar Nugroho',
+                        'views' => 1250,
+                        'likes' => 89,
+                        'event' => 'Sertifikasi'
+                    ]
+                ]
+            ],
+            [
+                'name' => 'Panen & Distribusi',
+                'icon' => 'fas fa-truck',
+                'color' => 'warning',
+                'photos' => [
+                    [
+                        'title' => 'Panen Ikan Lele',
+                        'description' => 'Proses panen ikan lele siap jual dengan kualitas terbaik',
+                        'image' => 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                        'date' => '2024-01-20',
+                        'photographer' => 'Hendra Wijaya',
+                        'views' => 945,
+                        'likes' => 72,
+                        'event' => 'Panen'
+                    ],
+                    [
+                        'title' => 'Distribusi ke Pasar',
+                        'description' => 'Pengiriman produk ikan segar ke berbagai pasar tradisional',
+                        'image' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                        'date' => '2024-01-18',
+                        'photographer' => 'Lina Marlina',
                         'views' => 1102,
                         'likes' => 95,
-                        'event' => 'Company Anniversary'
+                        'event' => 'Distribusi'
                     ]
                 ]
             ]
@@ -94,22 +151,22 @@ class GalleryController extends Controller
 
         $recentPhotos = [
             [
-                'title' => 'Product Launch Event',
-                'category' => 'Event',
+                'title' => 'Panen Massal Lele',
+                'category' => 'Panen',
                 'date' => '2024-01-20',
-                'icon' => 'bi-rocket'
+                'icon' => 'fas fa-fish'
             ],
             [
-                'title' => 'Developer Meetup',
-                'category' => 'Community',
+                'title' => 'Kolam Baru Siap Pakai',
+                'category' => 'Kolam',
                 'date' => '2024-01-18',
-                'icon' => 'bi-people'
+                'icon' => 'fas fa-water'
             ],
             [
-                'title' => 'Office Tour',
-                'category' => 'Company',
+                'title' => 'Sertifikasi Organik',
+                'category' => 'Sertifikasi',
                 'date' => '2024-01-15',
-                'icon' => 'bi-building'
+                'icon' => 'fas fa-certificate'
             ]
         ];
 
