@@ -1,4 +1,4 @@
-<section id="infrastructure" class="section-padding bg-light-custom py-5 py-md-5" style="background-color: #f8f9fa;">
+<section id="infrastructure" class="section-padding bg-light-custom py-5 py-md-5" style="background-color: #fff;">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Standar dan Penawaran Kami</h2>
