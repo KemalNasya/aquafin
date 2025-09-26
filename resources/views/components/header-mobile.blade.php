@@ -4,8 +4,7 @@
         <x-nav-link href="/about">About</x-nav-link>
         <x-nav-link href="/infrastructure">Infrastructure</x-nav-link>
         <x-nav-link href="/articles">Articles</x-nav-link>
-        <x-nav-link href="/agenda">Agenda</x-nav-link>
-        <x-nav-link href="/documentation">Documentation</x-nav-link>
+        <x-nav-link href="/gallery">Gallery</x-nav-link>
         <x-nav-link href="/contact">Contact</x-nav-link>
     </div>
 </div>

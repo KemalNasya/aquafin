@@ -23,10 +23,7 @@
                     <a class="nav-link" href="/article">Artikel</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/agenda">Agenda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/documentation">Dokumentasi</a>
+                    <a class="nav-link" href="/gallery">Galeri</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/contact">Kontak</a>
