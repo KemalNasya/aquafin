@@ -1,4 +1,4 @@
-<section class="hero-section position-relative overflow-hidden" style="min-height: 100vh; background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; align-items: center;">
+<section class="hero-section position-relative overflow-hidden" style="min-height: 100vh; background: url('https://images.unsplash.com/photo-1637308108714-88101a8b2d81?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDcwfHx8ZW58MHx8fHx8') center/cover no-repeat; display: flex; align-items: center;">
     <!-- Overlay -->
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
     <div class="container position-relative text-center text-white">

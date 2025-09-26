@@ -1,7 +1,8 @@
-<header id="main-header" class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top py-3" style="background: linear-gradient(90deg, #001f3f 0%, #0074D9 50%, #00bfff 100%); border-bottom: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+<header id="main-header" class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top py-3"
+    style="background: linear-gradient(90deg, #001f3f 0%, #0074D9 50%, #00bfff 100%); border-bottom: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
     <div class="container">
         <a class="navbar-brand fw-bold text-white fs-3" href="/">
-            <i class="fas fa-fish me-2 text-warning"></i>CompanyName
+            <i id="fish-logo" class="fas fa-fish me-2 text-warning"></i>CompanyName
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -28,14 +29,40 @@
                 header.classList.remove('glass');
             }
         });
+
+        // Animate fish logo every 2 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            const fishLogo = document.getElementById('fish-logo');
+            setInterval(function() {
+                fishLogo.classList.toggle('moving');
+            }, 1500);
+        });
     </script>
     <style>
         .glass {
             background: rgba(0, 31, 63, 0.5) !important;
             backdrop-filter: blur(15px) !important;
             -webkit-backdrop-filter: blur(15px) !important;
-            border-bottom: 2px solid rgba(255,255,255,0.4) !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
             box-shadow: 0 4px 20px rgba(0, 116, 217, 0.4) !important;
+        }
+
+        #fish-logo.moving {
+            animation: swim 1s ease-in-out;
+        }
+
+        @keyframes swim {
+            0% {
+                transform: rotate(0deg) translateX(0);
+            }
+
+            50% {
+                transform: rotate(10deg) translateX(5px);
+            }
+
+            100% {
+                transform: rotate(0deg) translateX(0);
+            }
         }
     </style>
 </header>

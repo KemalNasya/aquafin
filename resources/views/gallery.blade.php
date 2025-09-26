@@ -206,11 +206,5 @@
     .gallery-category {
         scroll-margin-top: 100px;
     }
-
-    .nav-link.active {
-        background-color: #0d6efd;
-        color: white !important;
-        border-radius: 5px;
-    }
 </style>
 @endpush
