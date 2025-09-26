@@ -1,10 +1,6 @@
 <section class="hero-section position-relative overflow-hidden" style="min-height: 100vh; background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; align-items: center;">
     <!-- Overlay -->
     <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
-    <!-- Floating Elements -->
-    <div class="position-absolute top-20 start-10 text-warning opacity-75" style="font-size: 3rem; animation: float 3s ease-in-out infinite;"><i class="fas fa-fish"></i></div>
-    <div class="position-absolute top-50 end-10 text-info opacity-75" style="font-size: 2rem; animation: float 4s ease-in-out infinite reverse;"><i class="fas fa-water"></i></div>
-    <div class="position-absolute bottom-20 start-20 text-success opacity-75" style="font-size: 2.5rem; animation: float 5s ease-in-out infinite;"><i class="fas fa-leaf"></i></div>
     <div class="container position-relative text-center text-white">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -19,10 +15,6 @@
     </div>
     <!-- Custom CSS for animations -->
     <style>
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
