@@ -1,8 +1,8 @@
-<section id="contact" class="section-padding">
+<section id="contact" class="section-padding py-5 py-md-5">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="fw-bold">Hubungi Kami</h2>
-            <p class="lead text-muted">Siap membantu Anda dengan solusi terbaik untuk bisnis Anda</p>
+            <p class="lead text-muted">Siap membantu Anda dengan informasi budidaya ikan berkualitas dan berkelanjutan</p>
         </div>
 
         <div class="row">
@@ -35,37 +35,37 @@
             </div>
 
             <div class="col-lg-6">
-                <div class="contact-info">
-                    <h4 class="fw-bold mb-4">Informasi Kontak</h4>
-                    <div class="d-flex mb-4">
-                        <i class="bi-geo-alt text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="fw-bold">Alamat Kantor</h6>
-                            <p class="text-muted mb-0">Jl. Contoh No. 123<br>Jakarta Selatan, Indonesia 12345</p>
+                    <div class="contact-info">
+                        <h4 class="fw-bold mb-4">Informasi Kontak</h4>
+                        <div class="d-flex mb-4">
+                            <i class="bi-geo-alt text-primary me-3 fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold">Alamat Peternakan</h6>
+                                <p class="text-muted mb-0">Desa Sumber Rejo, Kec. Budidaya<br>Jawa Timur, Indonesia 61234</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <i class="bi-telephone text-primary me-3 fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold">Telepon</h6>
+                                <p class="text-muted mb-0">+62 321 4567 8901<br>+62 321 0987 6543</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <i class="bi-envelope text-primary me-3 fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold">Email</h6>
+                                <p class="text-muted mb-0">info@budidayaikan.com<br>penjualan@budidayaikan.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <i class="bi-clock text-primary me-3 fs-4"></i>
+                            <div>
+                                <h6 class="fw-bold">Jam Operasional</h6>
+                                <p class="text-muted mb-0">Senin - Jumat: 07:00 - 18:00<br>Sabtu: 07:00 - 14:00</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex mb-4">
-                        <i class="bi-telephone text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="fw-bold">Telepon</h6>
-                            <p class="text-muted mb-0">+62 21 1234 5678<br>+62 21 8765 4321</p>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4">
-                        <i class="bi-envelope text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="fw-bold">Email</h6>
-                            <p class="text-muted mb-0">info@company.com<br>sales@company.com</p>
-                        </div>
-                    </div>
-                    <div class="d-flex mb-4">
-                        <i class="bi-clock text-primary me-3 fs-4"></i>
-                        <div>
-                            <h6 class="fw-bold">Jam Operasional</h6>
-                            <p class="text-muted mb-0">Senin - Jumat: 08:00 - 17:00<br>Sabtu: 08:00 - 12:00</p>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="mt-4">
                     <h6 class="fw-bold mb-3">Ikuti Kami</h6>
