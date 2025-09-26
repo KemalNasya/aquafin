@@ -1,17 +1,31 @@
-<section class="hero-section bg-primary text-white py-5 py-md-5" style="background: linear-gradient(to right, #007bff, #00bfff); position: relative; overflow: hidden;">
-    <div class="container py-5 position-relative">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h1 class="display-4 fw-bold mb-4">Ikan Segar dan Berkualitas dari Budidaya Berkelanjutan</h1>
-                <p class="lead mb-4">Kami memproduksi ikan segar melalui budidaya modern yang ramah lingkungan, mendukung ketahanan pangan nasional.</p>
-                <div class="hero-buttons">
-                    <a href="{{ route('about') }}" class="btn btn-light btn-lg me-2">Pelajari Lebih Lanjut</a>
-                    <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg">Hubungi Kami</a>
+<section class="hero-section position-relative overflow-hidden" style="min-height: 100vh; background: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display: flex; align-items: center;">
+    <!-- Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+    <!-- Floating Elements -->
+    <div class="position-absolute top-20 start-10 text-warning opacity-75" style="font-size: 3rem; animation: float 3s ease-in-out infinite;"><i class="fas fa-fish"></i></div>
+    <div class="position-absolute top-50 end-10 text-info opacity-75" style="font-size: 2rem; animation: float 4s ease-in-out infinite reverse;"><i class="fas fa-water"></i></div>
+    <div class="position-absolute bottom-20 start-20 text-success opacity-75" style="font-size: 2.5rem; animation: float 5s ease-in-out infinite;"><i class="fas fa-leaf"></i></div>
+    <div class="container position-relative text-center text-white">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h1 class="display-2 fw-bold mb-4" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7); animation: fadeInUp 1s ease-out;">Ikan Segar Berkualitas Tinggi</h1>
+                <p class="lead fs-3 mb-5" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); animation: fadeInUp 1.5s ease-out;">Dari laut yang biru, kami hadirkan ikan segar melalui budidaya modern yang ramah lingkungan, untuk kesehatan Anda dan planet kita.</p>
+                <div class="hero-buttons d-flex justify-content-center gap-3">
+                    <a href="{{ route('about') }}" class="btn btn-primary btn-lg px-5 py-3 fs-5 shadow-lg" style="animation: fadeInUp 2s ease-out;"><i class="fas fa-info-circle me-2"></i>Pelajari Lebih Lanjut</a>
+                    <a href="{{ route('contact') }}" class="btn btn-outline-light btn-lg px-5 py-3 fs-5 shadow-lg" style="animation: fadeInUp 2.5s ease-out;"><i class="fas fa-envelope me-2"></i>Hubungi Kami</a>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Budidaya Ikan" class="img-fluid rounded shadow" style="position: relative; z-index: 2;">
             </div>
         </div>
     </div>
+    <!-- Custom CSS for animations -->
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </section>
