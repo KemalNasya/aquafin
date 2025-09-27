@@ -64,7 +64,6 @@ class ArticleController extends Controller
         ];
 
         $relatedPosts = Post::with(['category', 'user'])
-            ->where('post_category_id', $post->post_category_id)
             ->where('id', '!=', $post->id)
             ->where('is_published', true)
             ->orderBy('published_at', 'desc')
@@ -75,7 +74,7 @@ class ArticleController extends Controller
                     'id' => $p->id,
                     'title' => $p->title,
                     'excerpt' => Str::limit(strip_tags($p->content), 100),
-                    'image' => $p->thumbnail ? route('private.storage', $p->thumbnail) : asset('assets/2.jpg'),
+                    'image' => $p->thumbnail ? asset('storage/' . $p->thumbnail) : asset('assets/2.jpg'),
                     'category' => $p->category->name ?? 'Uncategorized',
                 ];
             });
