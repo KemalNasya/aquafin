@@ -15,9 +15,9 @@ class ArticleController extends Controller
         $posts = Post::with(['category', 'user'])
             ->where('is_published', true)
             ->orderBy('published_at', 'desc')
-            ->get();
+            ->paginate(10);
 
-        $articles = $posts->map(function ($post) {
+        $articles = $posts->through(function ($post) {
             $wordCount = str_word_count(strip_tags($post->content));
             $readTime = ceil($wordCount / 200); // Assuming 200 words per minute
 
@@ -34,7 +34,7 @@ class ArticleController extends Controller
                 'image' => $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('assets/2.jpg'),
                 'tags' => [] // Add tags if needed later
             ];
-        })->toArray();
+        });
 
         $categories_for_filter = PostCategory::all()->pluck('name')->toArray();
         array_unshift($categories_for_filter, 'All');
