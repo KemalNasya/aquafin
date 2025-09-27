@@ -6,32 +6,6 @@
         </div>
 
         <div class="row g-4">
-            @php
-                $latestPhotos = [
-                    [
-                        'id' => 1,
-                        'title' => 'Kolam Bioflok Modern',
-                        'image' => 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                        'category' => 'Fasilitas',
-                        'date' => '2024-01-20'
-                    ],
-                    [
-                        'id' => 2,
-                        'title' => 'Proses Pemberian Pakan',
-                        'image' => 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                        'category' => 'Budidaya',
-                        'date' => '2024-01-18'
-                    ],
-                    [
-                        'id' => 3,
-                        'title' => 'Hasil Panen Ikan Segar',
-                        'image' => 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-                        'category' => 'Panen',
-                        'date' => '2024-01-15'
-                    ]
-                ];
-            @endphp
-
             @foreach($latestPhotos as $photo)
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover">

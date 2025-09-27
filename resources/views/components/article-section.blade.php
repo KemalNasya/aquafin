@@ -6,41 +6,6 @@
         </div>
 
         <div class="row g-4">
-            @php
-                $featuredArticles = [
-                    [
-                        'id' => 1,
-                        'title' => 'Panduan Budidaya Ikan Nila di Kolam Bioflok',
-                        'excerpt' => 'Teknik budidaya modern menggunakan sistem bioflok untuk hasil panen yang lebih efisien dan ramah lingkungan.',
-                        'author' => 'Dr. Agus Santoso',
-                        'published_at' => '2024-01-20',
-                        'category' => 'Budidaya',
-                        'read_time' => '8 min read',
-                        'image' => 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-                    ],
-                    [
-                        'id' => 2,
-                        'title' => 'Manfaat Aquaponik untuk Pertanian Terpadu',
-                        'excerpt' => 'Integrasi budidaya ikan dan tanaman hidroponik untuk produksi berkelanjutan dan minim limbah.',
-                        'author' => 'Siti Nurhaliza',
-                        'published_at' => '2024-01-18',
-                        'category' => 'Teknologi',
-                        'read_time' => '6 min read',
-                        'image' => 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-                    ],
-                    [
-                        'id' => 3,
-                        'title' => 'Pencegahan Penyakit pada Ikan Lele',
-                        'excerpt' => 'Strategi pengelolaan kesehatan ikan untuk mengurangi kerugian dan meningkatkan kualitas hasil budidaya.',
-                        'author' => 'Budi Hartono',
-                        'published_at' => '2024-01-15',
-                        'category' => 'Kesehatan Ikan',
-                        'read_time' => '10 min read',
-                        'image' => 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-                    ]
-                ];
-            @endphp
-
             @foreach($featuredArticles as $article)
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover">

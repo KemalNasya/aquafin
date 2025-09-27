@@ -32,25 +32,6 @@ class StatsOverview extends BaseWidget
             ->description('All gallery items')
             ->icon('heroicon-o-photo');
 
-        // Stats khusus finance untuk admin
-        if ($user && in_array($user->role, ['admin', 'owner'])) {
-            $income = Transaction::where('type', 'income')->sum('amount');
-            $expense = Transaction::where('type', 'expense')->sum('amount');
-
-            $stats[] = Stat::make('Total Income', '$' . number_format($income, 2))
-                ->description('All income transactions')
-                ->icon('heroicon-o-arrow-up-circle');
-
-            $stats[] = Stat::make('Total Expense', '$' . number_format($expense, 2))
-                ->description('All expense transactions')
-                ->icon('heroicon-o-arrow-down-circle');
-
-            $stats[] = Stat::make('Net Balance', '$' . number_format($income - $expense, 2))
-                ->description('Current balance')
-                ->color($income - $expense >= 0 ? 'success' : 'danger')
-                ->icon('heroicon-o-currency-dollar');
-        }
-
         return $stats;
     }
 }

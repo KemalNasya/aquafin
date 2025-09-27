@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('{{ asset('assets/2.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
+    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('{{ asset('assets/template.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
         <!-- Overlay -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
         <div class="container position-relative text-center text-white py-5">
@@ -35,14 +35,21 @@
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex flex-wrap gap-2 justify-content-center">
-                        <a href="#" class="badge badge-filter bg-primary text-white p-3 text-decoration-none active rounded-pill shadow-sm" data-filter="all" style="animation: fadeInUp 1s ease-out;">
+                        <a
+                            class="badge badge-filter bg-primary text-white p-3 text-decoration-none active rounded-pill shadow-sm"
+                            data-filter="all" style="animation: fadeInUp 1s ease-out;">
                             <i class="fas fa-th-large me-1"></i>All Photos
                         </a>
-                        @foreach($categories as $category)
-                        <a href="#" class="badge badge-filter bg-light text-dark border p-3 text-decoration-none rounded-pill shadow-sm"
-                           data-filter="{{ Str::slug($category['name']) }}" style="animation: fadeInUp {{ $loop->index * 0.1 + 1.2 }}s ease-out;">
-                            <i class="{{ $category['icon'] }} me-1"></i>{{ $category['name'] }}
-                        </a>
+                        @php $categories_for_filter = ['All', ...collect($categories)->pluck('name')->toArray()]; @endphp
+                        @foreach ($categories_for_filter as $category)
+                            @if ($category != 'All')
+                                <a
+                                    class="badge badge-filter bg-light text-dark border p-3 text-decoration-none rounded-pill shadow-sm"
+                                    data-filter="{{ Str::slug($category) }}"
+                                    style="animation: fadeInUp {{ $loop->index * 0.1 + 1.2 }}s ease-out;">
+                                    {{ $category }}
+                                </a>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -54,37 +61,7 @@
     <section class="py-5 bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <!-- Sidebar Navigation -->
-                    <div class="sticky-top" style="top: 100px;">
-                        <div class="card border-0 shadow-sm rounded-3 p-3 mb-4">
-                            <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-folder-open me-2"></i>Kategori Galeri</h6>
-                            <nav class="nav flex-column">
-                                @foreach($categories as $category)
-                                <a class="nav-link text-dark mb-2 p-2 rounded hover-bg-light smooth-scroll" href="#category-{{ Str::slug($category['name']) }}">
-                                    <i class="{{ $category['icon'] }} text-{{ $category['color'] }} me-2"></i>
-                                    {{ $category['name'] }}
-                                    <small class="text-muted ms-auto">{{ count($category['photos']) }}</small>
-                                </a>
-                                @endforeach
-                            </nav>
-                        </div>
-
-                        <div class="card border-0 shadow-sm rounded-3 p-3">
-                            <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-link me-2"></i>Quick Links</h6>
-                            <div class="d-grid gap-2">
-                                <a href="#" class="btn btn-gradient-primary btn-sm rounded-pill">
-                                    <i class="bi-camera me-1"></i> Upload Foto
-                                </a>
-                                <a href="#" class="btn btn-outline-secondary btn-sm rounded-pill">
-                                    <i class="bi-share me-1"></i> Bagikan
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-9">
+                <div class="col-lg-12">
                     <!-- Gallery Categories -->
                     @foreach($categories as $category)
                     <div id="category-{{ Str::slug($category['name']) }}" class="gallery-category mb-5" data-category="{{ Str::slug($category['name']) }}">
@@ -123,26 +100,13 @@
                                     <div class="card-body p-3">
                                         <p class="card-text text-muted small mb-3">{{ $photo['description'] }}</p>
 
-                                        <div class="photo-meta mb-3 d-flex justify-content-between">
-                                            <small class="text-muted">
-                                                <i class="bi-camera me-1"></i>{{ $photo['photographer'] }}
-                                            </small>
-                                            <small class="text-muted">
-                                                <i class="bi-eye me-1"></i>{{ $photo['views'] }} |
-                                                <i class="bi-heart me-1"></i>{{ $photo['likes'] }}
-                                            </small>
-                                        </div>
-
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span class="badge bg-gradient-{{ $category['color'] }} text-white">
-                                                <i class="bi-tag me-1"></i>{{ $photo['event'] }}
+                                                {{-- <i class="bi-tag me-1"></i>{{ $photo['event'] }} --}}
                                             </span>
                                             <div>
                                                 <a href="{{ $photo['image'] }}" download class="btn btn-sm btn-outline-primary rounded-pill me-1" title="Download">
                                                     <i class="bi-download"></i>
-                                                </a>
-                                                <a href="#" class="btn btn-sm btn-primary rounded-pill" title="Share">
-                                                    <i class="bi-share"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -249,7 +213,7 @@
             transition: all 0.3s ease;
         }
         .bg-gradient-primary {
-            background: linear-gradient(45deg, #007bff, #6610f2);
+            background: #007bff;
         }
         .bg-gradient-success {
             background: linear-gradient(45deg, #28a745, #20c997);
@@ -284,7 +248,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         .badge-filter.active {
-            background: linear-gradient(45deg, #007bff, #6610f2) !important;
+            background: #007bff !important;
             color: white !important;
         }
         .article-item {

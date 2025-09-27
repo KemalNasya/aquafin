@@ -19,9 +19,9 @@ class GalleryForm
                 Textarea::make('description')
                     ->columnSpanFull(),
                 FileUpload::make('photo')
-                    ->image()
-                    ->required()
-                    ->directory('galleries'),
+                    ->disk('public')
+                    ->directory('galleries')
+                    ->image(),
                 Select::make('gallery_category_id')
                     ->relationship('category', 'name')
                     ->required(),

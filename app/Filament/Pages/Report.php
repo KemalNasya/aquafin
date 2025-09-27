@@ -2,7 +2,9 @@
 
 namespace App\Filament\Pages;
 
+use App\Filament\Widgets\StatsFinance;
 use App\Models\Transaction;
+use App\Filament\Widgets\StatsOverview;
 use BackedEnum;
 use Filament\Forms\Components\DatePicker;
 use Filament\Pages\Page;
@@ -60,10 +62,15 @@ class Report extends Page implements HasTable
                     ->money('USD')
                     ->sortable(),
                 IconColumn::make('type')
-                    ->boolean()
-                    ->trueIcon('heroicon-o-trending-up')
-                    ->falseIcon('heroicon-o-trending-down'),
-                TextColumn::make('transactionCategory.name')
+                    ->icon(fn (string $state): string => match ($state) {
+                        'income' => 'heroicon-o-arrow-trending-up',
+                        'expense' => 'heroicon-o-arrow-trending-down',
+                    })
+                    ->color(fn (string $state): string => match ($state) {
+                        'income' => 'success',
+                        'expense' => 'danger',
+                    }),
+                TextColumn::make('category.name')
                     ->label('Category')
                     ->sortable(),
                 TextColumn::make('wallet.name')
@@ -80,11 +87,11 @@ class Report extends Page implements HasTable
             ->filters([
                 SelectFilter::make('type')
                     ->options([
-                        1 => 'Income',
-                        0 => 'Expense',
+                        'income' => 'Income',
+                        'expense' => 'Expense',
                     ]),
                 SelectFilter::make('transaction_category_id')
-                    ->relationship('transactionCategory', 'name')
+                    ->relationship('category', 'name')
                     ->multiple(),
                 Filter::make('created_from')
                     ->form([
@@ -111,5 +118,12 @@ class Report extends Page implements HasTable
             ])
             ->actions([])
             ->bulkActions([]);
+    }
+
+    protected function getHeaderWidgets(): array
+    {
+        return [
+            StatsFinance::class,
+        ];
     }
 }

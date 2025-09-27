@@ -1,8 +1,9 @@
 <section class="hero-section position-relative overflow-hidden"
     style="min-height: 100vh; display: flex; align-items: center;">
-    <img src="{{ asset('assets/1.jpg') }}" alt="Background" class="position-absolute top-0 start-0 w-100 h-100" style="object-fit: cover; z-index: -1;">
+    <img src="{{ asset('assets/hero.jpg') }}" alt="Background" class="position-absolute top-0 start-0 w-100 h-100"
+        style="object-fit: cover; z-index: -1;">
     <!-- Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+    <div class="position-absolute top-0 start-0 w-100 h-100"></div>
     <div class="container position-relative text-center text-white">
         <div class="row justify-content-center">
             <div class="col-lg-8">
