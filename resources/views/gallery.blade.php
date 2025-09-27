@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDcwfHx8ZW58MHx8fHx8') center/cover no-repeat; display: flex; align-items: center;">
+    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('{{ asset('assets/2.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
         <!-- Overlay -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
         <div class="container position-relative text-center text-white py-5">

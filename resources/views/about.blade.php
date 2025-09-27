@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDcwfHx8ZW58MHx8fHx8') center/cover no-repeat; display: flex; align-items: center;">
+    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('{{ asset('assets/2.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
         <!-- Overlay -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
         <div class="container position-relative text-center text-white py-5">
@@ -25,7 +25,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" style="animation: slideInLeft 1s ease-out;">
-                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&auto=format&fit=crop&q=80&ixlib=rb-4.0.3" alt="Visi dan Misi Budidaya Ikan" class="img-fluid rounded shadow-lg hover-scale">
+                    <img src="{{ asset('assets/2.jpg') }}" alt="Visi dan Misi Budidaya Ikan" class="img-fluid rounded shadow-lg hover-scale">
                 </div>
                 <div class="col-lg-6" style="animation: fadeInUp 1.2s ease-out;">
                     <h2 class="fw-bold mb-4 text-primary">Visi dan Misi</h2>
@@ -66,7 +66,7 @@
                 <div class="col-lg-4 col-md-6 mb-4" style="animation: fadeInUp 1.5s ease-out;">
                     <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover">
                         <div class="card-body text-center p-4">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Dr. Ahmad Santoso" class="rounded-circle mb-3 mx-auto" style="width: 120px; height: 120px; object-fit: cover;">
+                            <img src="{{ asset('assets/2.jpg') }}" alt="Dr. Ahmad Santoso" class="rounded-circle mb-3 mx-auto" style="width: 120px; height: 120px; object-fit: cover;">
                             <h5 class="card-title fw-bold">Dr. Ahmad Santoso</h5>
                             <p class="text-primary mb-2">Direktur Teknik & Akuakultur</p>
                             <p class="text-muted small">Ahli akuakultur dengan pengalaman 15+ tahun dalam sistem budidaya intensif dan teknologi IoT untuk monitoring kualitas air.</p>
@@ -76,7 +76,7 @@
                 <div class="col-lg-4 col-md-6 mb-4" style="animation: fadeInUp 1.7s ease-out;">
                     <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover">
                         <div class="card-body text-center p-4">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=300&h=300&fit=crop&crop=face" alt="Ir. Siti Nurhaliza" class="rounded-circle mb-3 mx-auto" style="width: 120px; height: 120px; object-fit: cover;">
+                            <img src="{{ asset('assets/2.jpg') }}" alt="Ir. Siti Nurhaliza" class="rounded-circle mb-3 mx-auto" style="width: 120px; height: 120px; object-fit: cover;">
                             <h5 class="card-title fw-bold">Ir. Siti Nurhaliza</h5>
                             <p class="text-primary mb-2">Manajer Operasional</p>
                             <p class="text-muted small">Spesialis dalam manajemen produksi ikan dengan fokus pada efisiensi operasional dan pengendalian biaya budidaya berkelanjutan.</p>
@@ -86,7 +86,7 @@
                 <div class="col-lg-4 col-md-6 mb-4" style="animation: fadeInUp 1.9s ease-out;">
                     <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover">
                         <div class="card-body text-center p-4">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" alt="Dr. Budi Prasetyo" class="rounded-circle mb-3 mx-auto" style="width: 120px; height: 120px; object-fit: cover;">
+                            <img src="{{ asset('assets/2.jpg') }}" alt="Dr. Budi Prasetyo" class="rounded-circle mb-3 mx-auto" style="width: 120px; height: 120px; object-fit: cover;">
                             <h5 class="card-title fw-bold">Dr. Budi Prasetyo</h5>
                             <p class="text-primary mb-2">Kepala Riset & Pengembangan</p>
                             <p class="text-muted small">Peneliti senior dalam nutrisi ikan dan pengembangan pakan alternatif untuk meningkatkan produktivitas dan keberlanjutan budidaya.</p>

@@ -19,3 +19,10 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/gallery/download/{photoId}', [GalleryController::class, 'download'])->name('gallery.download');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+
+Route::get('/storage/private/{path}', function ($path) {
+    if (\Illuminate\Support\Facades\Storage::disk('private')->exists($path)) {
+        return response()->file(\Illuminate\Support\Facades\Storage::disk('private')->path($path));
+    }
+    abort(404);
+})->where('path', '.*')->name('private.storage');

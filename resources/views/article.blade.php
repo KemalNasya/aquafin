@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section -->
-    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3') center/cover no-repeat; display: flex; align-items: center;">
+    <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('{{ asset('assets/2.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
         <!-- Overlay -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
         <div class="container position-relative text-center text-white py-5">
@@ -38,7 +38,8 @@
                         <a href="#" class="badge badge-filter bg-primary text-white p-3 text-decoration-none active rounded-pill shadow-sm" data-filter="all" style="animation: fadeInUp 1s ease-out;">
                             <i class="fas fa-th-large me-1"></i>All Articles
                         </a>
-                        @foreach($categories as $category)
+                        @php $categories_for_filter = ['All', ...$categories->pluck('name')->toArray()]; @endphp
+                        @foreach($categories_for_filter as $category)
                         @if($category != 'All')
                         <a href="#" class="badge badge-filter bg-light text-dark border p-3 text-decoration-none rounded-pill shadow-sm"
                            data-filter="{{ Str::slug($category) }}" style="animation: fadeInUp {{ $loop->index * 0.1 + 1.2 }}s ease-out;">
@@ -83,16 +84,7 @@
                                     <p class="card-text text-muted">{{ $article['excerpt'] }}</p>
 
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="author-info d-flex align-items-center">
-                                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="{{ $article['author'] }}" class="rounded-circle me-2" style="width: 32px; height: 32px; object-fit: cover;">
-                                            <div>
-                                                <small class="fw-bold">{{ $article['author'] }}</small>
-                                                <br>
-                                                <small class="text-muted">
-                                                    {{ \Carbon\Carbon::parse($article['published_at'])->format('M d, Y') }}
-                                                </small>
-                                            </div>
-                                        </div>
+                                        <small class="text-muted">{{ \Carbon\Carbon::parse($article['published_at'])->format('M d, Y') }}</small>
 
                                         <div class="tags">
                                             @foreach(array_slice($article['tags'], 0, 2) as $tag)
@@ -130,7 +122,7 @@
                     <!-- Popular Articles -->
                     <div class="card border-0 shadow-sm mb-4 rounded-3 overflow-hidden card-hover" style="animation: fadeInUp 1.5s ease-out;">
                         <div class="card-header bg-white border-0">
-                            <h6 class="fw-bold mb-0 text-primary"><i class="fas fa-fire text-warning me-2"></i>Popular Articles</h6>
+                            <h6 class="fw-bold mb-0 text-primary"><i class="fas fa-clock text-info me-2"></i>Latest Articles</h6>
                         </div>
                         <div class="card-body">
                             <div class="list-group list-group-flush">
@@ -140,7 +132,7 @@
                                         <h6 class="mb-1 fw-bold">{{ \Str::limit($popular['title'], 50) }}</h6>
                                         <small class="badge bg-gradient-primary">{{ $popular['read_time'] }}</small>
                                     </div>
-                                    <small class="text-muted"><i class="fas fa-eye me-1"></i>{{ rand(100, 500) }} views</small>
+                                    <small class="text-muted"><i class="fas fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($popular['published_at'])->format('M d, Y') }}</small>
                                 </a>
                                 @endforeach
                             </div>
@@ -155,11 +147,9 @@
                         <div class="card-body">
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach($categories as $category)
-                                @if($category != 'All')
                                 <span class="badge bg-light text-dark border p-2 rounded-pill hover-lift">
-                                    {{ $category }} <span class="text-muted">({{ rand(5, 20) }})</span>
+                                    {{ $category->name }} <span class="text-muted">({{ $category->posts_count }})</span>
                                 </span>
-                                @endif
                                 @endforeach
                             </div>
                         </div>

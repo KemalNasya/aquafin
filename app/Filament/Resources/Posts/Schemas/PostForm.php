@@ -24,8 +24,9 @@ class PostForm
                     ->required()
                     ->columnSpanFull(),
                 FileUpload::make('thumbnail')
-                    ->image()
-                    ->directory('posts'),
+                    ->disk('public')
+                    ->directory('posts')
+                    ->image(),
                 Select::make('post_category_id')
                     ->relationship('category', 'name')
                     ->required(),

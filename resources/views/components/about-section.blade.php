@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6" style="animation: slideInLeft 1s ease-out;">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sejarah Budidaya" class="img-fluid rounded shadow-lg hover-scale">
+                <img src="{{ asset('assets/2.jpg') }}" alt="Sejarah Budidaya" class="img-fluid rounded shadow-lg hover-scale">
             </div>
             <div class="col-lg-6" style="animation: fadeInUp 1.2s ease-out;">
                 <h2 class="fw-bold mb-4 text-primary" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">Sejarah Kami</h2>

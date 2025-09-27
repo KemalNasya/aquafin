@@ -5,7 +5,7 @@
 @section('content')
     <!-- Hero Section -->
     <section class="hero-section position-relative overflow-hidden"
-        style="min-height: 60vh; background: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDcwfHx8ZW58MHx8fHx8') center/cover no-repeat; display: flex; align-items: center;">
+        style="min-height: 60vh; background: url('{{ asset('assets/2.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
         <!-- Overlay -->
         <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
         <div class="container position-relative text-center text-white py-5">
@@ -64,8 +64,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6" style="animation: slideInLeft 1s ease-out;">
                     <div class="position-relative">
-                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                            alt="Infrastruktur Budidaya" class="img-fluid rounded shadow-lg hover-scale">
+                        <img src="{{ asset('assets/2.jpg') }}" alt="Infrastruktur Budidaya" class="img-fluid rounded shadow-lg hover-scale">
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <div class="bg-white bg-opacity-90 rounded-circle p-4 shadow-lg pulse-animation">
                                 <i class="fas fa-play text-primary fs-1"></i>
@@ -353,8 +352,7 @@
                 <div class="col-lg-4" style="animation: fadeInUp 1.4s ease-out;">
                     <div class="testimonial-card bg-white p-4 rounded-3 shadow-lg h-100">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face"
-                                alt="Pak Ahmad" class="rounded-circle me-3"
+                            <img src="{{ asset('assets/2.jpg') }}" alt="Pak Ahmad" class="rounded-circle me-3"
                                 style="width: 60px; height: 60px; object-fit: cover;">
                             <div>
                                 <h6 class="mb-0 text-primary">Pak Ahmad</h6>
@@ -375,8 +373,7 @@
                 <div class="col-lg-4" style="animation: fadeInUp 1.6s ease-out;">
                     <div class="testimonial-card bg-white p-4 rounded-3 shadow-lg h-100">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=60&h=60&fit=crop&crop=face"
-                                alt="Bu Siti" class="rounded-circle me-3"
+                            <img src="{{ asset('assets/2.jpg') }}" alt="Bu Siti" class="rounded-circle me-3"
                                 style="width: 60px; height: 60px; object-fit: cover;">
                             <div>
                                 <h6 class="mb-0 text-primary">Bu Siti</h6>
@@ -397,8 +394,7 @@
                 <div class="col-lg-4" style="animation: fadeInUp 1.8s ease-out;">
                     <div class="testimonial-card bg-white p-4 rounded-3 shadow-lg h-100">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face"
-                                alt="Dr. Budi" class="rounded-circle me-3"
+                            <img src="{{ asset('assets/2.jpg') }}" alt="Dr. Budi" class="rounded-circle me-3"
                                 style="width: 60px; height: 60px; object-fit: cover;">
                             <div>
                                 <h6 class="mb-0 text-primary">Dr. Budi</h6>
