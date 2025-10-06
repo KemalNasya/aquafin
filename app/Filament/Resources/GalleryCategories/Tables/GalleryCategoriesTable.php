@@ -15,6 +15,7 @@ class GalleryCategoriesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Nama')
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),

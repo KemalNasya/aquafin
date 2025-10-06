@@ -13,7 +13,9 @@ class ListCurrencies extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            CreateAction::make(),
+            CreateAction::make()
+            ->label('Tambah Mata Uang')
+            ->icon('heroicon-m-plus'),
         ];
     }
 }

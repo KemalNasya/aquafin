@@ -17,6 +17,7 @@ class GalleryCategoryForm
                 TextInput::make('slug')
                     ->required(),
                 Textarea::make('description')
+                    ->label('Deskripsi')
                     ->columnSpanFull(),
             ]);
     }

@@ -13,15 +13,12 @@ class ListTransactions extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            Actions\CreateAction::make()
+                ->label('Tambah Transaksi')
+                ->icon('heroicon-m-plus'),
 
             Actions\ActionGroup::make([
-                Actions\Action::make('Excel')
-                    ->label('Export Excel')
-                    ->icon('heroicon-o-document-text')
-                    ->url(route('admin.report.exportExcel'))
-                    ->openUrlInNewTab(),
-
+                // ✅ HANYA PDF YANG TERSISA
                 Actions\Action::make('PDF')
                     ->label('Export PDF')
                     ->icon('heroicon-o-document')

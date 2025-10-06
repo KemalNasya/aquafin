@@ -7,6 +7,7 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use Filament\Tables\Columns\ColorColumn;
 
 class TransactionCategoriesTable
 {
@@ -15,11 +16,39 @@ class TransactionCategoriesTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
+                    ->label('Nama Kategori')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('medium'),
+                    
                 TextColumn::make('type')
-                    ->badge(),
+                    ->label('Tipe')
+                    ->badge()
+                    ->colors([
+                        'success' => 'income',
+                        'danger' => 'expense',
+                    ])
+                    ->formatStateUsing(fn ($state) => 
+                        $state === 'income' ? 'Pemasukan' : 'Pengeluaran'
+                    ),
+                    
+                // PERBAIKAN: ColorColumn tanpa method colors()
+                ColorColumn::make('color')
+                    ->label('Warna')
+                    ->tooltip(fn ($record) => 
+                        $record->color === 'red' ? 'Merah' : 'Hijau'
+                    ),
+
+                // ATAU Pakai TextColumn dengan badge untuk warna yang lebih jelas
                 TextColumn::make('color')
-                    ->searchable(),
+                    ->label('Warna')
+                    ->badge()
+                    ->color(fn ($state) => $state === 'red' ? 'danger' : 'success')
+                    ->formatStateUsing(fn ($state) => 
+                        $state === 'red' ? 'Merah 🔴' : 'Hijau 🟢'
+                    )
+                    ->sortable(),
+                    
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

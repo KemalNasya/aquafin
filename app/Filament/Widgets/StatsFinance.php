@@ -23,16 +23,16 @@ class StatsFinance extends BaseWidget
             $income = Transaction::where('type', 'income')->sum('amount');
             $expense = Transaction::where('type', 'expense')->sum('amount');
 
-            $stats[] = Stat::make('Total Income', 'Rp' . number_format($income, 2))
-                ->description('All income transactions')
+            $stats[] = Stat::make('Total Pemasukan', 'Rp' . number_format($income, 2))
+                ->description('Semua Transaksi Pemasukan')
                 ->icon('heroicon-o-arrow-up-circle');
 
-            $stats[] = Stat::make('Total Expense', 'Rp' . number_format($expense, 2))
-                ->description('All expense transactions')
+            $stats[] = Stat::make('Total Pengeluaran', 'Rp' . number_format($expense, 2))
+                ->description('Semua Transaksi Pengeluaran')
                 ->icon('heroicon-o-arrow-down-circle');
 
-            $stats[] = Stat::make('Net Balance', 'Rp' . number_format($income - $expense, 2))
-                ->description('Current balance')
+            $stats[] = Stat::make('Saldo Bersih', 'Rp' . number_format($income - $expense, 2))
+                ->description('Total Saldo Akhir')
                 ->color($income - $expense >= 0 ? 'success' : 'danger')
                 ->icon('heroicon-o-currency-dollar');
         }

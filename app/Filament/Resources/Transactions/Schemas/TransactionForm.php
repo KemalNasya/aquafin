@@ -15,17 +15,22 @@ class TransactionForm
         return $schema
             ->components([
                 TextInput::make('amount')
+                ->label('Jumlah')
                     ->required()
                     ->numeric(),
                 Select::make('type')
-                    ->options(['income' => 'Income', 'expense' => 'Expense'])
+                ->label('Tipe')
+                    ->options(['income' => 'Pemasukan', 'expense' => 'Pengeluaran'])
                     ->required(),
                 Textarea::make('description')
+                ->label('Deskripsi')
                     ->required()
                     ->columnSpanFull(),
                 DatePicker::make('transaction_date')
+                ->label('Tanggal Transaksi')
                     ->required(),
                 Select::make('transaction_category_id')
+                ->label('Kategori')
                     ->relationship('category', 'name')
                     ->required(),
                 Select::make('wallet_id')

@@ -32,6 +32,10 @@ class TransactionResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Transaksi Keuangan';
 
+    protected static ?string $modelLabel = 'Transaksi';
+    
+    protected static ?string $pluralModelLabel = 'Transaksi Keuangan';
+
     public static function form(Schema $schema): Schema
     {
         return TransactionForm::configure($schema);
