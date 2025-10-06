@@ -32,7 +32,7 @@ class CreateTransaction extends CreateRecord
     protected function getCreateFormAction(): Actions\Action
     {
         return Actions\Action::make('create')
-            ->label('Simpan Kategori')
+            ->label('Simpan')
             ->submit('create')
             ->keyBindings(['mod+s']);
     }
