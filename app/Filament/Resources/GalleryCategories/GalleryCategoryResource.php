@@ -24,11 +24,11 @@ class GalleryCategoryResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Galleries';
+    protected static string|UnitEnum|null $navigationGroup = 'Dokumentasi';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
 
-    protected static ?string $navigationLabel = 'Category';
+    protected static ?string $navigationLabel = 'Kategori';
 
     protected static ?string $recordTitleAttribute = 'gallery category';
 

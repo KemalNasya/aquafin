@@ -24,13 +24,17 @@ class PostCategoryResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Posts';
+    protected static string|UnitEnum|null $navigationGroup = 'Postingan';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
 
-    protected static ?string $navigationLabel = 'Category';
+    protected static ?string $navigationLabel = 'Kategori';
 
     protected static ?string $recordTitleAttribute = 'post category';
+
+    protected static ?string $modelLabel = 'Post kategory';
+    
+    protected static ?string $pluralModelLabel = 'Kategori Postingan';
 
     public static function form(Schema $schema): Schema
     {

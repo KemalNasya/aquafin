@@ -24,13 +24,17 @@ class GalleryResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Galleries';
+    protected static string|UnitEnum|null $navigationGroup = 'Dokumentasi';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedPhoto;
 
-    protected static ?string $navigationLabel = 'All Galleries';
+    protected static ?string $navigationLabel = 'Foto';
 
     protected static ?string $recordTitleAttribute = 'gallery';
+
+    protected static ?string $modelLabel = 'Foto';
+    
+    protected static ?string $pluralModelLabel = 'Foto';
 
     public static function form(Schema $schema): Schema
     {

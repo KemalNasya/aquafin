@@ -25,7 +25,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
-            ->brandName('Aquafin')
+            ->brandName('Pereng Mina GAP')
             ->id('admin')
             ->path('admin')
             ->login()
@@ -34,9 +34,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->navigationGroups([
                 'Dashboard',
-                'Posts',
-                'Galleries',
-                'Finance',
+                'Postingan',
+                'Dokumentasi',
+                'Keuangan',
                 'Users',
                 'Settings',
             ])

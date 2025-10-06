@@ -16,4 +16,9 @@ class EditPost extends EditRecord
             DeleteAction::make(),
         ];
     }
+    
+    protected function getRedirectUrl(): string
+    {
+        return static::getResource()::getUrl('index'); // kembali ke halaman List / Postingan Artikel
+    }
 }

@@ -31,13 +31,13 @@ class Report extends Page implements HasTable
 
     protected string $view = 'filament.pages.report';
 
-    protected static ?string $title = 'Reports';
+    protected static ?string $title = 'Laporan';
 
-    protected static ?string $navigationLabel = 'Reports';
+    protected static ?string $navigationLabel = 'Laporan';
 
     protected static ?int $navigationSort = 4;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Finance';
+    protected static string|UnitEnum|null $navigationGroup = 'Keuangan';
 
     public static function canAccess(): bool
     {

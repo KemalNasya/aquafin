@@ -15,13 +15,17 @@ class GalleriesTable
         return $table
             ->columns([
                 TextColumn::make('title')
+                    ->label('Judul Foto')
                     ->searchable(),
                 TextColumn::make('photo')
+                    ->label('Foto')
                     ->searchable(),
                 TextColumn::make('gallery_category_id')
+                    ->label('Id_Kategori')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('user.name')
+                    ->label('Pengguna')
                     ->searchable(),
                 TextColumn::make('created_at')
                     ->dateTime()

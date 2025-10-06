@@ -24,13 +24,13 @@ class TransactionResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Finance';
+    protected static string|UnitEnum|null $navigationGroup = 'Keuangan';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedBanknotes;
 
-    protected static ?string $navigationLabel = 'All Transaction';
+    protected static ?string $navigationLabel = 'Transaksi';
 
-    protected static ?string $recordTitleAttribute = 'transaction';
+    protected static ?string $recordTitleAttribute = 'Transaksi Keuangan';
 
     public static function form(Schema $schema): Schema
     {

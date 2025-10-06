@@ -16,6 +16,8 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Support\Facades\Auth;
 
+
+
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
@@ -24,13 +26,17 @@ class PostResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Posts';
+    protected static string|UnitEnum|null $navigationGroup = 'Postingan';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
 
-    protected static ?string $navigationLabel = 'All Posts';
+    protected static ?string $navigationLabel = 'Postingan Artikel';
 
-    protected static ?string $recordTitleAttribute = 'post';
+    protected static ?string $recordTitleAttribute = 'postingan';
+
+    protected static ?string $modelLabel = 'Postingan';
+    
+    protected static ?string $pluralModelLabel = 'Postingan Artikel';
 
     public static function form(Schema $schema): Schema
     {

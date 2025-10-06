@@ -15,19 +15,47 @@ class GalleryForm
         return $schema
             ->components([
                 TextInput::make('title')
-                    ->required(),
+                    ->label('Judul Foto')
+                    ->required()
+                    ->validationMessages([
+                        'required' => 'Judul foto harus diisi.',
+                    ]),
+
                 Textarea::make('description')
-                    ->columnSpanFull(),
+                    ->label('Deskripsi')
+                    ->columnSpanFull()
+                    ->required()
+                    ->validationMessages([
+                        'required' => 'Deskripsi harus diisi.',
+                    ]),
+
                 FileUpload::make('photo')
+                    ->label('Foto')
                     ->disk('public')
                     ->directory('galleries')
-                    ->image(),
+                    ->image()
+                    ->maxSize(2048) // 2MB
+                    ->required()
+                    ->validationMessages([
+                        'required' => 'Foto harus diisi dan tidak boleh kosong!',
+                        'image' => 'File yang diunggah harus berupa gambar.',
+                    ]),
+
                 Select::make('gallery_category_id')
+                    ->label('Kategori Foto')
                     ->relationship('category', 'name')
-                    ->required(),
+                    ->required()
+                    ->validationMessages([
+                        'required' => 'Kategori harus dipilih.',
+                    ]),
+
                 Select::make('user_id')
+                    ->label('Pengguna')
                     ->relationship('user', 'name')
-                    ->required(),
+                    ->required()
+                    ->validationMessages([
+                        'required' => 'Pengguna harus dipilih.',
+                    ]),
             ]);
     }
 }

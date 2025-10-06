@@ -15,6 +15,7 @@ class PostCategoriesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Nama Kategori')
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),

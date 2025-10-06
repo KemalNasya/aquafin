@@ -4,6 +4,7 @@ namespace App\Filament\Resources\PostCategories\Pages;
 
 use App\Filament\Resources\PostCategories\PostCategoryResource;
 use Filament\Actions\DeleteAction;
+use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
 class EditPostCategory extends EditRecord
@@ -13,7 +14,21 @@ class EditPostCategory extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            DeleteAction::make()
+                ->label('Hapus'),
+        ];
+    }
+
+    protected function getFormActions(): array
+    {
+        return [
+            Actions\Action::make('save')
+                ->label('Perbarui')
+                ->submit('save'),
+
+            Actions\Action::make('cancel')
+                ->label('Batal')
+                ->url($this->getResource()::getUrl('index')),
         ];
     }
 }

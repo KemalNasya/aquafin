@@ -17,25 +17,42 @@ class PostForm
         return $schema
             ->components([
                 TextInput::make('title')
+                    ->label('Judul')
                     ->required(),
-                TextInput::make('slug')
-                    ->required(),
+
+                    TextInput::make('slug')
+                    ->label('Slug')
+                    ->required()
+                    ->unique(ignoreRecord: true) 
+                    ->maxLength(255),
+
                 Textarea::make('content')
+                    ->label('Isi Konten')
                     ->required()
                     ->columnSpanFull(),
+
                 FileUpload::make('thumbnail')
+                    ->label('Gambar Sampul')
                     ->disk('public')
                     ->directory('posts')
                     ->image(),
+
                 Select::make('post_category_id')
+                    ->label('Kategori')
                     ->relationship('category', 'name')
                     ->required(),
+
                 Select::make('user_id')
+                    ->label('Pengguna')
                     ->relationship('user', 'name')
                     ->required(),
+
                 Toggle::make('is_published')
+                    ->label('Tayang?')
                     ->required(),
-                DateTimePicker::make('published_at'),
+
+                DateTimePicker::make('published_at')
+                    ->label('Tanggal Publikasi'),
             ]);
     }
 }
