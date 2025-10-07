@@ -10,14 +10,6 @@ use Barryvdh\DomPDF\Facade\Pdf;
 
 class ReportController extends Controller
 {
-    public function exportExcel(Request $request)
-    {
-        $bulan = $request->input('bulan', now()->month);
-        $tahun = $request->input('tahun', now()->year);
-
-        return Excel::download(new TransactionsExport($bulan, $tahun), "transactions_{$bulan}_{$tahun}.xlsx");
-    }
-
     public function exportPdf(Request $request)
     {
         $bulan = $request->input('bulan', now()->month);

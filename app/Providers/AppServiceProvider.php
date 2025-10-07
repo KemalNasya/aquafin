@@ -19,6 +19,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $logoPath = public_path('assets/logo_PMGAP.png');
+        
+        if (file_exists($logoPath)) {
+            config([
+                'filament.brand' => 'Pereng Mina GAP',
+                'filament.brand_logo' => asset('assets/logo_PMGAP.png'),
+            ]);
+        }
     }
+    
 }

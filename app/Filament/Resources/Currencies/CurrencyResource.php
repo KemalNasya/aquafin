@@ -26,9 +26,14 @@ class CurrencyResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $navigationLabel = 'Currencies';
+    protected static ?string $navigationLabel = 'Mata Uang';
 
     protected static ?string $recordTitleAttribute = 'currency';
+
+    protected static ?string $modelLabel = 'Mata Uang';
+    
+    protected static ?string $pluralModelLabel = 'Mata Uang';
+
 
     public static function form(Schema $schema): Schema
     {

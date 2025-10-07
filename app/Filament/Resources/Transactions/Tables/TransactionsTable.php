@@ -15,28 +15,42 @@ class TransactionsTable
         return $table
             ->columns([
                 TextColumn::make('amount')
-                    ->numeric()
-                    ->sortable(),
+                    ->label('Jumlah')
+                    ->money('IDR')
+                    ->sortable()
+                    ->color(fn ($record) => $record->type === 'income' ? 'success' : 'danger'),
+                    
                 TextColumn::make('type')
-                    ->badge(),
+                    ->label('Tipe')
+                    ->badge()
+                    ->colors([
+                        'success' => 'income',
+                        'danger' => 'expense',
+                    ])
+                    ->formatStateUsing(fn ($state) => 
+                        $state === 'income' ? 'Pemasukan' : 'Pengeluaran'
+                    ),
+                    
                 TextColumn::make('transaction_date')
-                    ->date()
+                    ->label('Tanggal Transaksi')
+                    ->date('d M Y')
                     ->sortable(),
-                TextColumn::make('transaction_category_id')
-                    ->numeric()
-                    ->sortable(),
+                    
+                TextColumn::make('category.name')
+                    ->label('Kategori')
+                    ->searchable()
+                    ->sortable()
+                    ->color(fn ($record) => $record->category->color === 'red' ? 'danger' : 'success'),
+                    
                 TextColumn::make('wallet.name')
-                    ->searchable(),
+                    ->label('Wallet'),
+                    
                 TextColumn::make('user.name')
-                    ->searchable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Pengguna'),
+                    
+                TextColumn::make('description')
+                    ->label('Deskripsi')
+                    ->limit(30),
             ])
             ->filters([
                 //
@@ -48,6 +62,7 @@ class TransactionsTable
                 BulkActionGroup::make([
                     DeleteBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultSort('transaction_date', 'desc');
     }
 }

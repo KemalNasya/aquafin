@@ -28,9 +28,13 @@ class TransactionCategoryResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedTag;
 
-    protected static ?string $navigationLabel = 'Kategori Keuangan';
+    protected static ?string $navigationLabel = 'Kategori Transaksi';
 
-    protected static ?string $recordTitleAttribute = 'Kategori Keuangan';
+    protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?string $modelLabel = 'Kategori Transaksi';
+    
+    protected static ?string $pluralModelLabel = 'Kategori Transaksi';
 
     public static function form(Schema $schema): Schema
     {

@@ -18,6 +18,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Pages\Profile;
 use App\Filament\Pages\Report;
+use Leandrocfe\FilamentApexCharts\FilamentApexChartsPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -49,6 +50,10 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
+                // kamu bisa tambahkan widget di sini
+            ])
+            ->plugins([
+                FilamentApexChartsPlugin::make(),
             ])
             ->userMenuItems([])
             ->renderHook(

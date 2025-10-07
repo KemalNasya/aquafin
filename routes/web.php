@@ -21,7 +21,6 @@ Route::get('/gallery/download/{photoId}', [GalleryController::class, 'download']
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/admin/report/pdf', [ReportController::class, 'exportPdf'])->name('admin.report.exportPdf');
-Route::get('/admin/report/excel', [ReportController::class, 'exportExcel'])->name('admin.report.exportExcel');
 
 Route::get('/storage/private/{path}', function ($path) {
     if (\Illuminate\Support\Facades\Storage::disk('private')->exists($path)) {
