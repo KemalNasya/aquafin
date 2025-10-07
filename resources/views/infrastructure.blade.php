@@ -3,51 +3,47 @@
 @section('title', 'Infrastructure - Company Name')
 
 @section('content')
-    <!-- Hero Section -->
     <section class="hero-section position-relative overflow-hidden"
-        style="min-height: 60vh; background: url('{{ asset('assets/template.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
-        <!-- Overlay -->
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+        style="min-height: 89vh; background: url('{{ asset('assets/mesinnn.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 dark-blue-gradient-overlay"></div>
         <div class="container position-relative text-center text-white py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4"
-                        style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7); animation: fadeInUp 1s ease-out;">Infrastruktur
-                        Budidaya</h1>
-                    <p class="lead fs-4 mb-4"
-                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); animation: fadeInUp 1.5s ease-out;">Fasilitas modern
+                    <h1 class="display-4 fw-bold mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0s"
+                        style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7);">Infrastruktur dan Teknologi</h1>
+                    <p class="lead fs-4 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s"
+                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Fasilitas modern
                         dan teknologi canggih untuk budidaya ikan berkelanjutan dan berkualitas tinggi</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Statistics Section -->
-    <section class="py-5 bg-gradient-primary text-white">
+    <section class="py-5 dark-blue-gradient-bg text-white">
         <div class="container">
             <div class="row text-center">
-                <div class="col-md-3 mb-4" style="animation: fadeInUp 1s ease-out;">
+                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0s">
                     <div class="stat-item">
                         <div class="display-4 fw-bold mb-2 counter" data-target="500">0</div>
                         <p class="mb-0 fs-5">Ton Ikan/tahun</p>
                         <small class="text-white-50">Kapasitas Produksi</small>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4" style="animation: fadeInUp 1.2s ease-out;">
+                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
                     <div class="stat-item">
                         <div class="display-4 fw-bold mb-2 counter" data-target="50">0</div>
                         <p class="mb-0 fs-5">Hektar</p>
                         <small class="text-white-50">Luas Lahan</small>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4" style="animation: fadeInUp 1.4s ease-out;">
+                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
                     <div class="stat-item">
                         <div class="display-4 fw-bold mb-2 counter" data-target="90">0</div>
                         <p class="mb-0 fs-5">%</p>
                         <small class="text-white-50">Efisiensi Air</small>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4" style="animation: fadeInUp 1.6s ease-out;">
+                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
                     <div class="stat-item">
                         <div class="display-4 fw-bold mb-2 counter" data-target="100">0</div>
                         <p class="mb-0 fs-5">Kolam</p>
@@ -58,45 +54,44 @@
         </div>
     </section>
 
-    <!-- Overview Section -->
-    <section id="overview" class="section-padding py-5 bg-light">
+    <section id="overview" class="section-padding py-5 custom-gradient-bg text-white">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6" style="animation: slideInLeft 1s ease-out;">
+                <div class="col-lg-6 animate-on-scroll" data-animation="slideInLeft" data-delay="0s">
                     <div class="position-relative">
                         <img src="{{ asset('assets/template.jpg') }}" alt="Infrastruktur Budidaya"
                             class="img-fluid rounded shadow-lg hover-scale">
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <div class="bg-white bg-opacity-90 rounded-circle p-4 shadow-lg pulse-animation">
-                                <i class="fas fa-play text-primary fs-1"></i>
+                                <i class="fas fa-play custom-text-primary fs-1"></i>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" style="animation: fadeInUp 1.2s ease-out;">
-                    <h2 class="fw-bold mb-4 text-primary">Gambaran Umum Infrastruktur</h2>
-                    <p class="lead text-muted mb-4">Infrastruktur budidaya ikan kami dirancang dengan pendekatan
+                <div class="col-lg-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
+                    <h2 class="fw-bold mb-4 text-white">Gambaran Umum Infrastruktur</h2>
+                    <p class="lead mb-4">Infrastruktur budidaya ikan kami dirancang dengan pendekatan
                         berkelanjutan, mengintegrasikan teknologi modern untuk memastikan produksi ikan berkualitas tinggi
                         sambil menjaga keseimbangan lingkungan.</p>
-                    <p class="text-muted">Dengan luas lahan lebih dari 5 hektar, fasilitas kami mencakup kolam budidaya,
+                    <p>Dengan luas lahan lebih dari 5 hektar, fasilitas kami mencakup kolam budidaya,
                         laboratorium pengujian, dan sistem monitoring otomatis. Setiap elemen dirancang untuk mendukung
                         siklus budidaya yang efisien dari bibit hingga panen.</p>
                     <div class="row mt-4">
-                        <div class="col-4 text-center">
-                            <div class="feature-highlight p-3 rounded bg-white shadow-sm">
+                        <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                            <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
                                 <i class="fas fa-award text-warning fs-2 mb-2"></i>
                                 <small class="text-muted d-block">ISO 14001</small>
                             </div>
                         </div>
-                        <div class="col-4 text-center">
-                            <div class="feature-highlight p-3 rounded bg-white shadow-sm">
+                        <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                            <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
                                 <i class="fas fa-leaf text-success fs-2 mb-2"></i>
                                 <small class="text-muted d-block">Ramah Lingkungan</small>
                             </div>
                         </div>
-                        <div class="col-4 text-center">
-                            <div class="feature-highlight p-3 rounded bg-white shadow-sm">
-                                <i class="fas fa-cogs text-primary fs-2 mb-2"></i>
+                        <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
+                            <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
+                                <i class="fas fa-cogs custom-text-primary fs-2 mb-2"></i>
                                 <small class="text-muted d-block">Teknologi Canggih</small>
                             </div>
                         </div>
@@ -106,27 +101,26 @@
         </div>
     </section>
 
-    <!-- Process Timeline Section -->
-    <section id="process" class="section-padding py-5 bg-light">
+    <section id="process" class="section-padding py-5 custom-gradient-bg text-white">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3 text-primary" style="animation: fadeInUp 1s ease-out;">Proses Budidaya Modern</h2>
-                <p class="lead text-muted" style="animation: fadeInUp 1.2s ease-out;">Siklus lengkap dari bibit hingga panen
+                <h2 class="fw-bold mb-3 text-white animate-on-scroll" data-animation="fadeInUp" data-delay="0s">Proses Budidaya Modern</h2>
+                <p class="lead animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">Siklus lengkap dari bibit hingga panen
                     dengan teknologi terkini</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item" style="animation: fadeInUp 1.4s ease-out;">
-                    <div class="timeline-marker bg-primary"></div>
+            <div class="timeline dark-blue-timeline">
+                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                    <div class="timeline-marker dark-blue-bg"></div>
                     <div class="timeline-content">
-                        <div class="card border-0 shadow-sm">
+                        <div class="card border-0 shadow-sm card-hover">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
-                                    <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    <div class="timeline-icon dark-blue-bg text-white rounded-circle d-flex align-items-center justify-content-center me-3"
                                         style="width: 50px; height: 50px;">
                                         <i class="fas fa-egg"></i>
                                     </div>
                                     <div>
-                                        <h5 class="card-title mb-1 text-primary">Pembibitan</h5>
+                                        <h5 class="card-title mb-1 custom-text-primary">Pembibitan</h5>
                                         <small class="text-muted">Tahap 1 - 2 Minggu</small>
                                     </div>
                                 </div>
@@ -137,10 +131,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item" style="animation: fadeInUp 1.6s ease-out;">
+                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
                     <div class="timeline-marker bg-success"></div>
                     <div class="timeline-content">
-                        <div class="card border-0 shadow-sm">
+                        <div class="card border-0 shadow-sm card-hover">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
@@ -158,10 +152,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item" style="animation: fadeInUp 1.8s ease-out;">
+                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
                     <div class="timeline-marker bg-warning"></div>
                     <div class="timeline-content">
-                        <div class="card border-0 shadow-sm">
+                        <div class="card border-0 shadow-sm card-hover">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="timeline-icon bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3"
@@ -180,10 +174,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item" style="animation: fadeInUp 2s ease-out;">
+                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="1.0s">
                     <div class="timeline-marker bg-info"></div>
                     <div class="timeline-content">
-                        <div class="card border-0 shadow-sm">
+                        <div class="card border-0 shadow-sm card-hover">
                             <div class="card-body p-4">
                                 <div class="d-flex align-items-center mb-3">
                                     <div class="timeline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3"
@@ -205,61 +199,64 @@
         </div>
     </section>
 
-    <!-- Facilities Section -->
-    <section id="facilities" class="section-padding py-5">
+    <section id="facilities" class="section-padding py-5 custom-gradient-bg text-white">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3 text-primary" style="animation: fadeInUp 1s ease-out;">Fasilitas Utama</h2>
-                <p class="lead text-muted" style="animation: fadeInUp 1.2s ease-out;">Komponen infrastruktur yang
+                <h2 class="fw-bold mb-3 text-white animate-on-scroll" data-animation="fadeInUp" data-delay="0s">Fasilitas Utama</h2>
+                <p class="lead animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">Komponen infrastruktur yang
                     mendukung operasional budidaya ikan berkelanjutan</p>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6" style="animation: fadeInUp 1.4s ease-out;">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-white h-100">
+                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                         <div class="facility-icon mb-3">
-                            <i class="fas fa-water text-primary fs-1"></i>
+                            <i class="fas fa-water custom-text-primary fs-1"></i>
                         </div>
-                        <h5 class="text-primary mb-3">Kolam Budidaya</h5>
-                        <p class="text-muted small">Kolam beton modern dengan sistem aerasi canggih untuk sirkulasi air
-                            optimal.</p>
+                        <h5 class="custom-text-primary mb-3">Kolam Budidaya</h5>
+                        <p class="small">Memiliki 26 Kolam dengan luas yang bervariasi.</p>
                         <div class="mt-3">
-                            <span class="badge bg-primary">100 Kolam</span>
+                            <span class="badge dark-blue-bg">100 Kolam</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" style="animation: fadeInUp 1.6s ease-out;">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-white h-100">
+                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                         <div class="facility-icon mb-3">
-                            <i class="fas fa-flask text-success fs-1"></i>
+                            {{-- Perubahan ikon Mesin Pengolah Pakan --}}
+                            <i class="fas fa-mortar-pestle text-success fs-1"></i>
                         </div>
-                        <h5 class="text-success mb-3">Laboratorium</h5>
-                        <p class="text-muted small">Fasilitas pengujian lengkap untuk analisis kualitas air dan nutrisi
-                            pakan.</p>
+                        <h5 class="text-success mb-3">Mesin Pengolah Pakan</h5>
+                        <p class="small">Mesin pelet pakan ikan berfungsi membuat pelet tenggelam berbentuk silinder pendek (3–5 cm).
+                            Bahan pakan seperti protein, karbohidrat, vitamin, mineral, minyak nabati, dan pengikat dicampur rata dalam mixer sebelum diproses.
+                            Pakan tambahan dapat dibuat dari residu warung atau toko roti yang telah dicacah halus terlebih dahulu.</p>
                         <div class="mt-3">
-                            <span class="badge bg-success">Real-time</span>
+                            <span class="badge bg-success">Otomatis</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" style="animation: fadeInUp 1.8s ease-out;">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-white h-100">
+                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
+                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                         <div class="facility-icon mb-3">
-                            <i class="fas fa-cogs text-warning fs-1"></i>
+                            {{-- Perubahan ikon Instalasi PLTS --}}
+                            <i class="fas fa-solar-panel text-warning fs-1"></i>
                         </div>
-                        <h5 class="text-warning mb-3">Sistem IoT</h5>
-                        <p class="text-muted small">Monitoring otomatis 24/7 dengan sensor canggih untuk kontrol kualitas.
+                        <h5 class="text-warning mb-3">Instalasi PLTS</h5>
+                        <p class="small">Instalasi PLTS yang dipasang di salah satu gazebo di Kelompok Pembudidaya Ikan
+                            "Pereng Mina" GAP merupakan sumber catu daya bantuan yang digunakan untuk penerangan dan operasi pompa yang tersedia.
+                            Penerangan berupa lampu digunakan untuk penerangan lokasi kolam saat di malam hari..
                         </p>
                         <div class="mt-3">
-                            <span class="badge bg-warning">24/7</span>
+                            <span class="badge bg-warning">Energi Terbarukan</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6" style="animation: fadeInUp 2s ease-out;">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-white h-100">
+                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="1.0s">
+                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                         <div class="facility-icon mb-3">
                             <i class="fas fa-leaf text-info fs-1"></i>
                         </div>
                         <h5 class="text-info mb-3">Pengelolaan Air</h5>
-                        <p class="text-muted small">Sistem daur ulang air 90% efisien untuk budidaya berkelanjutan.</p>
+                        <p class="small">Sistem daur ulang air 90% efisien untuk budidaya berkelanjutan.</p>
                         <div class="mt-3">
                             <span class="badge bg-info">90% Efisien</span>
                         </div>
@@ -269,181 +266,101 @@
         </div>
     </section>
 
-    <!-- Technology Section -->
-    <section id="technology" class="section-padding py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3 text-primary" style="animation: fadeInUp 1s ease-out;">Teknologi Canggih</h2>
-                <p class="lead text-muted" style="animation: fadeInUp 1.2s ease-out;">Integrasi teknologi modern untuk
-                    efisiensi maksimal</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4" style="animation: fadeInUp 1.4s ease-out;">
-                    <div class="tech-card text-center p-4 bg-white rounded-3 shadow-lg hover-lift h-100">
-                        <div class="tech-icon mb-4">
-                            <div class="icon-circle bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                                style="width: 80px; height: 80px;">
-                                <i class="fas fa-network-wired fs-2"></i>
-                            </div>
-                        </div>
-                        <h5 class="text-primary mb-3">IoT Monitoring System</h5>
-                        <p class="text-muted">Dashboard real-time dengan sensor canggih untuk monitoring suhu, pH, oksigen,
-                            dan parameter kualitas air 24/7.</p>
-                        <div class="tech-features mt-3">
-                            <span class="badge bg-primary me-1 mb-1">Real-time</span>
-                            <span class="badge bg-primary me-1 mb-1">24/7</span>
-                            <span class="badge bg-primary mb-1">Predictive</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4" style="animation: fadeInUp 1.6s ease-out;">
-                    <div class="tech-card text-center p-4 bg-white rounded-3 shadow-lg hover-lift h-100">
-                        <div class="tech-icon mb-4">
-                            <div class="icon-circle bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                                style="width: 80px; height: 80px;">
-                                <i class="fas fa-robot fs-2"></i>
-                            </div>
-                        </div>
-                        <h5 class="text-success mb-3">Otomasi Pakan</h5>
-                        <p class="text-muted">Sistem pemberian pakan otomatis terjadwal dengan kontrol presisi,
-                            mengoptimalkan pertumbuhan dan efisiensi biaya.</p>
-                        <div class="tech-features mt-3">
-                            <span class="badge bg-success me-1 mb-1">Auto-feed</span>
-                            <span class="badge bg-success me-1 mb-1">Precision</span>
-                            <span class="badge bg-success mb-1">Cost-saving</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4" style="animation: fadeInUp 1.8s ease-out;">
-                    <div class="tech-card text-center p-4 bg-white rounded-3 shadow-lg hover-lift h-100">
-                        <div class="tech-icon mb-4">
-                            <div class="icon-circle bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center"
-                                style="width: 80px; height: 80px;">
-                                <i class="fas fa-brain fs-2"></i>
-                            </div>
-                        </div>
-                        <h5 class="text-warning mb-3">AI Analytics</h5>
-                        <p class="text-muted">Analisis data cerdas untuk prediksi pertumbuhan, deteksi dini penyakit, dan
-                            optimasi parameter budidaya.</p>
-                        <div class="tech-features mt-3">
-                            <span class="badge bg-warning me-1 mb-1">AI-Powered</span>
-                            <span class="badge bg-warning me-1 mb-1">Predictive</span>
-                            <span class="badge bg-warning mb-1">Optimization</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5" style="animation: fadeInUp 2s ease-out;">
-                <a href="#contact" class="btn btn-gradient btn-lg px-5 py-3 shadow-lg">
-                    <i class="fas fa-rocket me-2"></i>Pelajari Lebih Lanjut
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3 text-primary" style="animation: fadeInUp 1s ease-out;">Testimoni Mitra</h2>
-                <p class="lead text-muted" style="animation: fadeInUp 1.2s ease-out;">Apa kata para mitra dan pelanggan
-                    kami</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4" style="animation: fadeInUp 1.4s ease-out;">
-                    <div class="testimonial-card bg-white p-4 rounded-3 shadow-lg h-100">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="{{ asset('assets/template.jpg') }}" alt="Pak Ahmad" class="rounded-circle me-3"
-                                style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0 text-primary">Pak Ahmad</h6>
-                                <small class="text-muted">Peternak Ikan Nila</small>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <p class="text-muted mb-0">"Dengan sistem monitoring otomatis, produktivitas naik 40% dan biaya
-                            operasional turun signifikan. Teknologi ini benar-benar game changer!"</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" style="animation: fadeInUp 1.6s ease-out;">
-                    <div class="testimonial-card bg-white p-4 rounded-3 shadow-lg h-100">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="{{ asset('assets/template.jpg') }}" alt="Bu Siti" class="rounded-circle me-3"
-                                style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0 text-primary">Bu Siti</h6>
-                                <small class="text-muted">Manajer Restoran</small>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <p class="text-muted mb-0">"Kualitas ikan sangat konsisten dan fresh. Sistem distribusi langsung
-                            memastikan ikan sampai ke restoran dalam kondisi prima."</p>
-                    </div>
-                </div>
-                <div class="col-lg-4" style="animation: fadeInUp 1.8s ease-out;">
-                    <div class="testimonial-card bg-white p-4 rounded-3 shadow-lg h-100">
-                        <div class="d-flex align-items-center mb-3">
-                            <img src="{{ asset('assets/template.jpg') }}" alt="Dr. Budi" class="rounded-circle me-3"
-                                style="width: 60px; height: 60px; object-fit: cover;">
-                            <div>
-                                <h6 class="mb-0 text-primary">Dr. Budi</h6>
-                                <small class="text-muted">Konsultan Akuakultur</small>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                        </div>
-                        <p class="text-muted mb-0">"Infrastruktur yang sangat modern dan efisien. Pendekatan berkelanjutan
-                            ini adalah masa depan akuakultur di Indonesia."</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="py-5 bg-gradient-primary text-white">
-        <div class="container text-center" style="animation: fadeInUp 1s ease-out;">
-            <h2 class="fw-bold mb-4">Siap Berkolaborasi?</h2>
-            <p class="lead mb-4">Bergabunglah dengan kami dalam membangun industri budidaya ikan yang modern dan
-                berkelanjutan</p>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <a href="/contact" class="btn btn-light btn-lg w-100 mb-3">
-                                <i class="fas fa-phone me-2"></i>Hubungi Kami
-                            </a>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#facilities" class="btn btn-outline-light btn-lg w-100 mb-3">
-                                <i class="fas fa-eye me-2"></i>Lihat Fasilitas
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Custom CSS for animations and styles -->
+    
     <style>
+        /* Mendefinisikan warna kustom dari gambar */
+        :root {
+            --dark-blue-color: #002244;
+            /* Warna gelap pada gambar */
+            --light-blue-color: #1a4c8a;
+            /* Warna terang pada gambar */
+            --primary-color: #003366;
+            /* Warna primer baru yang lebih solid */
+            --gradient-start: #002244;
+            --gradient-end: #1a4c8a;
+            /* WARNA GRADIENT BARU UNTUK BACKGROUND PUTIH */
+            --new-gradient-start: #0a2c4d;
+            --new-gradient-end: #154e8d;
+        }
+
+        /* Mengganti primary color dengan warna baru */
+        .custom-text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        .dark-blue-bg {
+            background-color: var(--primary-color) !important;
+        }
+
+        .dark-blue-gradient-overlay {
+            /* Overlay di Hero Section */
+            background: linear-gradient(135deg, rgba(0, 34, 68, 0.9) 0%, rgba(26, 76, 138, 0.7) 100%);
+        }
+
+        .dark-blue-gradient-bg {
+            /* Background di Statistics dan CTA Section */
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
+        }
+
+        .btn-dark-blue-gradient {
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark-blue-gradient:hover {
+            background: linear-gradient(45deg, var(--light-blue-color), var(--dark-blue-color));
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 34, 68, 0.5);
+        }
+
+        /* MENGGANTI CLASS custom-light-bg DENGAN BACKGROUND GRADIENT BARU */
+        .custom-gradient-bg {
+            background: linear-gradient(90deg, var(--new-gradient-start) 0%, var(--new-gradient-end) 100%) !important;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        /* CARD TRANSPARANT (Pengganti bg-white di Fasilitas & Teknologi) */
+        .bg-light-transparant-white {
+            background-color: rgba(255, 255, 255, 0.9) !important;
+            color: #333; /* Pastikan teks di dalam card tetap gelap */
+        }
+        .bg-light-transparant-white p {
+            color: #6c757d !important; /* Muted text di dalam card */
+        }
+
+        /* Teks di Section Utama custom-gradient-bg (Judul sudah text-white, Lead & P lainnya) */
+        #overview.custom-gradient-bg p,
+        #overview.custom-gradient-bg .lead,
+        #process.custom-gradient-bg p,
+        #process.custom-gradient-bg .lead,
+        #facilities.custom-gradient-bg p,
+        #facilities.custom-gradient-bg .lead,
+        #technology.custom-gradient-bg p,
+        #technology.custom-gradient-bg .lead {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Override warna teks card di timeline agar tetap terbaca */
+        #process.custom-gradient-bg .card .text-muted {
+            color: #6c757d !important; /* Kembalikan ke muted color agar kontras dengan card putih */
+        }
+        /* Override warna teks card fasilitas/teknologi agar tidak terlalu putih */
+        #facilities.custom-gradient-bg .facility-card p,
+        #technology.custom-gradient-bg .tech-card p {
+            color: #6c757d !important;
+        }
+
+        /* Timeline Marker dan Line Adjustments */
+        .dark-blue-timeline::before {
+            /* Garis timeline utama */
+            background: linear-gradient(to bottom, var(--primary-color), #28a745, #ffc107, #17a2b8);
+        }
+
+        /* Existing Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -486,112 +403,31 @@
             animation: pulse 2s infinite;
         }
 
+        /* Hover Effects */
         .hover-scale:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease;
+            transform: scale(1.03); /* Sedikit dikurangi agar tidak terlalu besar */
+            transition: transform 0.4s ease;
         }
 
         .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
-            transition: all 0.3s ease;
+            transform: translateY(-8px); /* Efek lift lebih jelas */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+            transition: all 0.4s ease;
         }
 
         .card-hover:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
             transition: all 0.3s ease;
         }
 
-        .btn-gradient {
-            background: linear-gradient(45deg, #2196F3, #21CBF3);
-            border: none;
-            color: white;
-            transition: all 0.3s ease;
+        /* New: Hide elements initially for scroll animation */
+        .animate-on-scroll {
+            opacity: 0;
+            /* Pastikan elemen tersembunyi pada awalnya */
         }
 
-        .btn-gradient:hover {
-            background: linear-gradient(45deg, #1976D2, #00BCD4);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.3);
-        }
-
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #2196F3 0%, #007bff 100%);
-        }
-
-        .section-padding {
-            padding: 5rem 0;
-        }
-
-        .facility-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .tech-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #007bff, #28a745, #ffc107, #17a2b8);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-marker {
-            position: absolute;
-            left: -22px;
-            top: 20px;
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #dee2e6;
-        }
-
-        .timeline-content {
-            margin-left: 30px;
-        }
-
-        .feature-highlight {
-            transition: all 0.3s ease;
-        }
-
-        .feature-highlight:hover {
-            transform: scale(1.05);
-        }
-
-        .counter {
-            font-weight: bold;
-            color: white;
-        }
-
+        /* Media Query for smaller screens */
         @media (max-width: 768px) {
             .section-padding {
                 padding: 3rem 0;
@@ -620,11 +456,11 @@
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                // Counter animation
+                // --- 1. Counter Animation (TIDAK ADA PERUBAHAN) ---
                 function animateCounter(counter) {
                     const target = parseInt(counter.getAttribute('data-target'));
-                    const duration = 2000; // 2 seconds
-                    const step = target / (duration / 16); // 60fps
+                    const duration = 2000;
+                    const step = target / (duration / 16);
                     let current = 0;
 
                     const timer = setInterval(() => {
@@ -638,45 +474,41 @@
                     }, 16);
                 }
 
-                // Intersection Observer for counters
-                const observerOptions = {
-                    threshold: 0.5,
-                    rootMargin: '0px 0px -50px 0px'
-                };
+                // --- 2. Scroll Animation Setup (TIDAK ADA PERUBAHAN) ---
+                const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
 
-                const observer = new IntersectionObserver((entries) => {
+                const animationObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const counters = entry.target.querySelectorAll('.counter');
-                            counters.forEach(counter => {
-                                if (!counter.classList.contains('animated')) {
-                                    counter.classList.add('animated');
-                                    animateCounter(counter);
-                                }
-                            });
+                            const element = entry.target;
+                            const animation = element.getAttribute('data-animation');
+                            const delay = element.getAttribute('data-delay');
+
+                            // Menerapkan animasi
+                            element.style.animation = `${animation} 1s ease-out ${delay} forwards`;
+
+                            // Menjalankan Counter Animation jika elemennya adalah Statistics Section
+                            if (element.closest('.dark-blue-gradient-bg') && element.querySelector('.counter')) {
+                                element.querySelectorAll('.counter').forEach(animateCounter);
+                            }
+
+                            // Hentikan pengamatan setelah animasi diaktifkan
+                            observer.unobserve(element);
                         }
                     });
-                }, observerOptions);
-
-                // Observe the statistics section
-                const statsSection = document.querySelector('.bg-gradient-primary');
-                if (statsSection) {
-                    observer.observe(statsSection);
-                }
-
-                // Smooth scrolling for anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
+                }, {
+                    threshold: 0.1, // Mulai animasi saat 10% elemen terlihat
+                    rootMargin: '0px 0px -50px 0px'
                 });
+
+                // Terapkan observer ke semua elemen yang perlu dianimasikan saat scroll
+                elementsToAnimate.forEach(element => {
+                    // Atur properti style untuk animasi (opacity 0 sudah diatur di CSS)
+                    element.style.animationFillMode = 'both';
+                    element.style.opacity = '0'; // Pastikan tersembunyi
+                    animationObserver.observe(element);
+                });
+
             });
         </script>
     @endpush

@@ -1,9 +1,12 @@
 <header id="main-header" class="navbar navbar-expand-lg navbar-dark shadow-lg fixed-top py-3"
-    style="background: linear-gradient(90deg, #001f3f 0%, #0074D9 50%, #00bfff 100%); border-bottom: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
+    style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); border-bottom: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
     <div class="container">
-        <a class="navbar-brand fw-bold text-white fs-3" href="/">
-            <i id="fish-logo" class="fas fa-fish me-2 text-warning"></i>Aquafin
+        <a class="navbar-brand fw-bold text-white fs-3 d-flex align-items-center" href="/">
+            <img src="{{ asset('assets/logo_PMGAP.png') }}" alt="Logo Pereng Mina GAP"
+                class="me-2" style="width: 45px; height: 45px; object-fit: contain;">
+            Pereng Mina GAP
         </a>
+
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -40,11 +43,12 @@
     </script>
     <style>
         .glass {
-            background: rgba(0, 31, 63, 0.5) !important;
+            /* Warna glass disesuaikan agar sesuai dengan tema biru gelap baru */
+            background: rgba(10, 44, 77, 0.5) !important; /* Menggunakan warna gelap dari gradasi baru dengan transparansi */
             backdrop-filter: blur(15px) !important;
             -webkit-backdrop-filter: blur(15px) !important;
             border-bottom: 2px solid rgba(255, 255, 255, 0.4) !important;
-            box-shadow: 0 4px 20px rgba(0, 116, 217, 0.4) !important;
+            box-shadow: 0 4px 20px rgba(21, 78, 141, 0.4) !important; /* Menggunakan warna terang dari gradasi baru dengan transparansi */
         }
 
         #fish-logo.moving {

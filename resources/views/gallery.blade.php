@@ -1,24 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Gallery - Company Name')
+@section('title', 'Galeri - Company Name')
 
 @section('content')
-    <!-- Hero Section -->
     <section class="hero-section position-relative overflow-hidden" style="min-height: 70vh; background: url('{{ asset('assets/template.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
-        <!-- Overlay -->
-        <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50"></div>
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); opacity: 0.9;"></div>
         <div class="container position-relative text-center text-white py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7); animation: fadeInUp 1s ease-out;">Galeri Budidaya Ikan</h1>
-                    <p class="lead fs-4 mb-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); animation: fadeInUp 1.5s ease-out;">Koleksi foto lengkap proses budidaya ikan modern dari kolam hingga panen</p>
+                    <h1 class="display-4 fw-bold mb-4 animate-fade-in" style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7); animation-delay: 0.2s;">Galeri Budidaya Ikan</h1>
+                    <p class="lead fs-4 mb-4 animate-fade-in" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); animation-delay: 0.4s;">Koleksi foto lengkap proses budidaya ikan modern dari kolam hingga panen</p>
 
-                    <!-- Search Bar -->
-                    <div class="mt-4" style="animation: fadeInUp 2s ease-out;">
+                    <div class="mt-4 animate-fade-in" style="animation-delay: 0.6s;">
                         <form action="{{ route('gallery') }}" method="GET">
                             <div class="input-group input-group-lg shadow-lg">
-                                <input type="text" name="q" class="form-control border-0" placeholder="Cari galeri..." aria-label="Search gallery" style="border-radius: 25px 0 0 25px;">
-                                <button class="btn btn-light border-0" type="submit" style="border-radius: 0 25px 25px 0;">
+                                <input type="text" name="q" class="form-control border-0 bg-white" placeholder="Cari galeri..." aria-label="Search gallery" style="border-radius: 25px 0 0 25px;">
+                                <button class="btn btn-primary-custom-dark border-0 text-white" type="submit" style="border-radius: 0 25px 25px 0;">
                                     <i class="bi bi-search"></i>
                                 </button>
                             </div>
@@ -29,27 +26,25 @@
         </div>
     </section>
 
-    <!-- Category Filter -->
-    <section class="py-4 bg-light section-padding">
+    <section class="py-4 section-padding shadow-sm sticky-top"
+        style="top: 0; z-index: 1020; background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); border-bottom: 2px solid rgba(255,255,255,0.2); transition: all 0.3s ease;">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="d-flex flex-wrap gap-2 justify-content-center">
                         <a
-                            class="badge badge-filter bg-primary text-white p-3 text-decoration-none active rounded-pill shadow-sm"
+                            class="badge badge-filter p-3 text-decoration-none rounded-pill shadow-sm active-filter-badge"
                             data-filter="all" style="animation: fadeInUp 1s ease-out;">
-                            <i class="fas fa-th-large me-1"></i>All Photos
+                            <i class="fas fa-th-large me-1"></i>Semua Foto
                         </a>
-                        @php $categories_for_filter = ['All', ...collect($categories)->pluck('name')->toArray()]; @endphp
-                        @foreach ($categories_for_filter as $category)
-                            @if ($category != 'All')
-                                <a
-                                    class="badge badge-filter bg-light text-dark border p-3 text-decoration-none rounded-pill shadow-sm"
-                                    data-filter="{{ Str::slug($category) }}"
-                                    style="animation: fadeInUp {{ $loop->index * 0.1 + 1.2 }}s ease-out;">
-                                    {{ $category }}
-                                </a>
-                            @endif
+                        {{-- Badge Category (Disesuaikan agar teksnya tetap terang) --}}
+                        @foreach ($categories as $category)
+                            <a
+                                class="badge badge-filter bg-dark text-white border p-3 text-decoration-none rounded-pill shadow-sm hover-lift badge-dark-mode"
+                                data-filter="{{ Str::slug($category['name']) }}"
+                                style="animation: fadeInUp {{ $loop->index * 0.1 + 1.2 }}s ease-out;">
+                                {{ $category['name'] }}
+                            </a>
                         @endforeach
                     </div>
                 </div>
@@ -57,28 +52,26 @@
         </div>
     </section>
 
-    <!-- Main Gallery Content -->
-    <section class="py-5 bg-white">
+    <section class="py-5" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Gallery Categories -->
                     @foreach($categories as $category)
                     <div id="category-{{ Str::slug($category['name']) }}" class="gallery-category mb-5" data-category="{{ Str::slug($category['name']) }}">
-                        <div class="d-flex align-items-center mb-4 p-3 bg-light rounded-3">
-                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: linear-gradient(45deg, #007bff, #00bcd4); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                <i class="{{ $category['icon'] }} text-white fs-4"></i>
+                        <div class="d-flex align-items-center mb-4 p-3 hover-bg-dark-lighten rounded-3 shadow-lg smooth-scroll">
+                            <div class="icon-wrapper me-3" style="width: 60px; height: 60px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="{{ $category['icon'] ?? 'fas fa-camera' }} text-primary-custom fs-4"></i>
                             </div>
                             <div>
-                                <h3 class="fw-bold mb-1 text-primary">{{ $category['name'] }}</h3>
-                                <p class="text-muted mb-0">{{ count($category['photos']) }} foto tersedia</p>
+                                <h3 class="fw-bold mb-1 text-white">{{ $category['name'] }}</h3>
+                                <p class="text-light mb-0">{{ count($category['photos']) }} foto tersedia</p>
                             </div>
                         </div>
 
                         <div class="row g-4">
                             @foreach($category['photos'] as $photo)
-                            <div class="col-md-4 mb-4 article-item" data-category="{{ Str::slug($category['name']) }}">
-                                <div class="card border-0 shadow-sm h-100 gallery-card rounded-3 overflow-hidden position-relative">
+                            <div class="col-md-6 col-lg-4 mb-4 article-item" data-category="{{ Str::slug($category['name']) }}">
+                                <div class="card border-0 shadow-lg h-100 gallery-card rounded-3 overflow-hidden position-relative animate-fade-in">
                                     <div class="card-img-container position-relative overflow-hidden" style="height: 250px;">
                                         <img src="{{ $photo['image'] }}" class="card-img-top w-100 h-100 object-fit-cover" alt="{{ $photo['title'] }}">
                                         <div class="card-img-overlay d-flex align-items-end p-3" style="background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);">
@@ -89,7 +82,7 @@
                                         </div>
                                         <div class="card-hover-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-75 opacity-0 transition-all">
                                             <div class="text-center">
-                                                <a href="{{ $photo['image'] }}" class="btn btn-light btn-lg rounded-circle mb-2" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}">
+                                                <a href="#" class="btn btn-light btn-lg rounded-circle mb-2" data-bs-toggle="modal" data-bs-target="#imageModal" data-image="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}">
                                                     <i class="fas fa-expand-arrows-alt"></i>
                                                 </a>
                                                 <br>
@@ -101,11 +94,11 @@
                                         <p class="card-text text-muted small mb-3">{{ $photo['description'] }}</p>
 
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span class="badge bg-gradient-{{ $category['color'] }} text-white">
-                                                {{-- <i class="bi-tag me-1"></i>{{ $photo['event'] }} --}}
+                                            <span class="badge bg-gradient-primary-custom text-white">
+                                                <i class="fas fa-tag me-1"></i>{{ $category['name'] }}
                                             </span>
                                             <div>
-                                                <a href="{{ $photo['image'] }}" download class="btn btn-sm btn-outline-primary rounded-pill me-1" title="Download">
+                                                <a href="{{ $photo['image'] }}" download class="btn btn-sm btn-outline-primary-custom rounded-pill me-1" title="Download">
                                                     <i class="bi-download"></i>
                                                 </a>
                                             </div>
@@ -122,7 +115,6 @@
         </div>
     </section>
 
-    <!-- Image Modal -->
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg">
@@ -131,62 +123,95 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-0">
-                    <img id="modalImage" src="" alt="" class="w-100">
+                    <img id="modalImage" src="" alt="" class="w-100 rounded-bottom">
                 </div>
             </div>
         </div>
     </div>
 
 
-
-    <!-- Custom CSS -->
     <style>
-        .hero-section {
-            position: relative;
+        /* Define the new, deep blue color palette */
+        :root {
+            /* Warna Dasar Baru */
+            --color-dark-blue: #0a2c4d;
+            --color-medium-blue: #154e8d;
+            --bs-primary-custom: var(--color-dark-blue);
+            
+            /* Gradien Baru yang diminta user: #0a2c4d to #154e8d */
+            --bs-primary-gradient: linear-gradient(90deg, var(--color-dark-blue) 0%, var(--color-medium-blue) 100%);
+            --color-dark-lighten: #1e59a4; /* Warna sedikit lebih terang dari dark blue untuk hover/elemen kecil */
         }
-        .hero-bg-overlay {
-            z-index: 0;
+
+        /* Custom Classes for New Colors/Gradients */
+        .bg-gradient-primary-custom {
+            background: var(--bs-primary-gradient) !important;
         }
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in;
+
+        .text-primary-custom {
+            color: var(--color-dark-blue) !important;
         }
-        .animate-slide-up {
-            animation: slideUp 1s ease-out 0.3s both;
+
+        .btn-primary-custom-dark {
+            background-color: var(--color-medium-blue) !important;
+            border-color: var(--color-medium-blue) !important;
         }
-        .animate-bounce {
-            animation: bounce 2s infinite;
+        
+        .btn-outline-primary-custom {
+            color: var(--color-medium-blue);
+            border-color: var(--color-medium-blue);
         }
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
+        .btn-outline-primary-custom:hover {
+            color: white;
+            background-color: var(--color-medium-blue);
+            border-color: var(--color-medium-blue);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+
+        /* Hover/Focus effect untuk background gelap */
+        .hover-bg-dark-lighten:hover {
+             background-color: var(--color-dark-lighten) !important;
+             cursor: pointer;
         }
+
+        /* Filter Badge Styles: Menggunakan gradien yang baru */
+        .badge-filter {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .badge-filter.active-filter-badge {
+            background: white !important; /* Diubah menjadi putih agar menonjol di background gelap */
+            color: var(--color-dark-blue) !important;
+            border: none !important;
+            font-weight: bold;
+        }
+        /* Style for non-active badges when background is dark */
+        .badge-dark-mode {
+            background-color: transparent !important;
+            color: rgba(255, 255, 255, 0.8) !important;
+            border-color: rgba(255, 255, 255, 0.4) !important;
+        }
+        .badge-dark-mode:hover {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            color: white !important;
+        }
+
+
+        /* Style Tambahan Lain (tidak diubah dari sebelumnya) */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .animate-fade-in {
+            animation: fadeInUp 1s ease-out;
         }
         .gallery-card {
             transition: all 0.3s ease;
             overflow: hidden;
         }
         .gallery-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; /* Shadow lebih tebal untuk background gelap */
         }
         .card-img-container img {
             transition: transform 0.3s ease;
@@ -200,73 +225,33 @@
         .gallery-card:hover .card-hover-overlay {
             opacity: 1 !important;
         }
-        .hover-lift {
-            transition: transform 0.3s ease;
-        }
-        .hover-lift:hover {
-            transform: translateY(-2px);
-        }
-        .hover-bg-light:hover {
-            background-color: rgba(0,123,255,0.1) !important;
-        }
-        .smooth-scroll {
-            transition: all 0.3s ease;
-        }
-        .bg-gradient-primary {
-            background: #007bff;
-        }
-        .bg-gradient-success {
-            background: linear-gradient(45deg, #28a745, #20c997);
-        }
-        .bg-gradient-danger {
-            background: linear-gradient(45deg, #dc3545, #fd7e14);
-        }
-        .bg-gradient-warning {
-            background: linear-gradient(45deg, #ffc107, #e83e8c);
-        }
-        .bg-gradient-blue {
-            background: linear-gradient(45deg, #007bff, #00bcd4);
-        }
-        .stat-card {
-            transition: transform 0.3s ease;
-        }
-        .stat-card:hover {
-            transform: scale(1.05);
-        }
-        .progress {
-            background-color: rgba(255,255,255,0.2);
-        }
-        .gallery-category {
-            scroll-margin-top: 100px;
-        }
-        .badge-filter {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .badge-filter:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        .badge-filter.active {
-            background: #007bff !important;
-            color: white !important;
-        }
         .article-item {
-            transition: all 0.3s ease;
+            transition: all 0.5s ease-in-out;
+            display: block;
         }
         .article-item.hidden {
+            max-height: 0;
             opacity: 0;
-            transform: scale(0.8);
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+            transform: scale(0.9);
             pointer-events: none;
+            overflow: hidden;
+            display: none;
         }
-
+        .gallery-category {
+            transition: all 0.5s ease-in-out;
+            scroll-margin-top: 100px;
+        }
     </style>
 @endsection
 
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Image Modal
+        // Image Modal logic remains the same
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('imageModalLabel');
@@ -280,21 +265,7 @@
             modalTitle.textContent = imageTitle;
         });
 
-        // Smooth scrolling for category links
-        document.querySelectorAll('.smooth-scroll').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Category filtering
+        // Category filtering logic
         const filterBadges = document.querySelectorAll('.badge-filter');
         const articleItems = document.querySelectorAll('.article-item');
         const galleryCategories = document.querySelectorAll('.gallery-category');
@@ -303,20 +274,30 @@
             badge.addEventListener('click', function() {
                 const filter = this.getAttribute('data-filter');
 
-                // Update active badge
-                filterBadges.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+                // Update active badge state
+                filterBadges.forEach(b => {
+                    // Reset all badges to dark mode style
+                    b.classList.remove('active', 'active-filter-badge');
+                    b.classList.add('badge-dark-mode'); 
+                });
+                // Set the clicked badge to active (white background)
+                this.classList.add('active', 'active-filter-badge');
+                this.classList.remove('badge-dark-mode');
+
 
                 if (filter === 'all') {
                     // Show all items and categories
                     articleItems.forEach(item => {
                         item.classList.remove('hidden');
+                        item.style.animation = 'none';
+                        item.offsetHeight; /* trigger reflow */
+                        item.style.animation = null;
                     });
                     galleryCategories.forEach(cat => {
                         cat.style.display = 'block';
                     });
                 } else {
-                    // Show only items with matching category
+                    // Filter articles
                     articleItems.forEach(item => {
                         const itemCategory = item.getAttribute('data-category');
                         if (itemCategory === filter) {
@@ -339,11 +320,11 @@
             });
         });
 
-        // Add animation delays to gallery cards
-        document.querySelectorAll('.gallery-card').forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.classList.add('animate-fade-in');
-        });
+        // Initialize first badge as active (Semua Foto)
+        const allPhotosBadge = document.querySelector('[data-filter="all"]');
+        if (allPhotosBadge) {
+            allPhotosBadge.click(); // Trigger initial state
+        }
     });
 </script>
 @endpush

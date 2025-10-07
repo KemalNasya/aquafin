@@ -18,7 +18,7 @@
 
 <body>
     <x-header />
-    <section style="height: 80px; background-color: #ffffff;"></section>
+    <section style="height: 80px; background-color: **#123456**;"></section>
 
     <main>
         @yield('content')
