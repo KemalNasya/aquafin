@@ -30,7 +30,7 @@ class TransactionResource extends Resource
 
     protected static ?string $navigationLabel = 'Transaksi';
 
-    protected static ?string $recordTitleAttribute = 'Transaksi Keuangan';
+    protected static ?string $recordTitleAttribute = 'description';
 
     protected static ?string $modelLabel = 'Transaksi';
     

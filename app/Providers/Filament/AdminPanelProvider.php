@@ -2,8 +2,6 @@
 
 namespace App\Providers\Filament;
 
-
-
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -29,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->brandName('Pereng Mina GAP')
+            ->brandLogoHeight('40px') 
             ->id('admin')
             ->path('admin')
             ->login()
@@ -52,7 +51,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
-                // kamu bisa tambahkan widget di sini
+                
             ])
             ->plugins([
                 FilamentApexChartsPlugin::make(),
@@ -61,6 +60,14 @@ class AdminPanelProvider extends PanelProvider
             ->renderHook(
                 'panels::sidebar.end',
                 fn () => view('filament.sidebar-account')
+            )
+            ->renderHook(
+                'panels::sidebar.brand',
+                fn () => view('filament.components.sidebar-brand')
+            )
+            ->renderHook(
+                'panels::sidebar.search',
+                fn () => view('filament.components.sidebar-search')
             )
             ->middleware([
                 EncryptCookies::class,

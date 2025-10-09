@@ -30,7 +30,7 @@ class GalleryResource extends Resource
 
     protected static ?string $navigationLabel = 'Foto';
 
-    protected static ?string $recordTitleAttribute = 'gallery';
+    protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $modelLabel = 'Foto';
     

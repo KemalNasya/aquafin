@@ -28,7 +28,7 @@ class WalletResource extends Resource
 
     protected static ?string $navigationLabel = 'Wallets';
 
-    protected static ?string $recordTitleAttribute = 'wallet';
+    protected static ?string $recordTitleAttribute = 'name';
 
     public static function form(Schema $schema): Schema
     {

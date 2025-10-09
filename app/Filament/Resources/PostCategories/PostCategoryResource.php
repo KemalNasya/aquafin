@@ -30,7 +30,7 @@ class PostCategoryResource extends Resource
 
     protected static ?string $navigationLabel = 'Kategori';
 
-    protected static ?string $recordTitleAttribute = 'post category';
+    protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $modelLabel = 'Post kategory';
     

@@ -50,7 +50,7 @@ class CreateTransaction extends CreateRecord
 
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Kategori berhasil ditambahkan!';
+        return 'Transaksi berhasil ditambahkan!';
     }
 
     protected function getRedirectUrl(): string

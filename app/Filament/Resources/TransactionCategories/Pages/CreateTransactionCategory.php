@@ -13,7 +13,7 @@ class CreateTransactionCategory extends CreateRecord
     protected static string $resource = TransactionCategoryResource::class;
     public function getTitle(): string | Htmlable
     {
-        return 'Tambah Kategori Keuangan';
+        return 'Tambah Kategori Transaksi';
     }
 
     public function getBreadcrumb(): string

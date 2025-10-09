@@ -16,16 +16,16 @@ class WalletsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                ->label('Name Wallet')
+                    ->label('Name Wallet')
                     ->searchable(),
                 TextColumn::make('balance')
                     ->numeric()
                     ->sortable(),
                 TextColumn::make('currency.name')
-                ->label('Mata Uang')
+                    ->label('Mata Uang')
                     ->searchable(),
                 IconColumn::make('is_active')
-                ->label('Aktif')
+                    ->label('Aktif')
                     ->boolean(),
                 TextColumn::make('created_at')
                     ->dateTime()

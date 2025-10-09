@@ -31,4 +31,9 @@ class EditPostCategory extends EditRecord
                 ->url($this->getResource()::getUrl('index')),
         ];
     }
+
+    protected function getRedirectUrl(): string
+    {
+        return static::getResource()::getUrl('index');
+    }
 }

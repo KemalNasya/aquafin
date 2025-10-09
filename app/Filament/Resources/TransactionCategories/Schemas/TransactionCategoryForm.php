@@ -14,7 +14,7 @@ class TransactionCategoryForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->label('Nama Kategori')
+                    ->label('Kategori')
                     ->required()
                     ->maxLength(255)
                     ->unique('transaction_categories', 'name', ignoreRecord: true),
@@ -36,7 +36,7 @@ class TransactionCategoryForm
                 \Filament\Forms\Components\Hidden::make('color'),
 
                 // Tampilkan info warna (readonly)
-                \Filament\Forms\Components\Placeholder::make('color_info')
+                \Filament\Forms\Components\Placeholder::make('info tipe')
                     ->content(function ($get) {
                         $type = $get('type');
                         if ($type === 'income') {

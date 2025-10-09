@@ -18,7 +18,7 @@ class ListTransactions extends ListRecords
                 ->icon('heroicon-m-plus'),
 
             Actions\ActionGroup::make([
-                // ✅ HANYA PDF YANG TERSISA
+
                 Actions\Action::make('PDF')
                     ->label('Export PDF')
                     ->icon('heroicon-o-document')

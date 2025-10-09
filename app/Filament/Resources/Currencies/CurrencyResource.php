@@ -28,7 +28,8 @@ class CurrencyResource extends Resource
 
     protected static ?string $navigationLabel = 'Mata Uang';
 
-    protected static ?string $recordTitleAttribute = 'currency';
+    protected static ?string $recordTitleAttribute = 'name';
+
 
     protected static ?string $modelLabel = 'Mata Uang';
     

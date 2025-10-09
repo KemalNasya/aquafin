@@ -20,7 +20,7 @@ class WalletForm
                     ->numeric()
                     ->default(0.0),
                 Select::make('currency_id')
-                ->label('Mata Uang')
+                    ->label('Mata Uang')
                     ->relationship('currency', 'name')
                     ->required(),
                 Toggle::make('is_active')

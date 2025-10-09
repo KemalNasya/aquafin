@@ -32,7 +32,7 @@ class PostResource extends Resource
 
     protected static ?string $navigationLabel = 'Postingan Artikel';
 
-    protected static ?string $recordTitleAttribute = 'postingan';
+    protected static ?string $recordTitleAttribute = 'title';
 
     protected static ?string $modelLabel = 'Postingan';
     

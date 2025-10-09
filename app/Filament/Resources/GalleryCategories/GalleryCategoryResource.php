@@ -30,7 +30,7 @@ class GalleryCategoryResource extends Resource
 
     protected static ?string $navigationLabel = 'Kategori';
 
-    protected static ?string $recordTitleAttribute = 'Kategori Foto';
+    protected static ?string $recordTitleAttribute = 'name';
     
     protected static ?string $modelLabel = 'Kategori Foto';
     
