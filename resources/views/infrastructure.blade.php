@@ -20,251 +20,290 @@
     </section>
 
     <section class="py-5 dark-blue-gradient-bg text-white">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0s">
-                    <div class="stat-item">
-                        <div class="display-4 fw-bold mb-2 counter" data-target="500">0</div>
-                        <p class="mb-0 fs-5">Ton Ikan/tahun</p>
-                        <small class="text-white-50">Kapasitas Produksi</small>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
-                    <div class="stat-item">
-                        <div class="display-4 fw-bold mb-2 counter" data-target="50">0</div>
-                        <p class="mb-0 fs-5">Hektar</p>
-                        <small class="text-white-50">Luas Lahan</small>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
-                    <div class="stat-item">
-                        <div class="display-4 fw-bold mb-2 counter" data-target="90">0</div>
-                        <p class="mb-0 fs-5">%</p>
-                        <small class="text-white-50">Efisiensi Air</small>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
-                    <div class="stat-item">
-                        <div class="display-4 fw-bold mb-2 counter" data-target="100">0</div>
-                        <p class="mb-0 fs-5">Kolam</p>
-                        <small class="text-white-50">Total Kolam</small>
-                    </div>
+    <div class="container">
+        <div class="row text-center">
+            
+            {{-- Statistik 1: Luas Area (0.6 Ha) --}}
+            <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0s">
+                <div class="stat-item">
+                    {{-- Target diubah dari 50 menjadi 0.6. Perlu sedikit penyesuaian di JS untuk angka desimal --}}
+                    <div class="display-4 fw-bold mb-2 counter" data-target="6">0</div>
+                    <p class="mb-0 fs-5">0.6 Hektar</p>
+                    <small class="text-white-50">Luas Area Kelolaan</small>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="overview" class="section-padding py-5 custom-gradient-bg text-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 animate-on-scroll" data-animation="slideInLeft" data-delay="0s">
-                    <div class="position-relative">
-                        <img src="{{ asset('assets/template.jpg') }}" alt="Infrastruktur Budidaya"
-                            class="img-fluid rounded shadow-lg hover-scale">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                            <div class="bg-white bg-opacity-90 rounded-circle p-4 shadow-lg pulse-animation">
-                                <i class="fas fa-play custom-text-primary fs-1"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
-                    <h2 class="fw-bold mb-4 text-white">Gambaran Umum Infrastruktur</h2>
-                    <p class="lead mb-4">Infrastruktur budidaya ikan kami dirancang dengan pendekatan
-                        berkelanjutan, mengintegrasikan teknologi modern untuk memastikan produksi ikan berkualitas tinggi
-                        sambil menjaga keseimbangan lingkungan.</p>
-                    <p>Dengan luas lahan lebih dari 5 hektar, fasilitas kami mencakup kolam budidaya,
-                        laboratorium pengujian, dan sistem monitoring otomatis. Setiap elemen dirancang untuk mendukung
-                        siklus budidaya yang efisien dari bibit hingga panen.</p>
-                    <div class="row mt-4">
-                        <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
-                            <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
-                                <i class="fas fa-award text-warning fs-2 mb-2"></i>
-                                <small class="text-muted d-block">ISO 14001</small>
-                            </div>
-                        </div>
-                        <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
-                            <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
-                                <i class="fas fa-leaf text-success fs-2 mb-2"></i>
-                                <small class="text-muted d-block">Ramah Lingkungan</small>
-                            </div>
-                        </div>
-                        <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
-                            <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
-                                <i class="fas fa-cogs custom-text-primary fs-2 mb-2"></i>
-                                <small class="text-muted d-block">Teknologi Canggih</small>
-                            </div>
-                        </div>
-                    </div>
+            {{-- Statistik 2: Jumlah Kolam (26 Buah) --}}
+            <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="26">0</div>
+                    <p class="mb-0 fs-5">Kolam</p>
+                    <small class="text-white-50">Total Kolam Budidaya</small>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="process" class="section-padding py-5 custom-gradient-bg text-white">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3 text-white animate-on-scroll" data-animation="fadeInUp" data-delay="0s">Proses Budidaya Modern</h2>
-                <p class="lead animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">Siklus lengkap dari bibit hingga panen
-                    dengan teknologi terkini</p>
-            </div>
-            <div class="timeline dark-blue-timeline">
-                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
-                    <div class="timeline-marker dark-blue-bg"></div>
-                    <div class="timeline-content">
-                        <div class="card border-0 shadow-sm card-hover">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="timeline-icon dark-blue-bg text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                        style="width: 50px; height: 50px;">
-                                        <i class="fas fa-egg"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="card-title mb-1 custom-text-primary">Pembibitan</h5>
-                                        <small class="text-muted">Tahap 1 - 2 Minggu</small>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted">Proses pembenihan ikan secara terkontrol dengan teknologi
-                                    inkubasi modern untuk memastikan kualitas bibit yang tinggi dan tingkat kelangsungan
-                                    hidup optimal.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
-                    <div class="timeline-marker bg-success"></div>
-                    <div class="timeline-content">
-                        <div class="card border-0 shadow-sm card-hover">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                        style="width: 50px; height: 50px;">
-                                        <i class="fas fa-fish"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="card-title mb-1 text-success">Pendederan</h5>
-                                        <small class="text-muted">Tahap 2 - 4 Minggu</small>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted">Tahap adaptasi bibit ikan ke lingkungan kolam dengan sistem
-                                    monitoring intensif untuk memastikan pertumbuhan yang sehat dan seragam.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
-                    <div class="timeline-marker bg-warning"></div>
-                    <div class="timeline-content">
-                        <div class="card border-0 shadow-sm card-hover">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="timeline-icon bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                        style="width: 50px; height: 50px;">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="card-title mb-1 text-warning">Budidaya Intensif</h5>
-                                        <small class="text-muted">Tahap 3 - 6 Bulan</small>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted">Fase pertumbuhan utama dengan sistem pemberian pakan
-                                    otomatis dan monitoring 24/7 untuk mencapai ukuran panen optimal dengan efisiensi
-                                    maksimal.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="1.0s">
-                    <div class="timeline-marker bg-info"></div>
-                    <div class="timeline-content">
-                        <div class="card border-0 shadow-sm card-hover">
-                            <div class="card-body p-4">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="timeline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3"
-                                        style="width: 50px; height: 50px;">
-                                        <i class="fas fa-box-open"></i>
-                                    </div>
-                                    <div>
-                                        <h5 class="card-title mb-1 text-info">Panen & Distribusi</h5>
-                                        <small class="text-muted">Tahap Akhir</small>
-                                    </div>
-                                </div>
-                                <p class="card-text text-muted">Panen selektif dengan teknologi grading otomatis dan sistem
-                                    distribusi langsung ke pasar untuk memastikan kesegaran produk hingga ke konsumen.</p>
-                            </div>
-                        </div>
-                    </div>
+            {{-- Statistik 3: Jumlah Anggota (29 Orang) --}}
+            <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="29">0</div>
+                    <p class="mb-0 fs-5">Anggota</p>
+                    <small class="text-white-50">PIC Kolam & Pengelola</small>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="facilities" class="section-padding py-5 custom-gradient-bg text-white">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold mb-3 text-white animate-on-scroll" data-animation="fadeInUp" data-delay="0s">Fasilitas Utama</h2>
-                <p class="lead animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">Komponen infrastruktur yang
-                    mendukung operasional budidaya ikan berkelanjutan</p>
+            {{-- Statistik 4: Kapasitas PLTS (1500 WP) - Fitur Infrastruktur Kunci --}}
+            <div class="col-md-3 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2 counter" data-target="1500">0</div>
+                    <p class="mb-0 fs-5">Watt Peak (WP)</p>
+                    <small class="text-white-50">Kapasitas PLTS Hybrid</small>
+                </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
-                        <div class="facility-icon mb-3">
-                            <i class="fas fa-water custom-text-primary fs-1"></i>
-                        </div>
-                        <h5 class="custom-text-primary mb-3">Kolam Budidaya</h5>
-                        <p class="small">Memiliki 26 Kolam dengan luas yang bervariasi.</p>
-                        <div class="mt-3">
-                            <span class="badge dark-blue-bg">100 Kolam</span>
-                        </div>
+            
+        </div>
+    </div>
+</section>
+            <!-- ==================== GAMBARAN UMUM INFRASTRUKTUR ==================== -->
+<section id="infrastructure" class="section-padding py-5 text-white" style="background: linear-gradient(135deg, #002b60, #014a8a);">
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- Kolom Gambar -->
+            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                <div class="position-relative rounded overflow-hidden shadow-lg">
+                    <img src="{{ asset('assets/kolam.jpg') }}" 
+                         alt="Infrastruktur Pereng Mina" 
+                         class="img-fluid rounded" 
+                         style="object-fit: cover; width: 100%; height: 380px;">
+                    <!-- Tombol Play di Tengah -->
+                    <div class="position-absolute top-50 start-50 translate-middle">
+                         <a href="{{ asset('assets/Kolamvidd.mp4') }}" target="_blank">
+                    
+                            <i class="fas fa-play text-primary"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
-                        <div class="facility-icon mb-3">
-                            {{-- Perubahan ikon Mesin Pengolah Pakan --}}
-                            <i class="fas fa-mortar-pestle text-success fs-1"></i>
-                        </div>
-                        <h5 class="text-success mb-3">Mesin Pengolah Pakan</h5>
-                        <p class="small">Mesin pelet pakan ikan berfungsi membuat pelet tenggelam berbentuk silinder pendek (3–5 cm).
-                            Bahan pakan seperti protein, karbohidrat, vitamin, mineral, minyak nabati, dan pengikat dicampur rata dalam mixer sebelum diproses.
-                            Pakan tambahan dapat dibuat dari residu warung atau toko roti yang telah dicacah halus terlebih dahulu.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-success">Otomatis</span>
+            </div>
+
+            <!-- Kolom Teks -->
+            <div class="col-lg-6 col-md-12">
+                <div class="p-3" style="color: white; z-index: 10; position: relative;">
+                    <h2 class="fw-bold mb-4" style="color: #ffffff;">Gambaran Umum Infrastruktur</h2>
+                    <p class="lead mb-4" style="color: #f5f5f5;">
+                        Infrastruktur kelompok pembudidaya ikan “Pereng Mina” GAP dirancang untuk mendukung kegiatan
+                        budidaya ikan air tawar secara berkelanjutan. Setiap elemen fasilitas memanfaatkan sumber daya lokal
+                        seperti mata air alami dan energi surya untuk menjaga efisiensi dan keberlanjutan lingkungan.
+                    </p>
+                    <p style="color: #f5f5f5;">
+                        Dengan luas area ±0,6 hektar dan 26 kolam budidaya, kelompok ini memanfaatkan sistem pengairan dari
+                        mata air sekitar, mesin pembuat pakan (TTG Pelet), serta instalasi PLTS hybrid 1500 WP yang digunakan
+                        untuk pompa dan penerangan kolam. Website resmi kelompok juga dikembangkan untuk mendukung digitalisasi 
+                        manajemen usaha melalui pencatatan keuangan dan publikasi kegiatan.
+                    </p>
+
+                    
+                    
+        </div> <!-- /row -->
+    </div> <!-- /container -->
+</section>
+
+
+                <div class="row mt-4">
+                    <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                        <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
+                            <i class="fas fa-solar-panel text-warning fs-2 mb-2"></i>
+                            <small class="text-muted d-block">PLTS Hybrid 1500 WP</small>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
-                        <div class="facility-icon mb-3">
-                            {{-- Perubahan ikon Instalasi PLTS --}}
-                            <i class="fas fa-solar-panel text-warning fs-1"></i>
-                        </div>
-                        <h5 class="text-warning mb-3">Instalasi PLTS</h5>
-                        <p class="small">Instalasi PLTS yang dipasang di salah satu gazebo di Kelompok Pembudidaya Ikan
-                            "Pereng Mina" GAP merupakan sumber catu daya bantuan yang digunakan untuk penerangan dan operasi pompa yang tersedia.
-                            Penerangan berupa lampu digunakan untuk penerangan lokasi kolam saat di malam hari..
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-warning">Energi Terbarukan</span>
+                    <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                        <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
+                            <i class="fas fa-fish text-success fs-2 mb-2"></i>
+                            <small class="text-muted d-block">26 Kolam Ikan</small>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="1.0s">
-                    <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
-                        <div class="facility-icon mb-3">
-                            <i class="fas fa-leaf text-info fs-1"></i>
-                        </div>
-                        <h5 class="text-info mb-3">Pengelolaan Air</h5>
-                        <p class="small">Sistem daur ulang air 90% efisien untuk budidaya berkelanjutan.</p>
-                        <div class="mt-3">
-                            <span class="badge bg-info">90% Efisien</span>
+                    <div class="col-4 text-center animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
+                        <div class="feature-highlight p-3 rounded bg-white shadow-sm hover-lift">
+                            <i class="fas fa-mortar-pestle custom-text-primary fs-2 mb-2"></i>
+                            <small class="text-muted d-block">Mesin Pelet Pakan</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- ==================== PROSES BUDIDAYA ==================== -->
+<section id="process" class="section-padding py-5 custom-gradient-bg text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-3 text-white animate-on-scroll" data-animation="fadeInUp" data-delay="0s">
+                Proses Budidaya Ikan di “Pereng Mina”
+            </h2>
+            <p class="lead animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
+                Tahapan budidaya ikan nila, lele, dan gurami dari bibit hingga panen dengan penerapan teknologi tepat guna.
+            </p>
+        </div>
+        <div class="timeline dark-blue-timeline">
+            <!-- Tahap 1 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                <div class="timeline-marker dark-blue-bg"></div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="timeline-icon dark-blue-bg text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="fas fa-egg"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-1 custom-text-primary">Pembenihan & Penebaran</h5>
+                                    <small class="text-muted">Tahap Awal</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted">
+                                Pemilihan dan penebaran bibit ikan nila, lele, dan gurami ke kolam tanah yang bersumber dari mata air alami.
+                                Penebaran dilakukan berdasarkan hasil musyawarah antar anggota untuk menjamin distribusi yang merata.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tahap 2 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                <div class="timeline-marker bg-success"></div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-1 text-success">Pemeliharaan</h5>
+                                    <small class="text-muted">Tahap 1 - 6 Bulan</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted">
+                                Pemeliharaan dilakukan secara rutin dengan pemberian pakan tiga kali sehari,
+                                menggunakan pakan hasil produksi mesin pelet buatan sendiri. Kualitas air kolam
+                                dijaga melalui aerasi dan pompa yang ditenagai energi PLTS hybrid.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tahap 3 -->
+            <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
+                <div class="timeline-marker bg-warning"></div>
+                <div class="timeline-content">
+                    <div class="card border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="timeline-icon bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3"
+                                    style="width: 50px; height: 50px;">
+                                    <i class="fas fa-box-open"></i>
+                                </div>
+                                <div>
+                                    <h5 class="card-title mb-1 text-warning">Panen</h5>
+                                    <small class="text-muted">Tahap Akhir</small>
+                                </div>
+                            </div>
+                            <p class="card-text text-muted">
+                                Panen dilakukan secara selektif sesuai ukuran dan jenis ikan. 
+                                Lele dipanen setiap 2–3 bulan, nila sekitar 6 bulan, dan gurami hingga 1 tahun.
+                                Hasil panen kemudian dijual ke pasar lokal dalam bentuk ikan segar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FASILITAS UTAMA ==================== -->
+<section id="facilities" class="section-padding py-5 custom-gradient-bg text-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-3 text-white animate-on-scroll" data-animation="fadeInUp" data-delay="0s">Fasilitas Utama</h2>
+            <p class="lead animate-on-scroll" data-animation="fadeInUp" data-delay="0.2s">
+                Sarana penunjang utama kegiatan Kelompok Pembudidaya Ikan “Pereng Mina” GAP
+            </p>
+        </div>
+        <div class="row g-4">
+            <!-- Kolam Budidaya -->
+            <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
+                <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
+                    <div class="facility-icon mb-3">
+                        <i class="fas fa-water custom-text-primary fs-1"></i>
+                    </div>
+                    <h5 class="custom-text-primary mb-3">Kolam Budidaya</h5>
+                    <p class="small">
+                        Sebanyak 26 kolam tanah dengan sistem pengairan dari mata air alami di area seluas ±0,6 hektar.
+                        Setiap kolam dikelola oleh anggota dengan sistem tanggung jawab individu (PIC).
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge dark-blue-bg">26 Kolam</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mesin Pelet -->
+            <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
+                <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
+                    <div class="facility-icon mb-3">
+                        <i class="fas fa-mortar-pestle text-success fs-1"></i>
+                    </div>
+                    <h5 class="text-success mb-3">Mesin Pelet Pakan Ikan</h5>
+                    <p class="small">
+                        Teknologi Tepat Guna (TTG) yang digunakan untuk memproduksi pakan ikan berbentuk pelet
+                        dari bahan lokal seperti dedak, tepung ikan, dan bungkil kedelai untuk mengurangi biaya produksi.
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-success">TTG Lokal</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PLTS -->
+            <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
+                <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
+                    <div class="facility-icon mb-3">
+                        <i class="fas fa-solar-panel text-warning fs-1"></i>
+                    </div>
+                    <h5 class="text-warning mb-3">Instalasi PLTS Hybrid</h5>
+                    <p class="small">
+                        Pembangkit Listrik Tenaga Surya 1500 WP yang digunakan untuk penerangan dan pompa air di area kolam.
+                        Mendukung efisiensi energi dan keberlanjutan lingkungan kelompok budidaya.
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-warning">Energi Terbarukan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Website Pereng Mina -->
+            <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="1.0s">
+                <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
+                    <div class="facility-icon mb-3">
+                        <i class="fas fa-globe text-info fs-1"></i>
+                    </div>
+                    <h5 class="text-info mb-3">Website Pereng Mina</h5>
+                    <p class="small">
+                        Website resmi kelompok berfungsi sebagai media informasi, promosi, dan dokumentasi kegiatan budidaya ikan.
+                        Selain itu, website juga dilengkapi fitur pencatatan keuangan keluar-masuk yang hanya dapat diakses oleh 
+                        admin “Pereng Mina” untuk menjaga keamanan dan transparansi data internal.
+                    </p>
+                    <div class="mt-3">
+                        <span class="badge bg-info">Informasi & Keuangan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     
     <style>

@@ -4,7 +4,7 @@
 
 @section('content')
     <section class="hero-section position-relative overflow-hidden"
-        style="min-height: 89vh; background: url('{{ asset('assets/ss.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
+        style="min-height: 89vh; background: url('{{ asset('assets/benner.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
         <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(4, 33, 66, 0.75);"></div>
         <div class="container position-relative text-center text-white py-5">
             <div class="row justify-content-center">
