@@ -5,14 +5,20 @@
 @section('content')
     <section class="hero-section position-relative overflow-hidden"
         style="min-height: 89vh; background: url('{{ asset('assets/mesinnn.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
-        <div class="position-absolute top-0 start-0 w-100 h-100 dark-blue-gradient-overlay"></div>
+        
+        {{-- OVERLAY GRADIENT HITAM BARU --}}
+        <div class="position-absolute top-0 start-0 w-100 h-100 black-gradient-overlay"></div>
+        
+        {{-- FILTER BRIGHTNESS 60% (MEMBUAT GAMBAR JADI REDUP) --}}
+        <div class="position-absolute top-0 start-0 w-100 h-100 dark-filter"></div>
+        
         <div class="container position-relative text-center text-white py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <h1 class="display-4 fw-bold mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0s"
-                        style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7);">Infrastruktur dan Teknologi</h1>
+                        style="text-shadow: 3px 3px 6px rgba(0,0,0,0.9);">Infrastruktur dan Teknologi</h1>
                     <p class="lead fs-4 mb-4 animate-on-scroll" data-animation="fadeInUp" data-delay="0.3s"
-                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Fasilitas modern
+                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Fasilitas modern
                         dan teknologi canggih untuk budidaya ikan berkelanjutan dan berkualitas tinggi</p>
                 </div>
             </div>
@@ -63,19 +69,16 @@
         </div>
     </div>
 </section>
-            <!-- ==================== GAMBARAN UMUM INFRASTRUKTUR ==================== -->
-<section id="infrastructure" class="section-padding py-5 text-white" style="background: linear-gradient(135deg, #002b60, #014a8a);">
+            <section id="infrastructure" class="section-padding py-5 text-white" style="background: linear-gradient(135deg, #002b60, #014a8a);">
     <div class="container">
         <div class="row align-items-center">
 
-            <!-- Kolom Gambar -->
             <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
                 <div class="position-relative rounded overflow-hidden shadow-lg">
                     <img src="{{ asset('assets/kolam.jpg') }}" 
                          alt="Infrastruktur Pereng Mina" 
                          class="img-fluid rounded" 
                          style="object-fit: cover; width: 100%; height: 380px;">
-                    <!-- Tombol Play di Tengah -->
                     <div class="position-absolute top-50 start-50 translate-middle">
                          <a href="{{ asset('assets/Kolamvidd.mp4') }}" target="_blank">
                     
@@ -85,7 +88,6 @@
                 </div>
             </div>
 
-            <!-- Kolom Teks -->
             <div class="col-lg-6 col-md-12">
                 <div class="p-3" style="color: white; z-index: 10; position: relative;">
                     <h2 class="fw-bold mb-4" style="color: #ffffff;">Gambaran Umum Infrastruktur</h2>
@@ -103,9 +105,7 @@
 
                     
                     
-        </div> <!-- /row -->
-    </div> <!-- /container -->
-</section>
+        </div> </div> </section>
 
 
                 <div class="row mt-4">
@@ -133,7 +133,6 @@
     </div>
 </section>
 
-<!-- ==================== PROSES BUDIDAYA ==================== -->
 <section id="process" class="section-padding py-5 custom-gradient-bg text-white">
     <div class="container">
         <div class="text-center mb-5">
@@ -145,7 +144,6 @@
             </p>
         </div>
         <div class="timeline dark-blue-timeline">
-            <!-- Tahap 1 -->
             <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
                 <div class="timeline-marker dark-blue-bg"></div>
                 <div class="timeline-content">
@@ -169,7 +167,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Tahap 2 -->
             <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
                 <div class="timeline-marker bg-success"></div>
                 <div class="timeline-content">
@@ -194,7 +191,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Tahap 3 -->
             <div class="timeline-item animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
                 <div class="timeline-marker bg-warning"></div>
                 <div class="timeline-content">
@@ -223,7 +219,6 @@
     </div>
 </section>
 
-<!-- ==================== FASILITAS UTAMA ==================== -->
 <section id="facilities" class="section-padding py-5 custom-gradient-bg text-white">
     <div class="container">
         <div class="text-center mb-5">
@@ -233,7 +228,6 @@
             </p>
         </div>
         <div class="row g-4">
-            <!-- Kolam Budidaya -->
             <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.4s">
                 <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                     <div class="facility-icon mb-3">
@@ -250,7 +244,6 @@
                 </div>
             </div>
 
-            <!-- Mesin Pelet -->
             <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.6s">
                 <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                     <div class="facility-icon mb-3">
@@ -267,7 +260,6 @@
                 </div>
             </div>
 
-            <!-- PLTS -->
             <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="0.8s">
                 <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                     <div class="facility-icon mb-3">
@@ -284,7 +276,6 @@
                 </div>
             </div>
 
-            <!-- Website Pereng Mina -->
             <div class="col-lg-3 col-md-6 animate-on-scroll" data-animation="fadeInUp" data-delay="1.0s">
                 <div class="facility-card text-center p-4 rounded-3 shadow-sm hover-lift bg-light-transparant-white h-100">
                     <div class="facility-icon mb-3">
@@ -322,6 +313,25 @@
             --new-gradient-end: #154e8d;
         }
 
+        /* PERUBAHAN HERO SECTION CSS */
+        .black-gradient-overlay {
+            /* Overlay di Hero Section: Hitam Transparan ke Pekat */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.85) 100%);
+            z-index: 1; /* Di bawah teks (z-index 2), di atas dark-filter (z-index 0) */
+        }
+        
+        .dark-filter {
+            /* Filter untuk meredupkan gambar latar belakang */
+            background-color: transparent;
+            z-index: 0; /* Paling bawah */
+            filter: brightness(40%); /* Membuat gambar terlihat 60% lebih redup */
+        }
+
+        .hero-section .container {
+            z-index: 2; /* Memastikan teks di atas overlay */
+        }
+        /* END PERUBAHAN HERO SECTION CSS */
+
         /* Mengganti primary color dengan warna baru */
         .custom-text-primary {
             color: var(--primary-color) !important;
@@ -332,7 +342,7 @@
         }
 
         .dark-blue-gradient-overlay {
-            /* Overlay di Hero Section */
+            /* Overlay biru lama, jika masih dipakai di section lain */
             background: linear-gradient(135deg, rgba(0, 34, 68, 0.9) 0%, rgba(26, 76, 138, 0.7) 100%);
         }
 
@@ -352,7 +362,9 @@
             background: linear-gradient(45deg, var(--light-blue-color), var(--dark-blue-color));
             color: white;
             transform: translateY(-2px);
+            /* Efek hover lift */
             box-shadow: 0 10px 20px rgba(0, 34, 68, 0.5);
+            /* Efek glow shadow */
         }
 
         /* MENGGANTI CLASS custom-light-bg DENGAN BACKGROUND GRADIENT BARU */
@@ -448,6 +460,13 @@
             transition: transform 0.4s ease;
         }
 
+        /* Tambahkan kode ini di dalam tag <style> Anda */
+
+body {
+    /* Mencegah munculnya scrollbar horizontal pada seluruh halaman */
+    overflow-x: hidden; 
+}
+
         .hover-lift:hover {
             transform: translateY(-8px); /* Efek lift lebih jelas */
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
@@ -466,14 +485,22 @@
             /* Pastikan elemen tersembunyi pada awalnya */
         }
 
-        /* Media Query for smaller screens */
+        /* Media Query for smaller screens (Responsif) */
         @media (max-width: 768px) {
             .section-padding {
                 padding: 3rem 0;
             }
 
             .hero-section {
-                min-height: 50vh;
+                min-height: 50vh; /* Teks tetap kontras di HP */
+            }
+            
+            .hero-section h1 {
+                font-size: 2.5rem !important; /* Ukuran h1 di HP */
+            }
+            
+            .hero-section p.lead {
+                font-size: 1rem !important; /* Ukuran lead di HP */
             }
 
             .timeline {
@@ -495,22 +522,41 @@
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
-                // --- 1. Counter Animation (TIDAK ADA PERUBAHAN) ---
+                // --- 1. Counter Animation (PENYESUAIAN UNTUK 0.6 HA) ---
                 function animateCounter(counter) {
-                    const target = parseInt(counter.getAttribute('data-target'));
+                    const targetText = counter.getAttribute('data-target');
+                    const isDecimal = targetText === '6'; // Untuk 0.6 Hektar
+
+                    let target;
+                    if (isDecimal) {
+                        target = 0.6; // Nilai sebenarnya 0.6
+                    } else {
+                        target = parseInt(targetText);
+                    }
+                    
                     const duration = 2000;
-                    const step = target / (duration / 16);
+                    const steps = isDecimal ? 60 : target; // Untuk 0.6, kita hitung 60 langkah
+                    const stepValue = isDecimal ? target / steps : 1; // 0.6 / 60 = 0.01
+
                     let current = 0;
+                    let iteration = 0;
 
                     const timer = setInterval(() => {
-                        current += step;
-                        if (current >= target) {
-                            counter.textContent = target.toLocaleString();
+                        iteration++;
+                        current += stepValue;
+                        
+                        if (iteration >= steps) {
+                            counter.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
                             clearInterval(timer);
+                            return;
+                        }
+                        
+                        if (isDecimal) {
+                            counter.textContent = current.toFixed(1);
                         } else {
                             counter.textContent = Math.floor(current).toLocaleString();
                         }
-                    }, 16);
+                    }, duration / steps);
                 }
 
                 // --- 2. Scroll Animation Setup (TIDAK ADA PERUBAHAN) ---
@@ -527,8 +573,9 @@
                             element.style.animation = `${animation} 1s ease-out ${delay} forwards`;
 
                             // Menjalankan Counter Animation jika elemennya adalah Statistics Section
-                            if (element.closest('.dark-blue-gradient-bg') && element.querySelector('.counter')) {
-                                element.querySelectorAll('.counter').forEach(animateCounter);
+                            const counters = element.querySelectorAll('.counter');
+                            if (counters.length > 0) {
+                                counters.forEach(animateCounter);
                             }
 
                             // Hentikan pengamatan setelah animasi diaktifkan

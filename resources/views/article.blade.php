@@ -3,74 +3,47 @@
 @section('title', 'Articles - Company Name')
 
 @section('content')
-    <!-- Hero Section -->
     <section class="hero-section position-relative overflow-hidden"
-        style="min-height: 70vh; background: url('{{ asset('assets/template.jpg') }}') center/cover no-repeat; display: flex; align-items: center;">
-        <!-- Overlay -->
+        style="min-height: 88vh; 
+               background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat; 
+               display: flex; 
+               align-items: center;">
+        
+        <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay">
+        </div>
+        
         <div class="position-absolute top-0 start-0 w-100 h-100"
-            style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); opacity: 0.8;">
+             style="background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat; 
+                    filter: brightness(60%); z-index: -1;">
         </div>
-        <div class="container position-relative text-center text-white py-5">
+
+        <div class="container position-relative text-center text-white py-5" style="z-index: 2;">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <h1 class="display-4 fw-bold mb-4"
-                        style="text-shadow: 3px 3px 6px rgba(0,0,0,0.7); animation: fadeInUp 1s ease-out;">Articles &
-                        Insights</h1>
-                    <p class="lead fs-4 mb-4"
-                        style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); animation: fadeInUp 1.5s ease-out;">Artikel terbaru
-                        seputar dunia budidaya ikan modern</p>
+                <div class="col-lg-10">
+                    <h1 class="display-3 fw-bolder mb-4 text-shadow-dark"
+                        style="animation: fadeInUp 1s ease-out; color: #fff; letter-spacing: 1px;">
+                        Articles & Insights
+                    </h1>
+                    <p class="lead fs-5 mb-5 text-shadow-dark opacity-75"
+                        style="animation: fadeInUp 1.5s ease-out; color: #fff;">
+                        Artikel terbaru seputar Kegiatan di Pereng Mina GAP
+                    </p>
+                    
+                    {{-- Tombol biru modern dengan efek hover lift + glow shadow (Optional, uncomment to use) --}}
+                    {{-- <a href="#articles-list" class="btn btn-lg btn-modern-primary rounded-pill shadow-lg"
+                        style="animation: fadeInUp 2s ease-out;">
+                        <i class="fas fa-arrow-down me-2"></i> Explore Articles
+                    </a> --}}
 
-                    <!-- Search Bar -->
-                    <div class="mt-4" style="animation: fadeInUp 2s ease-out;">
-                        <form action="{{ route('article') }}" method="GET">
-                            <div class="input-group input-group-lg shadow-lg">
-                                <input type="text" name="q" class="form-control border-0"
-                                    placeholder="Cari artikel..." aria-label="Search articles"
-                                    style="border-radius: 25px 0 0 25px;">
-                                <button class="btn btn-light border-0" type="submit" style="border-radius: 0 25px 25px 0;">
-                                    <i class="bi bi-search"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Category Filter -->
-    <section class="py-4 bg-light section-padding">
+    
+    <section class="py-5 section-padding" id="articles-list">
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <div class="d-flex flex-wrap gap-2 justify-content-center">
-                        <a href="#"
-                            class="badge badge-filter bg-gradient-primary text-white p-3 text-decoration-none active rounded-pill shadow-sm"
-                            data-filter="all" style="animation: fadeInUp 1s ease-out;">
-                            <i class="fas fa-th-large me-1"></i>All Articles
-                        </a>
-                        @php $categories_for_filter = ['All', ...$categories->pluck('name')->toArray()]; @endphp
-                        @foreach ($categories_for_filter as $category)
-                            @if ($category != 'All')
-                                <a href="#"
-                                    class="badge badge-filter bg-light text-dark border p-3 text-decoration-none rounded-pill shadow-sm"
-                                    data-filter="{{ Str::slug($category) }}"
-                                    style="animation: fadeInUp {{ $loop->index * 0.1 + 1.2 }}s ease-out;">
-                                    {{ $category }}
-                                </a>
-                            @endif
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles List -->
-    <section class="py-5 section-padding">
-        <div class="container">
-            <div class="row">
-                <!-- Main Content -->
                 <div class="col-lg-8">
                     @if(count($articles) > 0)
                         @foreach ($articles as $article)
@@ -120,7 +93,6 @@
                             </div>
                         @endforeach
 
-                        <!-- Pagination -->
                         <nav class="pagination-modern justify-content-center mt-4" style="animation: fadeInUp 2s ease-out;">
                             {{ $articles->links() }}
                         </nav>
@@ -133,9 +105,7 @@
                     @endif
                 </div>
 
-                <!-- Sidebar -->
                 <div class="col-lg-4">
-                    <!-- Popular Articles -->
                     <div class="card border-0 shadow-sm mb-4 rounded-3 overflow-hidden card-hover"
                         style="animation: fadeInUp 1.5s ease-out;">
                         <div class="card-header bg-white border-0 py-3">
@@ -162,7 +132,6 @@
                         </div>
                     </div>
 
-                    <!-- Categories -->
                     <div class="card border-0 shadow-sm mb-4 rounded-3 overflow-hidden card-hover"
                         style="animation: fadeInUp 1.7s ease-out;">
                         <div class="card-header bg-white border-0 py-3">
@@ -174,7 +143,7 @@
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach ($categories as $category)
                                     <a href="#" class="badge bg-light text-dark border p-2 rounded-pill hover-lift text-decoration-none" 
-                                       data-category="{{ Str::slug($category->name) }}">
+                                        data-category="{{ Str::slug($category->name) }}">
                                         {{ $category->name }} 
                                         <span class="text-muted">({{ $category->posts_count }})</span>
                                     </a>
@@ -187,7 +156,8 @@
         </div>
     </section>
 
-    <!-- Featured Articles -->
+---
+
     <section class="py-5" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); border-bottom: 2px solid rgba(255,255,255,0.2);">
         <div class="container">
             <div class="text-center mb-5">
@@ -221,7 +191,8 @@
         </div>
     </section>
 
-    <!-- Custom CSS -->
+---
+
     <style>
         @keyframes fadeInUp {
             from {
@@ -234,6 +205,42 @@
             }
         }
 
+        /* Hero Section Overlay and Text Enhancements */
+        .hero-section {
+            /* Remove background from this element to separate it from the overlay/filter */
+            background: none !important; 
+        }
+
+        .hero-overlay {
+            /* Gradasi hitam transparan (rgba(0,0,0,0.3)) ke pekat (rgba(0,0,0,0.85)) */
+            background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
+            opacity: 1; /* Overlay sudah memiliki transparansi di warna gradasi */
+            z-index: 1;
+        }
+
+        .text-shadow-dark {
+             /* Teks putih terlihat sangat kontras dan profesional */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+        }
+
+        /* Tombol Biru Modern dengan efek hover lift + glow shadow */
+        .btn-modern-primary {
+            background: linear-gradient(90deg, #154e8d 0%, #0a2c4d 100%);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(21, 78, 141, 0.4);
+        }
+
+        .btn-modern-primary:hover {
+            transform: translateY(-3px); /* Hover lift */
+            opacity: 0.95;
+            box-shadow: 0 8px 20px rgba(21, 78, 141, 0.6); /* Glow shadow */
+            color: white;
+        }
+
+
+        /* Existing styles below */
         .card-hover {
             transition: all 0.3s ease;
         }
@@ -327,13 +334,23 @@
         }
 
         /* Responsive adjustments */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .hero-section h1 {
-                font-size: 2rem;
+                font-size: 2.5rem !important; /* Adjust for smaller screens */
             }
             
             .hero-section p.lead {
-                font-size: 1.1rem;
+                font-size: 1.25rem !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem !important;
+            }
+            
+            .hero-section p.lead {
+                font-size: 1.1rem !important;
             }
             
             .badge-filter {
@@ -353,16 +370,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             const filterButtons = document.querySelectorAll('.badge-filter');
             const articleItems = document.querySelectorAll('.article-item');
-            const categoryBadges = document.querySelectorAll('.card-body .badge.bg-gradient-primary');
+            const categoryLinks = document.querySelectorAll('.card-body .badge[data-category]'); // Target the sidebar categories
 
             // Filter functionality
             filterButtons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
 
-                    filterButtons.forEach(btn => btn.classList.remove('active', 'bg-gradient-primary', 'text-white'));
-                    filterButtons.forEach(btn => btn.classList.add('bg-light', 'text-dark', 'border'));
-
+                    // Remove active state from all
+                    filterButtons.forEach(btn => {
+                        btn.classList.remove('active', 'bg-gradient-primary', 'text-white');
+                        btn.classList.add('bg-light', 'text-dark', 'border');
+                    });
+                    
+                    // Set active state on clicked button
                     this.classList.add('active', 'bg-gradient-primary', 'text-white');
                     this.classList.remove('bg-light', 'text-dark', 'border');
 
@@ -371,9 +392,10 @@
                     articleItems.forEach(item => {
                         if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                             item.style.display = 'block';
-                            setTimeout(() => {
-                                item.style.animation = 'fadeInUp 0.5s ease-out';
-                            }, 10);
+                            // Apply animation for filtered items
+                            item.style.animation = 'none'; // Reset animation
+                            item.offsetHeight; // Trigger reflow
+                            item.style.animation = 'fadeInUp 0.5s ease-out';
                         } else {
                             item.style.display = 'none';
                         }
@@ -381,18 +403,18 @@
                 });
             });
 
-            // Category badges in sidebar click functionality
-            categoryBadges.forEach(badge => {
-                badge.addEventListener('click', function(e) {
+            // Sidebar Categories click functionality to trigger main filter
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const category = this.textContent.trim();
-                    const filterButton = document.querySelector(`.badge-filter[data-filter="${category.toLowerCase().replace(/\s+/g, '-')}"]`);
+                    const categorySlug = this.getAttribute('data-category');
+                    const filterButton = document.querySelector(`.badge-filter[data-filter="${categorySlug}"]`);
                     
                     if (filterButton) {
                         filterButton.click();
                         
-                        // Scroll to filter section
-                        document.querySelector('.section-padding').scrollIntoView({
+                        // Scroll to the articles list section
+                        document.getElementById('articles-list').scrollIntoView({
                             behavior: 'smooth'
                         });
                     }

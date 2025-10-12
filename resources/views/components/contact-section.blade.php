@@ -10,96 +10,71 @@
                 Siap membantu Anda dengan informasi budidaya ikan berkualitas dan berkelanjutan
             </p>
         </div>
+        <div class="col-lg-6">
+    <div class="contact-info">
+        <h4 class="fw-bold mb-4 text-yellow" style="font-size: 2.2rem;">Informasi Kontak</h4>
 
-        <div class="row g-4">
-            <!-- Kolom Kiri: Formulir -->
-            <div class="col-lg-6">
-                <div class="contact-form bg-light-transparant-white p-4 rounded-3 shadow hover-lift">
-                    <h4 class="fw-bold mb-3 custom-text-primary" style="font-size: 2.2rem;">Kirim Pesan Cepat</h4>
-                    <form action="{{ route('contact.store') }}" method="POST">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label for="contact_name" class="form-label fw-bold text-dark-grey fs-6">Nama</label>
-                                <input type="text" class="form-control form-control-lg fs-6" id="contact_name" name="name" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label for="contact_email" class="form-label fw-bold text-dark-grey fs-6">Email</label>
-                                <input type="email" class="form-control form-control-lg fs-6" id="contact_email" name="email" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="contact_subject" class="form-label fw-bold text-dark-grey fs-6">Subjek</label>
-                            <input type="text" class="form-control form-control-lg fs-6" id="contact_subject" name="subject" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="contact_message" class="form-label fw-bold text-dark-grey fs-6">Pesan</label>
-                            <textarea class="form-control form-control-lg fs-6" id="contact_message" name="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-dark-blue-gradient px-4 py-2 shadow">
-                            <i class="fas fa-paper-plane me-2 fs-6"></i>Kirim Pesan
-                        </button>
-                    </form>
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <div class="contact-item d-flex p-4 bg-white rounded-3 shadow border h-100 align-items-start">
+                    <i class="fas fa-map-marker-alt text-yellow fs-4 me-3"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1 custom-text-primary fs-6">Alamat Peternakan</h6>
+                        <p class="text-muted-dark mb-0 medium">
+                            Desa Sumber Rejo, Kec. Budidaya<br>Jawa Timur, Indonesia 61234
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Info Kontak -->
-            <div class="col-lg-6">
-                <div class="contact-info">
-                    <h4 class="fw-bold mb-3 text-yellow" style="font-size: 2.2rem;">Informasi Kontak</h4>
-
-                    <div class="contact-item d-flex mb-3 p-3 bg-light-transparant-white rounded-3 shadow hover-lift-small">
-                        <i class="fas fa-map-marker-alt text-yellow fs-4 me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-1 custom-text-primary fs-6">Alamat Peternakan</h6>
-                            <p class="text-muted-dark mb-0 small">
-                                Desa Sumber Rejo, Kec. Budidaya<br>Jawa Timur, Indonesia 61234
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item d-flex mb-3 p-3 bg-light-transparant-white rounded-3 shadow hover-lift-small">
-                        <i class="fas fa-phone text-yellow fs-4 me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-1 custom-text-primary fs-6">Telepon</h6>
-                            <p class="text-muted-dark mb-0 small">
-                                +62 5705232943<br>+62 5705232944
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item d-flex mb-3 p-3 bg-light-transparant-white rounded-3 shadow hover-lift-small">
-                        <i class="fas fa-envelope text-yellow fs-4 me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-1 custom-text-primary fs-6">Email</h6>
-                            <p class="text-muted-dark mb-0 small">
-                                info@budidayaikan.com<br>penjualan@budidayaikan.com
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item d-flex mb-3 p-3 bg-light-transparant-white rounded-3 shadow hover-lift-small">
-                        <i class="fas fa-clock text-yellow fs-4 me-3"></i>
-                        <div>
-                            <h6 class="fw-bold mb-1 custom-text-primary fs-6">Jam Operasional</h6>
-                            <p class="text-muted-dark mb-0 small">
-                                Senin - Jumat: 07:00 - 18:00<br>Sabtu: 07:00 - 14:00
-                            </p>
-                        </div>
+            <div class="col-md-6 mb-3">
+                <div class="contact-item d-flex p-4 bg-white rounded-3 shadow border h-100 align-items-start">
+                    <i class="fas fa-phone text-yellow fs-4 me-3"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1 custom-text-primary fs-6">Telepon</h6>
+                        <p class="text-muted-dark mb-0 medium">
+                            +62 5705232943<br>+62 5705232944
+                        </p>
                     </div>
                 </div>
+            </div>
 
+            <div class="col-md-6 mb-3">
+                <div class="contact-item d-flex p-4 bg-white rounded-3 shadow border h-100 align-items-start">
+                    <i class="fas fa-envelope text-yellow fs-4 me-3"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1 custom-text-primary fs-6">Email</h6>
+                        <p class="text-muted-dark mb-0 medium">
+                            info@budidayaikan.com<br>penjualan@budidayaikan.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="contact-item d-flex p-4 bg-white rounded-3 shadow border h-100 align-items-start">
+                    <i class="fas fa-clock text-yellow fs-4 me-3"></i>
+                    <div>
+                        <h6 class="fw-bold mb-1 custom-text-primary fs-6">Jam Operasional</h6>
+                        <p class="text-muted-dark mb-0 medium">
+                            Senin - Jumat: 07:00 - 18:00<br>Sabtu: 07:00 - 14:00
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
                 <!-- Sosial Media -->
                 <div class="mt-3">
                     <h6 class="fw-bold mb-2 text-yellow fs-6">Ikuti Kami</h6>
                     <div class="social-links d-flex gap-3">
                         <a href="#" class="social-link text-yellow fs-5"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link text-yellow fs-5"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link text-yellow fs-5"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link text-yellow fs-5"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-
                 <!-- Tombol Kontak Lengkap -->
                 <div class="mt-3">
                     <a href="{{ route('contact') }}" class="btn btn-dark-blue-gradient px-4 py-2 shadow">
