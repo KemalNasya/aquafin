@@ -39,7 +39,6 @@ class AdminPanelProvider extends PanelProvider
                 'Postingan',
                 'Dokumentasi',
                 'Keuangan',
-                'Users',
                 'Settings',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

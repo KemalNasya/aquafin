@@ -18,8 +18,14 @@ class WalletsTable
                 TextColumn::make('name')
                     ->label('Name Wallet')
                     ->searchable(),
-                TextColumn::make('balance')
+                TextColumn::make('total_saldo')
+                    ->label('Total Saldo')
                     ->numeric()
+                    ->sortable()
+                    ->getStateUsing(fn ($record) => $record->total_saldo),
+                TextColumn::make('transactions_count')
+                    ->label('Total Transaksi')
+                    ->counts('transactions')
                     ->sortable(),
                 TextColumn::make('currency.name')
                     ->label('Mata Uang')

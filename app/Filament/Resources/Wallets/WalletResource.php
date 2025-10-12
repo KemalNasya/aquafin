@@ -26,7 +26,11 @@ class WalletResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedWallet;
 
-    protected static ?string $navigationLabel = 'Wallets';
+    protected static ?string $navigationLabel = 'Dompet';
+
+    protected static ?string $modelLabel = 'Dompet';
+
+    protected static ?string $pluralModelLabel = 'Dompet';
 
     protected static ?string $recordTitleAttribute = 'name';
 

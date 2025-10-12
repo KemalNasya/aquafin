@@ -12,12 +12,12 @@ class CreateWallet extends CreateRecord
     protected static string $resource = WalletResource::class;
     public function getTitle(): string | Htmlable
     {
-        return 'Tambah Wallet';
+        return 'Tambah Dompet';
     }
 
     public function getBreadcrumb(): string
     {
-        return 'Tambah Wallet';
+        return 'Tambah Dompet';
     }
 
     /**
@@ -49,7 +49,7 @@ class CreateWallet extends CreateRecord
 
     protected function getCreatedNotificationTitle(): ?string
     {
-        return 'Wallet berhasil ditambahkan!';
+        return 'Dompet berhasil ditambahkan!';
     }
 
     protected function getRedirectUrl(): string

@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
-@section('title', 'Articles - Company Name')
+@section('title', 'Artikel - Pereng Mina GAP')
 
 @section('content')
     <section class="hero-section position-relative overflow-hidden"
-        style="min-height: 88vh; 
-               background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat; 
-               display: flex; 
+        style="min-height: 88vh;
+               background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat;
+               display: flex;
                align-items: center;">
-        
+
         <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay">
         </div>
-        
+
         <div class="position-absolute top-0 start-0 w-100 h-100"
-             style="background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat; 
+             style="background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat;
                     filter: brightness(60%); z-index: -1;">
         </div>
 
@@ -22,17 +22,17 @@
                 <div class="col-lg-10">
                     <h1 class="display-3 fw-bolder mb-4 text-shadow-dark"
                         style="animation: fadeInUp 1s ease-out; color: #fff; letter-spacing: 1px;">
-                        Articles & Insights
+                        Artikel & Wawasan
                     </h1>
                     <p class="lead fs-5 mb-5 text-shadow-dark opacity-75"
                         style="animation: fadeInUp 1.5s ease-out; color: #fff;">
                         Artikel terbaru seputar Kegiatan di Pereng Mina GAP
                     </p>
-                    
+
                     {{-- Tombol biru modern dengan efek hover lift + glow shadow (Optional, uncomment to use) --}}
                     {{-- <a href="#articles-list" class="btn btn-lg btn-modern-primary rounded-pill shadow-lg"
                         style="animation: fadeInUp 2s ease-out;">
-                        <i class="fas fa-arrow-down me-2"></i> Explore Articles
+                        <i class="fas fa-arrow-down me-2"></i> Jelajahi Artikel
                     </a> --}}
 
                 </div>
@@ -40,7 +40,7 @@
         </div>
     </section>
 
-    
+
     <section class="py-5 section-padding" id="articles-list">
         <div class="container">
             <div class="row">
@@ -64,7 +64,7 @@
                                             </div>
 
                                             <h5 class="card-title fw-bold">
-                                                <a href="{{ route('article.show', $article['id']) }}"
+                                                <a href="{{ route('article.show', $article['slug']) }}"
                                                     class="text-decoration-none text-dark hover-link">
                                                     {{ $article['title'] }}
                                                 </a>
@@ -110,13 +110,13 @@
                         style="animation: fadeInUp 1.5s ease-out;">
                         <div class="card-header bg-white border-0 py-3">
                             <h6 class="fw-bold mb-0 text-primary">
-                                <i class="fas fa-clock text-info me-2"></i>Latest Articles
+                                <i class="fas fa-clock text-info me-2"></i>Artikel Terbaru
                             </h6>
                         </div>
                         <div class="card-body p-0">
                             <div class="list-group list-group-flush">
                                 @foreach ($articles->take(3) as $popular)
-                                    <a href="{{ route('article.show', $popular['id']) }}"
+                                    <a href="{{ route('article.show', $popular['slug']) }}"
                                         class="list-group-item list-group-item-action border-0 px-3 py-3 hover-lift">
                                         <div class="d-flex w-100 justify-content-between align-items-start">
                                             <h6 class="mb-1 fw-bold text-dark">{{ \Str::limit($popular['title'], 50) }}</h6>
@@ -136,15 +136,15 @@
                         style="animation: fadeInUp 1.7s ease-out;">
                         <div class="card-header bg-white border-0 py-3">
                             <h6 class="fw-bold mb-0 text-primary">
-                                <i class="fas fa-tags me-2"></i>Categories
+                                <i class="fas fa-tags me-2"></i>Kategori
                             </h6>
                         </div>
                         <div class="card-body">
                             <div class="d-flex flex-wrap gap-2">
                                 @foreach ($categories as $category)
-                                    <a href="#" class="badge bg-light text-dark border p-2 rounded-pill hover-lift text-decoration-none" 
+                                    <a href="#" class="badge bg-light text-dark border p-2 rounded-pill hover-lift text-decoration-none"
                                         data-category="{{ Str::slug($category->name) }}">
-                                        {{ $category->name }} 
+                                        {{ $category->name }}
                                         <span class="text-muted">({{ $category->posts_count }})</span>
                                     </a>
                                 @endforeach
@@ -161,30 +161,50 @@
     <section class="py-5" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); border-bottom: 2px solid rgba(255,255,255,0.2);">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold text-white">Featured Articles</h2>
-                <p class="text-white-50">Artikel pilihan editor</p>
+                <h2 class="fw-bold text-white">Artikel Lampau</h2>
+                <p class="text-white-50">Artikel yang sudah lama dipublikasikan (minimal seminggu)</p>
             </div>
             <div class="row">
-                @if(count($articles) > 0)
-                    @foreach ($articles->take(2) as $featured)
-                        <div class="col-md-6 mb-4">
+                @php
+                    $oldArticles = collect($articles->items())->filter(function($article) {
+                        return \Carbon\Carbon::parse($article['published_at'])->lt(now()->subWeek());
+                    })->take(6);
+                @endphp
+                @if($oldArticles->count() > 0)
+                    @foreach ($oldArticles as $index => $oldArticle)
+                        <div class="col-lg-4 col-md-6 mb-4">
                             <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden card-hover"
-                                style="animation: fadeInUp {{ $loop->index * 0.2 + 2.5 }}s ease-out;">
-                                <img src="{{ $featured['image'] }}" class="card-img-top" alt="{{ $featured['title'] }}"
+                                style="animation: fadeInUp {{ $index * 0.1 + 2.5 }}s ease-out;">
+                                <img src="{{ $oldArticle['image'] }}" class="card-img-top" alt="{{ $oldArticle['title'] }}"
                                     style="height: 200px; object-fit: cover;">
                                 <div class="card-body d-flex flex-column">
-                                    <span class="badge bg-gradient-primary text-white mb-2 align-self-start">Featured</span>
-                                    <h5 class="card-title fw-bold text-dark">{{ $featured['title'] }}</h5>
-                                    <p class="card-text text-dark flex-grow-1">{{ $featured['excerpt'] }}</p>
-                                    <a href="{{ route('article.show', $featured['id']) }}"
-                                        class="btn btn-primary rounded-pill align-self-start mt-auto">Read More</a>
+                                    <div class="d-flex justify-content-between align-items-start mb-2">
+                                        <span class="badge bg-gradient-primary text-white">{{ $oldArticle['category'] }}</span>
+                                        <small class="text-muted">{{ $oldArticle['read_time'] }}</small>
+                                    </div>
+                                    <h6 class="card-title fw-bold text-dark mb-2" style="font-size: 0.95rem; line-height: 1.3;">
+                                        <a href="{{ route('article.show', $oldArticle['slug']) }}"
+                                            class="text-decoration-none text-dark hover-link">
+                                            {{ Str::limit($oldArticle['title'], 60) }}
+                                        </a>
+                                    </h6>
+                                    <p class="card-text text-muted small flex-grow-1" style="font-size: 0.85rem; line-height: 1.4;">
+                                        {{ Str::limit($oldArticle['excerpt'], 100) }}
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center mt-auto">
+                                        <small class="text-muted small">
+                                            {{ \Carbon\Carbon::parse($oldArticle['published_at'])->format('M d, Y') }}
+                                        </small>
+                                        <a href="{{ route('article.show', $oldArticle['slug']) }}"
+                                            class="btn btn-sm btn-outline-primary rounded-pill">Baca</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     @endforeach
                 @else
                     <div class="col-12 text-center text-white py-4">
-                        <p>Tidak ada artikel featured tersedia saat ini.</p>
+                        <p>Belum ada artikel lampau tersedia.</p>
                     </div>
                 @endif
             </div>
@@ -208,7 +228,7 @@
         /* Hero Section Overlay and Text Enhancements */
         .hero-section {
             /* Remove background from this element to separate it from the overlay/filter */
-            background: none !important; 
+            background: none !important;
         }
 
         .hero-overlay {
@@ -220,7 +240,7 @@
 
         .text-shadow-dark {
              /* Teks putih terlihat sangat kontras dan profesional */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
 
         /* Tombol Biru Modern dengan efek hover lift + glow shadow */
@@ -338,26 +358,26 @@
             .hero-section h1 {
                 font-size: 2.5rem !important; /* Adjust for smaller screens */
             }
-            
+
             .hero-section p.lead {
                 font-size: 1.25rem !important;
             }
         }
-        
+
         @media (max-width: 768px) {
             .hero-section h1 {
                 font-size: 2rem !important;
             }
-            
+
             .hero-section p.lead {
                 font-size: 1.1rem !important;
             }
-            
+
             .badge-filter {
                 padding: 0.5rem 1rem !important;
                 font-size: 0.85rem;
             }
-            
+
             .card-body h5.card-title {
                 font-size: 1.1rem;
             }
@@ -382,7 +402,7 @@
                         btn.classList.remove('active', 'bg-gradient-primary', 'text-white');
                         btn.classList.add('bg-light', 'text-dark', 'border');
                     });
-                    
+
                     // Set active state on clicked button
                     this.classList.add('active', 'bg-gradient-primary', 'text-white');
                     this.classList.remove('bg-light', 'text-dark', 'border');
@@ -409,10 +429,10 @@
                     e.preventDefault();
                     const categorySlug = this.getAttribute('data-category');
                     const filterButton = document.querySelector(`.badge-filter[data-filter="${categorySlug}"]`);
-                    
+
                     if (filterButton) {
                         filterButton.click();
-                        
+
                         // Scroll to the articles list section
                         document.getElementById('articles-list').scrollIntoView({
                             behavior: 'smooth'

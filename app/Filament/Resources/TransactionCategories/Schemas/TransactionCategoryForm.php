@@ -28,7 +28,6 @@ class TransactionCategoryForm
                     ->required()
                     ->reactive()
                     ->afterStateUpdated(function ($set, $state) {
-                        // Auto-set color berdasarkan type
                         $set('color', $state === 'income' ? 'green' : 'red');
                     }),
 

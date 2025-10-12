@@ -23,7 +23,7 @@ class Profile extends Page implements HasForms
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user';
 
-    protected static ?string $navigationLabel = 'Account';
+    protected static ?string $navigationLabel = 'Akun';
 
     protected static ?int $navigationSort = 1;
 
@@ -60,32 +60,42 @@ class Profile extends Page implements HasForms
     protected function getFormSchema(): array
     {
         return [
-            Section::make('Profile Information')
+            Section::make('Akun')
                 ->schema([
                     TextInput::make('name')
+                        ->label('Nama')
                         ->required()
                         ->maxLength(255),
                     TextInput::make('email')
+                        ->label('Email')
                         ->email()
                         ->required()
                         ->maxLength(255),
+                ]),
+            Section::make('Keamanan Password')
+                ->schema([
                     TextInput::make('current_password')
                         ->password()
-                        ->label('Current Password')
+                        ->label('Kata Sandi Saat Ini')
                         ->required(fn ($get) => filled($get('password')))
-                        ->dehydrated(false),
+                        ->dehydrated(false)
+                        ->revealable(),
                     TextInput::make('password')
                         ->password()
-                        ->label('New Password')
+                        ->label('Kata Sandi Baru')
                         ->minLength(8)
                         ->confirmed()
-                        ->dehydrated(fn ($state) => filled($state)),
+                        ->dehydrated(fn ($state) => filled($state))
+                        ->revealable(),
                     TextInput::make('password_confirmation')
                         ->password()
-                        ->label('Confirm New Password')
+                        ->label('Konfirmasi Kata Sandi Baru')
                         ->required(fn ($get) => filled($get('password')))
-                        ->dehydrated(false),
-                ]),
+                        ->dehydrated(false)
+                        ->revealable(),
+                ])
+                ->collapsible()
+                ->collapsed(),
         ];
     }
 
@@ -101,7 +111,7 @@ class Profile extends Page implements HasForms
             if (!empty($data['password'])) {
                 if (!Hash::check($data['current_password'], $user->password)) {
                     Notification::make()
-                        ->title('Current password is incorrect')
+                        ->title('Kata sandi saat ini tidak sesuai')
                         ->danger()
                         ->send();
                     return;
@@ -121,13 +131,13 @@ class Profile extends Page implements HasForms
             $user->update($updateData);
 
             Notification::make()
-                ->title('Profile updated successfully')
+                ->title('Informasi akun telah diperbarui.')
                 ->success()
                 ->send();
 
         } catch (\Exception $e) {
             Notification::make()
-                ->title('Error updating profile')
+                ->title('Terjadi kesalahan saat memperbarui akun')
                 ->body($e->getMessage())
                 ->danger()
                 ->send();
@@ -138,8 +148,12 @@ class Profile extends Page implements HasForms
     {
         return [
             Action::make('save')
-                ->label('Save changes')
-                ->submit('save'),
+                ->label('Simpan Perubahan')
+                ->submit('save')
+                ->requiresConfirmation()
+                ->modalHeading('Konfirmasi Simpan Perubahan')
+                ->modalDescription('Apakah Anda yakin ingin menyimpan perubahan pada akun Anda?')
+                ->modalSubmitActionLabel('Ya, Simpan'),
         ];
     }
 }

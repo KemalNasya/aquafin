@@ -38,13 +38,13 @@
     
     <section class="py-4" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);">
         <div class="container">
-               <h4 class="text-white-50 fw-light mb-3 text-center">Filter Kategori:</h4>
-            <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a href="#" class="badge p-3 rounded-pill badge-dark-mode active-filter-badge" data-filter="all">
+            <h4 class="text-white-50 fw-light mb-3 text-center">Filter Kategori:</h4>
+            <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-3">
+                <a href="#" class="badge p-2 p-md-3 rounded-pill badge-dark-mode active-filter-badge" data-filter="all">
                     <i class="fas fa-grip-horizontal me-1"></i> Semua Foto
                 </a>
                 @foreach($categories as $category)
-                    <a href="#" class="badge p-3 rounded-pill badge-dark-mode" 
+                    <a href="#" class="badge p-2 p-md-3 rounded-pill badge-dark-mode"
                         data-filter="{{ Str::slug($category['name']) }}">
                         <i class="{{ $category['icon'] ?? 'fas fa-tag' }} me-1"></i> {{ $category['name'] }}
                     </a>

@@ -13,16 +13,30 @@ class CurrencyForm
         return $schema
             ->components([
                 TextInput::make('name')
-                    ->required(),
+                    ->label('Nama Mata Uang')
+                    ->required()
+                    ->helperText('(contoh: Rupiah Indonesia)'),
                 TextInput::make('code')
-                    ->required(),
+                    ->label('Kode Mata Uang')
+                    ->required()
+                    ->maxLength(3)
+                    ->rules(['max:3'])
+                    ->helperText('contoh: IDR, USD, EUR)'),
                 TextInput::make('symbol')
-                    ->required(),
+                    ->label('Simbol Mata Uang')
+                    ->required()
+                    ->maxLength(10)
+                    ->rules(['max:10'])
+                    ->helperText('(contoh: Rp, $, €)'),
                 TextInput::make('exchange_rate')
+                    ->label('Kurs Tukar')
                     ->required()
                     ->numeric()
+                    ->minValue(0)
+                    ->maxValue(999999.9999)
                     ->default(1.0),
                 Toggle::make('is_default')
+                    ->label('Jadikan Default')
                     ->required(),
             ]);
     }

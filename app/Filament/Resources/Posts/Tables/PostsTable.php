@@ -26,7 +26,7 @@ class PostsTable
                     ->searchable(),
 
                 ImageColumn::make('thumbnail')
-                    ->label('Thumbnail')
+                    ->label('Foto')
                     ->disk('public')
                     ->height(50),
 

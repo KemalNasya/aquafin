@@ -8,7 +8,9 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Components\FileUpload;
+use Filament\Schemas\Components\Utilities\Set;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
 
 class PostForm
 {
@@ -17,14 +19,22 @@ class PostForm
         return $schema
             ->components([
                 TextInput::make('title')
-                    ->label('Judul')
-                    ->required(),
-
-                    TextInput::make('slug')
-                    ->label('Slug')
+                    ->label('Judul Postingan')
                     ->required()
-                    ->unique(ignoreRecord: true) 
-                    ->maxLength(255),
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (string $context, $state, Set $set) {
+                        if ($context === 'create') {
+                            $set('slug', Str::slug($state));
+                        }
+                    }),
+
+                TextInput::make('slug')
+                    ->label('URL Slug')
+                    ->required()
+                    ->unique(ignoreRecord: true)
+                    ->maxLength(255)
+                    ->rules(['regex:/^[a-z0-9\-]+$/'])
+                    ->helperText('URL / Link (hanya huruf kecil, angka, dan tanda hubung). Akan otomatis dibuat dari judul jika kosong.'),
 
                 Textarea::make('content')
                     ->label('Isi Konten')
@@ -32,7 +42,7 @@ class PostForm
                     ->columnSpanFull(),
 
                 FileUpload::make('thumbnail')
-                    ->label('Gambar Sampul')
+                    ->label('Gambar')
                     ->disk('public')
                     ->directory('posts')
                     ->image(),

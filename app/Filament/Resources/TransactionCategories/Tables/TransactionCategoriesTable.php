@@ -25,21 +25,14 @@ class TransactionCategoriesTable
                     ->label('Tipe')
                     ->badge()
                     ->colors([
-                        'success' => 'income',
-                        'danger' => 'expense',
+                        'income' => 'success',
+                        'expense' => 'danger',
                     ])
                     ->formatStateUsing(fn ($state) => 
                         $state === 'income' ? 'Pemasukan' : 'Pengeluaran'
                     ),
                     
-                // PERBAIKAN: ColorColumn tanpa method colors()
-                ColorColumn::make('color')
-                    ->label('Warna')
-                    ->tooltip(fn ($record) => 
-                        $record->color === 'red' ? 'Merah' : 'Hijau'
-                    ),
-
-                // ATAU Pakai TextColumn dengan badge untuk warna yang lebih jelas
+                // TextColumn dengan badge untuk warna yang lebih jelas
                 TextColumn::make('color')
                     ->label('Warna')
                     ->badge()

@@ -35,6 +35,7 @@ class ArticleSection extends Component
 
             return [
                 'id' => $post->id,
+                'slug' => $post->slug,
                 'title' => $post->title,
                 'excerpt' => Str::limit(strip_tags($post->content), 150),
                 'author' => $post->user->name ?? 'Unknown Author',

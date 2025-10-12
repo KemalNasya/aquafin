@@ -25,6 +25,43 @@ class Transaction extends Model
         'transaction_date' => 'date',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($transaction) {
+            $transaction->updateWalletBalance();
+        });
+
+        static::updated(function ($transaction) {
+            $transaction->updateWalletBalance();
+        });
+
+        static::deleted(function ($transaction) {
+            $transaction->updateWalletBalance(true); // Reverse on delete
+        });
+    }
+
+    protected function updateWalletBalance($isDelete = false)
+    {
+        $wallet = $this->wallet;
+        if (!$wallet || !$wallet->is_active) {
+            return; // Only update active wallets
+        }
+
+        $amount = $this->amount;
+        if ($isDelete) {
+            // Reverse the effect
+            $amount = -$amount;
+        }
+
+        if ($this->type === 'income') {
+            $wallet->increment('balance', $amount);
+        } elseif ($this->type === 'expense') {
+            $wallet->decrement('balance', $amount);
+        }
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(TransactionCategory::class, 'transaction_category_id');

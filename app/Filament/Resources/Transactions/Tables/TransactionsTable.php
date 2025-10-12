@@ -24,8 +24,8 @@ class TransactionsTable
                     ->label('Tipe')
                     ->badge()
                     ->colors([
-                        'success' => 'income',
-                        'danger' => 'expense',
+                        'income' => 'success',
+                        'expense' => 'danger',
                     ])
                     ->formatStateUsing(fn ($state) => 
                         $state === 'income' ? 'Pemasukan' : 'Pengeluaran'

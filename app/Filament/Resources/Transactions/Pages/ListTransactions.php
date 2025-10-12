@@ -20,12 +20,12 @@ class ListTransactions extends ListRecords
             Actions\ActionGroup::make([
 
                 Actions\Action::make('PDF')
-                    ->label('Export PDF')
+                    ->label('Cetak PDF')
                     ->icon('heroicon-o-document')
                     ->url(route('admin.report.exportPdf'))
                     ->openUrlInNewTab(),
             ])
-                ->label('Export')
+                ->label('Cetak')
                 ->icon('heroicon-o-arrow-down-tray')
                 ->button(),
         ];

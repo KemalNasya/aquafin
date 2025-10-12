@@ -18,8 +18,7 @@
                         style="text-shadow: 3px 3px 8px rgba(0,0,0,0.7); animation: fadeInDown 1s ease-out;">
                         {{ $article['title'] }}
                     </h1>
-
-                    <div class="d-flex justify-content-center align-items-center gap-3 text-light small"
+                    <div class="d-flex justify-content-center align-items-center gap-3 text-light small mb-4"
                         style="animation: fadeInUp 1.3s ease-out;">
                         <span class="text-white-50"><i class="fas fa-user me-1 text-primary-light"></i> {{ $article['author'] }}</span>
                         <span class="text-muted">•</span>
@@ -27,6 +26,8 @@
                         <span class="text-muted">•</span>
                         <span class="text-white-50"><i class="fas fa-clock me-1 text-primary-light"></i> {{ $article['read_time'] }}</span>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -56,11 +57,20 @@
                                     @endforeach
                                 @endif
                             </div>
+
+                            <!-- Share Buttons -->
+                            <div class="share-buttons d-flex gap-2">
+                                <span class="text-muted me-2">Share:</span>
+                                <a href="#" id="copy-link" class="btn btn-outline-success btn-sm rounded-pill" title="Copy Link"><i class="fas fa-link"></i></a>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->fullUrl()) }}" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->fullUrl()) }}&text={{ urlencode($article['title']) }}" target="_blank" class="btn btn-outline-info btn-sm rounded-pill" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="https://wa.me/?text={{ urlencode($article['title'] . ' ' . request()->fullUrl()) }}" target="_blank" class="btn btn-outline-success btn-sm rounded-pill" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="d-flex justify-content-center w-100 mt-5">
-                        <a href="{{ route('article') }}" 
+                        <a href="{{ route('article') }}"
                             {{-- Ganti btn-outline-primary dengan class kustom btn-primary-outline --}}
                             class="btn btn-primary-outline rounded-pill px-4 py-2 shadow-sm"
                             style="min-width: 230px; text-align: center;">
@@ -74,13 +84,13 @@
                         style="animation: fadeInUp 1.4s ease-out;">
                         <div class="card-header bg-white border-0">
                             <h6 class="fw-bold mb-0 text-primary-dark">
-                                <i class="fas fa-clock text-primary-light me-2"></i> Artikel Terbaru
+                                <i class="fas fa-clock text-primary-light me-2"></i>Artikel Terbaru
                             </h6>
                         </div>
                         <div class="card-body">
                             <div class="list-group list-group-flush">
-                                @foreach ($relatedPosts->take(3) as $popular)
-                                    <a href="{{ route('article.show', $popular['id']) }}"
+                                @foreach ($relatedPosts->take(5) as $popular)
+                                    <a href="{{ route('article.show', $popular['slug']) }}"
                                         class="list-group-item list-group-item-action border-0 px-0 py-3 hover-lift">
                                         <div class="d-flex w-100 justify-content-between align-items-start">
                                             <h6 class="fw-bold mb-1 text-dark">
@@ -97,27 +107,6 @@
                                         </small>
                                     </a>
                                 @endforeach
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden card-hover"
-                        style="animation: fadeInUp 1.6s ease-out;">
-                        <div class="card-header bg-white border-0">
-                            <h6 class="fw-bold mb-0 text-primary-dark">
-                                <i class="fas fa-tags me-2"></i> Kategori
-                            </h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex flex-wrap gap-2">
-                                @if(isset($categories))
-                                    @foreach ($categories as $category)
-                                        <span class="badge bg-light text-dark border p-2 rounded-pill hover-lift">
-                                            {{ $category->name }}
-                                            <span class="text-muted">({{ $category->posts_count }})</span>
-                                        </span>
-                                    @endforeach
-                                @endif
                             </div>
                         </div>
                     </div>
@@ -146,9 +135,8 @@
                                     <span class="badge bg-primary-gradient mb-2">{{ $related['category'] }}</span>
                                     <h5 class="card-title fw-bold">{{ Str::limit($related['title'], 50) }}</h5>
                                     <p class="card-text text-muted">{{ $related['excerpt'] }}</p>
-                                    <a href="{{ route('article.show', $related['id']) }}"
-                                        {{-- Ganti btn-primary dengan class kustom btn-primary-gradient --}}
-                                        class="btn btn-primary-gradient rounded-pill mt-2">Baca Selengkapnya</a>
+                                    <a href="{{ route('article.show', $related['slug']) }}"
+                                        class="btn btn-primary rounded-pill mt-2">Baca Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +157,7 @@
             --color-light-gradient: #00bcd4; /* Biru muda / Teal */
             --primary-shadow-color: rgba(13, 71, 161, 0.5); /* Shadow yang disesuaikan */
         }
-        
+
         /* Utility Classes for Text Color */
         .text-primary-dark { color: var(--color-dark-gradient) !important; }
         .text-primary-light { color: var(--color-light-gradient) !important; }
@@ -203,11 +191,11 @@
             color: white !important;
             border: none !important;
         }
-        
+
         /* Background Gradient for Related Posts Section */
         .bg-gradient-related-posts {
             background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); /* Pertahankan gradien biru tua/sedang untuk kontras */
-            border-bottom: 2px solid rgba(255,255,255,0.2); 
+            border-bottom: 2px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
         }
 
@@ -227,7 +215,7 @@
             box-shadow: 0 8px 15px var(--primary-shadow-color);
             color: white; /* Pastikan warna teks tetap putih saat hover */
         }
-        
+
         /* Outline Button (e.g., Kembali ke Artikel) */
         .btn-primary-outline {
             border: 2px solid var(--color-dark-gradient); /* Border dengan warna gradien gelap */
@@ -235,7 +223,7 @@
             background-color: transparent;
             transition: all 0.3s ease;
         }
-        
+
         .btn-primary-outline:hover {
             /* Saat hover, terapkan gradien sebagai background */
             background: linear-gradient(90deg, var(--color-dark-gradient) 0%, var(--color-light-gradient) 100%);
@@ -274,5 +262,25 @@
             font-style: italic;
             color: #555;
         }
+
+        /* Share Buttons */
+        .share-buttons .btn {
+            transition: all 0.3s ease;
+        }
+
+        .share-buttons .btn:hover {
+            transform: scale(1.1);
+        }
     </style>
+
+    <script>
+        document.getElementById('copy-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                alert('Link berhasil disalin!');
+            }).catch(function(err) {
+                console.error('Gagal menyalin link: ', err);
+            });
+        });
+    </script>
 @endsection

@@ -16,7 +16,7 @@
                             <small class="text-muted">{{ $article['read_time'] }}</small>
                         </div>
                         <h5 class="card-title fw-bold">
-                            <a href="{{ route('article.show', $article['id']) }}" class="text-decoration-none text-dark hover-link">
+                            <a href="{{ route('article.show', $article['slug']) }}" class="text-decoration-none text-dark hover-link">
                                 {{ $article['title'] }}
                             </a>
                         </h5>
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-transparent border-0">
-                        <a href="{{ route('article.show', $article['id']) }}" class="btn btn-gradient btn-sm"><i class="fas fa-arrow-right me-1"></i>Baca Selengkapnya</a>
+                        <a href="{{ route('article.show', $article['slug']) }}" class="btn btn-gradient btn-sm"><i class="fas fa-arrow-right me-1"></i>Baca Selengkapnya</a>
                     </div>
                 </div>
             </div>

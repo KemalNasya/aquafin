@@ -15,7 +15,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/infrastructure', [InfrastructureController::class, 'index'])->name('infrastructure');
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
-Route::get('/article/{id}', [ArticleController::class, 'show'])->name('article.show');
+Route::get('/article/{slug}', [ArticleController::class, 'show'])->name('article.show');
 Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/gallery/download/{photoId}', [GalleryController::class, 'download'])->name('gallery.download');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
