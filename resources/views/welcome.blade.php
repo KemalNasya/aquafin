@@ -15,6 +15,6 @@
 
     <x-gallery-section />
 
-    <x-contact-section />
+
 
 @endsection

@@ -298,41 +298,31 @@
 
     
     <style>
-        /* Mendefinisikan warna kustom dari gambar */
         :root {
             --dark-blue-color: #002244;
-            /* Warna gelap pada gambar */
             --light-blue-color: #1a4c8a;
-            /* Warna terang pada gambar */
             --primary-color: #003366;
-            /* Warna primer baru yang lebih solid */
             --gradient-start: #002244;
             --gradient-end: #1a4c8a;
-            /* WARNA GRADIENT BARU UNTUK BACKGROUND PUTIH */
             --new-gradient-start: #0a2c4d;
             --new-gradient-end: #154e8d;
         }
 
-        /* PERUBAHAN HERO SECTION CSS */
         .black-gradient-overlay {
-            /* Overlay di Hero Section: Hitam Transparan ke Pekat */
             background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.85) 100%);
-            z-index: 1; /* Di bawah teks (z-index 2), di atas dark-filter (z-index 0) */
+            z-index: 1;
         }
-        
+
         .dark-filter {
-            /* Filter untuk meredupkan gambar latar belakang */
             background-color: transparent;
-            z-index: 0; /* Paling bawah */
-            filter: brightness(40%); /* Membuat gambar terlihat 60% lebih redup */
+            z-index: 0;
+            filter: brightness(40%);
         }
 
         .hero-section .container {
-            z-index: 2; /* Memastikan teks di atas overlay */
+            z-index: 2;
         }
-        /* END PERUBAHAN HERO SECTION CSS */
 
-        /* Mengganti primary color dengan warna baru */
         .custom-text-primary {
             color: var(--primary-color) !important;
         }
@@ -342,12 +332,10 @@
         }
 
         .dark-blue-gradient-overlay {
-            /* Overlay biru lama, jika masih dipakai di section lain */
             background: linear-gradient(135deg, rgba(0, 34, 68, 0.9) 0%, rgba(26, 76, 138, 0.7) 100%);
         }
 
         .dark-blue-gradient-bg {
-            /* Background di Statistics dan CTA Section */
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%) !important;
         }
 
@@ -362,28 +350,23 @@
             background: linear-gradient(45deg, var(--light-blue-color), var(--dark-blue-color));
             color: white;
             transform: translateY(-2px);
-            /* Efek hover lift */
             box-shadow: 0 10px 20px rgba(0, 34, 68, 0.5);
-            /* Efek glow shadow */
         }
 
-        /* MENGGANTI CLASS custom-light-bg DENGAN BACKGROUND GRADIENT BARU */
         .custom-gradient-bg {
             background: linear-gradient(90deg, var(--new-gradient-start) 0%, var(--new-gradient-end) 100%) !important;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
-        /* CARD TRANSPARANT (Pengganti bg-white di Fasilitas & Teknologi) */
         .bg-light-transparant-white {
             background-color: rgba(255, 255, 255, 0.9) !important;
-            color: #333; /* Pastikan teks di dalam card tetap gelap */
+            color: #333;
         }
         .bg-light-transparant-white p {
-            color: #6c757d !important; /* Muted text di dalam card */
+            color: #6c757d !important;
         }
 
-        /* Teks di Section Utama custom-gradient-bg (Judul sudah text-white, Lead & P lainnya) */
         #overview.custom-gradient-bg p,
         #overview.custom-gradient-bg .lead,
         #process.custom-gradient-bg p,
@@ -395,23 +378,18 @@
             color: rgba(255, 255, 255, 0.8) !important;
         }
 
-        /* Override warna teks card di timeline agar tetap terbaca */
         #process.custom-gradient-bg .card .text-muted {
-            color: #6c757d !important; /* Kembalikan ke muted color agar kontras dengan card putih */
+            color: #6c757d !important;
         }
-        /* Override warna teks card fasilitas/teknologi agar tidak terlalu putih */
         #facilities.custom-gradient-bg .facility-card p,
         #technology.custom-gradient-bg .tech-card p {
             color: #6c757d !important;
         }
 
-        /* Timeline Marker dan Line Adjustments */
         .dark-blue-timeline::before {
-            /* Garis timeline utama */
             background: linear-gradient(to bottom, var(--primary-color), #28a745, #ffc107, #17a2b8);
         }
 
-        /* Existing Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -454,21 +432,17 @@
             animation: pulse 2s infinite;
         }
 
-        /* Hover Effects */
         .hover-scale:hover {
-            transform: scale(1.03); /* Sedikit dikurangi agar tidak terlalu besar */
+            transform: scale(1.03);
             transition: transform 0.4s ease;
         }
 
-        /* Tambahkan kode ini di dalam tag <style> Anda */
-
 body {
-    /* Mencegah munculnya scrollbar horizontal pada seluruh halaman */
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
         .hover-lift:hover {
-            transform: translateY(-8px); /* Efek lift lebih jelas */
+            transform: translateY(-8px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
             transition: all 0.4s ease;
         }
@@ -479,28 +453,25 @@ body {
             transition: all 0.3s ease;
         }
 
-        /* New: Hide elements initially for scroll animation */
         .animate-on-scroll {
             opacity: 0;
-            /* Pastikan elemen tersembunyi pada awalnya */
         }
 
-        /* Media Query for smaller screens (Responsif) */
         @media (max-width: 768px) {
             .section-padding {
                 padding: 3rem 0;
             }
 
             .hero-section {
-                min-height: 50vh; /* Teks tetap kontras di HP */
+                min-height: 50vh;
             }
-            
+
             .hero-section h1 {
-                font-size: 2.5rem !important; /* Ukuran h1 di HP */
+                font-size: 2.5rem !important;
             }
-            
+
             .hero-section p.lead {
-                font-size: 1rem !important; /* Ukuran lead di HP */
+                font-size: 1rem !important;
             }
 
             .timeline {

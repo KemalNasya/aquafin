@@ -1,14 +1,14 @@
-<section id="articles" class="section-padding py-5 py-md-5" style="background-color: **#123456**;">
+<section id="articles" class="section-padding py-5 py-md-5" style="background-color: *#123456*;">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold **text-light** mb-3">Artikel Terbaru</h2>
-            <p class="lead **text-light**">Temukan wawasan dan pengetahuan terbaru dari tim kami</p>
+            <h2 class="fw-bold *text-light* mb-3">Artikel Terbaru</h2>
+            <p class="lead *text-light*">Temukan wawasan dan pengetahuan terbaru dari tim kami</p>
         </div>
 
         <div class="row g-4">
             @foreach($featuredArticles as $article)
             <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover **bg-white**">
+                <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden card-hover *bg-white*">
                     <img src="{{ $article['image'] }}" class="card-img-top" alt="{{ $article['title'] }}" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center mb-2">

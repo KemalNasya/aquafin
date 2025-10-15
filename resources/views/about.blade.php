@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'About Us - Company Name')
+@section('title', 'Tentang Kami - Pereng Mina GAP')
 
 @section('content')
     {{-- HERO SECTION --}}
@@ -31,17 +31,17 @@
             </p>
 
             <div class="hero-buttons d-flex justify-content-center gap-3 animate-fadeInUp-delay2">
-                <a href="#profile" 
+                <a href="#profile"
                     class="btn btn-gradient-modern px-4 py-3 fs-6 shadow-lg">
                     <i class="fas fa-info-circle me-2"></i>Profil
                 </a>
-                <a href="#vision" 
+                <a href="#vision"
                     class="btn btn-outline-light px-4 py-3 fs-6 shadow-lg">
                     <i class="fas fa-eye me-2"></i>Visi & Misi
                 </a>
-                <a href="#team" 
+                <a href="#values"
                     class="btn btn-outline-light px-4 py-3 fs-6 shadow-lg">
-                    <i class="fas fa-users me-2"></i>Tim Ahli
+                    <i class="fas fa-star me-2"></i>Motto
                 </a>
             </div>
         </div>
@@ -59,7 +59,7 @@
                 <div class="col-lg-6 animate-fadeUp">
                     <h2 class="fw-bold mb-4 text-white">Profil Pereng Mina GAP</h2>
                     <p class="lead text-light">
-                        Kelompok Pembudidaya Ikan “Pereng Mina” GAP mempunyai usaha di peternakan ikan Nila, Gurami, dan lele,
+                        Kelompok Pembudidaya Ikan "Pereng Mina" GAP mempunyai usaha di peternakan ikan Nila, Gurami, dan lele,
                          dengan luasan area sebesar 0,6 Ha. Jumlah anggotanya adalah 29 orang, 
                          dan memiliki kolam 26 buah dengan luasan yang bervariasi. Masing-masing kolam ada PIC nya yang akan bertanggung jawab terhadap pemeliharaan ikan yang dipelihara.
                     </p>
@@ -79,18 +79,11 @@
                 </div>
 
                 <div class="col-lg-6 animate-fadeUp">
-                    <h2 class="fw-bold mb-4 text-white">Motto, Visi & Misi</h2>
-                    <div class="vision-mission mb-4">
-                        <div class="feature-item d-flex mb-4 p-4 rounded-4 shadow-sm hover-lift glass-card">
-                            <i class="fas fa-quote-left text-info me-3 mt-1 fs-2"></i>
-                            <div>
-                                <h4 class="text-info mb-2">Motto</h4>
-                                <p class="text-light mb-0 fst-italic">
-                                    "Jujur, Inovatif, Teladan dan Untung (JITU)"
-                                </p>
-                            </div>
-                        </div>
+                    <h2 class="fw-bold mb-4 text-white">Visi & Misi</h2>
+                    
+                    <!-- Motto Section -->
 
+                    <div class="vision-mission">
                         <div class="feature-item d-flex mb-4 p-4 rounded-4 shadow-sm hover-lift glass-card">
                             <i class="fas fa-eye text-warning me-3 mt-1 fs-2"></i>
                             <div>
@@ -120,15 +113,80 @@
         </div>
     </section>
 
-    
+    {{-- SECTION NILAI UTAMA --}}
+    <section id="values" class="section-padding bg-gradient-custom text-white">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold mb-3 text-white">Motto Pereng Mina GAP</h2>
+                <p class="text-light lead">Motto Kami "JITU"</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 hover-lift text-center glass-card">
+                        <div class="card-body p-4">
+                            <div class="icon-wrapper bg-primary-gradient mx-auto mb-3">
+                                <i class="fas fa-handshake text-white fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-white">Jujur</h5>
+                            <p class="text-light small mb-0">
+                                Integritas dalam setiap transaksi dan hubungan kemitraan
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 hover-lift text-center glass-card">
+                        <div class="card-body p-4">
+                            <div class="icon-wrapper bg-success-gradient mx-auto mb-3">
+                                <i class="fas fa-lightbulb text-white fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-white">Inovatif</h5>
+                            <p class="text-light small mb-0">
+                                Terus mengembangkan teknologi dan metode budidaya terbaru
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 hover-lift text-center glass-card">
+                        <div class="card-body p-4">
+                            <div class="icon-wrapper bg-warning-gradient mx-auto mb-3">
+                                <i class="fas fa-user-graduate text-white fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-white">Teladan</h5>
+                            <p class="text-light small mb-0">
+                                Menjadi contoh dalam praktik budidaya ikan yang berkelanjutan
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card border-0 shadow-sm h-100 hover-lift text-center glass-card">
+                        <div class="card-body p-4">
+                            <div class="icon-wrapper bg-info-gradient mx-auto mb-3">
+                                <i class="fas fa-chart-line text-white fs-4"></i>
+                            </div>
+                            <h5 class="fw-bold mb-3 text-white">Untung</h5>
+                            <p class="text-light small mb-0">
+                                Mencapai keberhasilan ekonomi yang berkelanjutan bagi anggota
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <style>
-        /* Background section */
         .bg-gradient-custom {
-            background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);
+            background: linear-gradient(135deg, #0a2c4d 0%, #154e8d 100%);
             border-bottom: 2px solid rgba(255,255,255,0.2);
         }
 
-        /* Tombol gradasi modern */
         .btn-gradient-modern {
             background: linear-gradient(135deg, #007bff 0%, #0044cc 100%);
             border: none;
@@ -142,7 +200,39 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
         }
 
-        /* Animasi fadeInUp */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .bg-primary-gradient {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        }
+
+        .bg-success-gradient {
+            background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+        }
+
+        .bg-warning-gradient {
+            background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+        }
+
+        .bg-info-gradient {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -157,23 +247,49 @@
         }
         .animate-slideLeft { animation: slideLeft 1s ease-out; }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .animate-fadeUp { animation: fadeInUp 1s ease-out; }
+
+        .hover-scale:hover { 
+            transform: scale(1.05); 
+            transition: transform 0.3s ease; 
         }
-        .hover-scale:hover { transform: scale(1.05); transition: transform 0.3s ease; }
-        .hover-lift:hover, .card-hover:hover {
+        
+        .hover-lift:hover {
             transform: translateY(-6px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2) !important;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3) !important;
             transition: all 0.3s ease;
         }
 
-        .section-padding { padding: 5rem 0; }
+        .hover-lift:hover .icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .section-padding { 
+            padding: 5rem 0; 
+        }
 
         @media (max-width: 768px) {
-            .section-padding { padding: 3rem 0; }
-            .hero-section { min-height: 60vh; }
+            .section-padding { 
+                padding: 3rem 0; 
+            }
+            .hero-section { 
+                min-height: 60vh; 
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons .btn {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .display-4 {
+                font-size: 2rem;
+            }
         }
     </style>
 @endsection

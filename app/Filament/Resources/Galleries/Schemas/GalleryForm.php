@@ -39,6 +39,7 @@ class GalleryForm
                     ->validationMessages([
                         'required' => 'Foto harus diisi dan tidak boleh kosong!',
                         'image' => 'File yang diunggah harus berupa gambar.',
+                        'max' => 'Ukuran file maksimal 2MB.',
                     ]),
 
                 Select::make('gallery_category_id')

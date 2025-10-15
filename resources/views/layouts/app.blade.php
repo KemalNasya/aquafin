@@ -11,21 +11,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* 🌊 Warna gradasi utama */
         :root {
             --main-gradient: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);
         }
 
-        /* 🎯 STYLING BARU UNTUK LATAR BELAKANG HALAMAN */
         body {
-            /* Menerapkan gradien ke seluruh latar belakang halaman */
             background: var(--main-gradient);
-            /* PENTING: Mengubah warna teks default menjadi putih agar terbaca pada latar belakang gelap */
             color: #fff;
         }
-        /* 🎯 AKHIR STYLING BARU */
 
-        /* 🔹 Navbar Styling */
         .navbar-custom {
             background: var(--main-gradient);
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -43,7 +37,6 @@
             opacity: 0.85;
         }
 
-        /* 🔹 Section pemisah di bawah header */
         .header-divider {
             height: 80px;
             background: var(--main-gradient);
@@ -51,7 +44,6 @@
             transition: all 0.3s ease;
         }
 
-        /* 🔹 Footer styling */
         footer {
             background: var(--main-gradient);
             color: #fff;
@@ -70,7 +62,6 @@
             opacity: 0.85;
         }
 
-        /* 🔹 Animasi halus */
         .fade-in {
             animation: fadeInUp 0.8s ease-out;
         }

@@ -16,21 +16,28 @@ class CurrenciesTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Nama Mata Uang')
                     ->searchable(),
                 TextColumn::make('code')
+                    ->label('Kode')
                     ->searchable(),
                 TextColumn::make('symbol')
+                    ->label('Simbol')
                     ->searchable(),
                 TextColumn::make('exchange_rate')
+                    ->label('Kurs')
                     ->numeric()
                     ->sortable(),
                 IconColumn::make('is_default')
+                    ->label('Default')
                     ->boolean(),
                 TextColumn::make('created_at')
+                    ->label('Dibuat')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Diubah')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),

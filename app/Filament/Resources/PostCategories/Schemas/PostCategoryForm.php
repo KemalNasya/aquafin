@@ -29,6 +29,9 @@ class PostCategoryForm
                     ->unique(ignoreRecord: true)
                     ->maxLength(255)
                     ->rules(['regex:/^[a-z0-9\-]+$/'])
+                    ->validationMessages([
+                        'regex' => 'Slug hanya boleh berisi huruf kecil, angka, dan tanda hubung (-).',
+                    ])
                     ->helperText('URL kategori (dibuat otomatis dari nama, bisa diubah manual)'),
             ]);
     }

@@ -10,7 +10,7 @@ class GalleryCategory extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'description'];
+    protected $fillable = ['name', 'slug'];
 
     public function galleries(): HasMany
     {

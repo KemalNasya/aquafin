@@ -3,147 +3,101 @@
 @section('title', 'Galeri - Pereng Mina GAP')
 
 @section('content')
-    <section class="hero-section position-relative overflow-hidden" 
-        style="min-height: 89vh; display: flex; align-items: center;">
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
         
-        <div class="position-absolute top-0 start-0 w-100 h-100"
-             style="background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat; 
-                    background-size: cover; filter: brightness(60%); z-index: -1;">
-        </div>
-        
-        <div class="position-absolute top-0 start-0 w-100 h-100 hero-overlay">
-        </div>
-
-        <div class="container position-relative text-center text-white py-5" style="z-index: 2;">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h1 class="display-4 fw-bold mb-3 text-shadow-dark" 
-                        style="animation: fadeInUp 1s ease-out; animation-delay: 0.2s;">
-                        Dokumentasi Kegiatan Budidaya Ikan Pereng Mina
-                    </h1>
-                    <p class="lead fs-5 mb-5 text-shadow-dark opacity-75" 
-                        style="animation: fadeInUp 1.5s ease-out; animation-delay: 0.4s;">
-                        Koleksi foto lengkap kegiatan budidaya ikan modern dari kolam hingga panen.
-                    </p>
-                    
-                    <a href="#gallery-content" class="btn btn-lg btn-modern-primary rounded-pill shadow-lg animate-fade-in"
-                        style="animation-delay: 0.6s;">
-                        <i class="fas fa-arrow-down me-2"></i> Explore Gallery
-                    </a>
-                </div>
-            </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Dokumentasi Kegiatan Budidaya Ikan Pereng Mina</h1>
+            <p class="hero-subtitle">Koleksi foto lengkap kegiatan budidaya ikan modern dari kolam hingga panen.</p>
+            <a href="#gallery-content" class="btn-hero">
+                <i class="fas fa-arrow-down me-2"></i> Lihat Foto
+            </a>
         </div>
     </section>
 
-    
-    <section class="py-4" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);">
+    <section class="filter-section">
         <div class="container">
-            <h4 class="text-white-50 fw-light mb-3 text-center">Filter Kategori:</h4>
-            <div class="d-flex flex-wrap justify-content-center gap-2 gap-md-3">
-                <a href="#" class="badge p-2 p-md-3 rounded-pill badge-dark-mode active-filter-badge" data-filter="all">
+            <h4 class="filter-title">Filter Kategori:</h4>
+            <div class="filter-container">
+                <a href="#" class="filter-badge active" data-filter="all">
                     <i class="fas fa-grip-horizontal me-1"></i> Semua Foto
                 </a>
                 @foreach($categories as $category)
-                    <a href="#" class="badge p-2 p-md-3 rounded-pill badge-dark-mode"
-                        data-filter="{{ Str::slug($category['name']) }}">
+                    <a href="#" class="filter-badge" data-filter="{{ Str::slug($category['name']) }}">
                         <i class="{{ $category['icon'] ?? 'fas fa-tag' }} me-1"></i> {{ $category['name'] }}
                     </a>
                 @endforeach
             </div>
         </div>
     </section>
-    
-    <section class="py-5" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);" id="gallery-content">
+
+    <section class="gallery-section" id="gallery-content">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    @foreach($categories as $category)
-                    <div id="category-{{ Str::slug($category['name']) }}" 
-                         class="gallery-category mb-5" 
-                         data-category="{{ Str::slug($category['name']) }}">
-                        
-                        <div class="d-flex align-items-center mb-4 p-3 hover-bg-dark-lighten rounded-3 shadow-lg transition-all" 
-                            style="cursor: default;">
-                            <div class="icon-wrapper me-3 bg-white text-primary-custom rounded-circle d-flex align-items-center justify-content-center"
-                                style="width: 60px; height: 60px;">
-                                <i class="{{ $category['icon'] ?? 'fas fa-camera' }} fs-4"></i>
-                            </div>
-                            <div>
-                                <h3 class="fw-bold mb-1 text-white">{{ $category['name'] }}</h3>
-                                <p class="text-light mb-0">{{ count($category['photos']) }} foto tersedia</p>
-                            </div>
-                        </div>
+            @foreach($categories as $category)
+            <div id="category-{{ Str::slug($category['name']) }}" class="gallery-category" data-category="{{ Str::slug($category['name']) }}">
+                <div class="category-header">
+                    <div class="category-icon">
+                        <i class="{{ $category['icon'] ?? 'fas fa-camera' }}"></i>
+                    </div>
+                    <div>
+                        <h3 class="category-name">{{ $category['name'] }}</h3>
+                        <p class="category-count">{{ count($category['photos']) }} foto tersedia</p>
+                    </div>
+                </div>
 
-                        {{-- === START OF HORIZONTAL SCROLL WRAPPER === --}}
-                        <div class="horizontal-scroll-wrapper">
-                            <div class="d-flex flex-nowrap gap-4 pb-3"> {{-- `flex-nowrap` dan `gap-4` --}}
-                                @foreach($category['photos'] as $photo)
-                                <div class="col-12 col-md-6 col-lg-4 gallery-item animate-fade-in flex-shrink-0" {{-- Tambah flex-shrink-0 --}}
-                                    data-category="{{ Str::slug($category['name']) }}">
-                                    <div class="card border-0 shadow-lg h-100 gallery-card rounded-3 overflow-hidden position-relative">
-                                        <div class="card-img-container position-relative overflow-hidden" style="height: 250px;">
-                                            
-                                            <img src="{{ $photo['image'] }}" class="card-img-top w-100 h-100 object-fit-cover" alt="{{ $photo['title'] }}">
-                                            
-                                            <div class="card-img-overlay d-flex align-items-end p-3 image-caption-overlay">
-                                                <div class="w-100">
-                                                    <h6 class="card-title text-white fw-bold mb-1 text-shadow-dark">{{ $photo['title'] }}</h6>
-                                                    <small class="text-white-50 text-shadow-dark">{{ $photo['date'] }}</small>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="card-hover-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-75 opacity-0 transition-all">
-                                                <div class="text-center">
-                                                    <a href="#" class="btn btn-light btn-lg rounded-circle mb-2 hover-lift" 
-                                                        data-bs-toggle="modal" 
-                                                        data-bs-target="#imageModal" 
-                                                        data-image="{{ $photo['image'] }}" 
-                                                        data-title="{{ $photo['title'] }}">
-                                                        <i class="fas fa-expand-arrows-alt"></i>
-                                                    </a>
-                                                    <br>
-                                                    <small class="text-white">Klik untuk memperbesar</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="card-body p-3 bg-white">
-                                            <p class="card-text text-muted small mb-3">{{ $photo['description'] }}</p>
+                <div class="horizontal-scroll-container">
+                    <div class="scroll-content">
+                        @foreach($category['photos'] as $photo)
+                        <div class="scroll-item gallery-item" data-category="{{ Str::slug($category['name']) }}">
+                            <div class="gallery-card">
+                                <div class="card-image-container">
+                                    <img src="{{ $photo['image'] }}" class="card-image" alt="{{ $photo['title'] }}">
+                                    
+                                    <div class="image-overlay">
+                                        <h6 class="image-title">{{ $photo['title'] }}</h6>
+                                        <small class="image-date">{{ $photo['date'] }}</small>
+                                    </div>
 
-                                            <div class="d-flex justify-content-between align-items-center">
-                                                <span class="badge bg-gradient-primary-custom text-white">
-                                                    <i class="fas fa-tag me-1"></i>{{ $category['name'] }}
-                                                </span>
-                                                <div>
-                                                    <a href="{{ $photo['image'] }}" download class="btn btn-sm btn-outline-primary-custom rounded-pill hover-lift" title="Download Foto">
-                                                        <i class="bi-download"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="hover-overlay">
+                                        <a href="#" class="btn-expand" data-bs-toggle="modal" data-bs-target="#imageModal"
+                                           data-image="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}">
+                                            <i class="fas fa-expand"></i>
+                                        </a>
+                                        <small class="expand-text">Klik untuk memperbesar</small>
                                     </div>
                                 </div>
-                                @endforeach
+
+                                <div class="card-body">
+                                    <p class="card-text">{{ $photo['description'] }}</p>
+                                    <div class="card-footer">
+                                        <span class="category-badge">
+                                            <i class="fas fa-tag me-1"></i>{{ $category['name'] }}
+                                        </span>
+                                        <a href="{{ $photo['image'] }}" download class="btn-download" title="Download Foto">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        {{-- === END OF HORIZONTAL SCROLL WRAPPER === --}}
-
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
     <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg">
-                <div class="modal-header border-0">
-                    <h5 class="modal-title fw-bold" id="imageModalLabel">Gallery Image</h5>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="imageModalLabel">Gallery Image</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-0">
-                    <img id="modalImage" src="" alt="" class="w-100 rounded-bottom">
+                <div class="modal-body">
+                    <img id="modalImage" src="" alt="" class="modal-image">
                 </div>
             </div>
         </div>
@@ -152,205 +106,419 @@
 
 @push('styles')
 <style>
-    /* Define the new, deep blue color palette */
     :root {
-        /* Warna Dasar Baru */
         --color-dark-blue: #0a2c4d;
         --color-medium-blue: #154e8d;
-        --bs-primary-custom: var(--color-dark-blue);
-        
-        /* Gradien Baru */
-        --bs-primary-gradient: linear-gradient(90deg, var(--color-dark-blue) 0%, var(--color-medium-blue) 100%);
-        --color-dark-lighten: #1e59a4; /* Warna sedikit lebih terang dari dark blue untuk hover/elemen kecil */
+        --color-light-blue: #1e59a4;
+        --color-accent: #2a7de1;
+        --spacing-sm: 0.5rem;
+        --spacing-md: 1rem;
+        --spacing-lg: 1.5rem;
+        --spacing-xl: 2rem;
+        --border-radius: 8px;
+        --transition: all 0.3s ease;
     }
 
-    /* HERO SECTION STYLING */
     .hero-section {
-        /* Hapus background dari sini, dipindah ke div terpisah untuk filter brightness */
-        background: none !important; 
+        min-height: 70vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
     }
-    
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat;
+        filter: brightness(60%);
+        z-index: -1;
+    }
+
     .hero-overlay {
-        /* Gradasi hitam transparan (rgba(0,0,0,0.3)) ke pekat (rgba(0,0,0,0.85)) */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
-        opacity: 1; 
         z-index: 1;
     }
-    
-    .text-shadow-dark {
-         /* Teks putih terlihat sangat kontras dan profesional */
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); 
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: white;
+        width: 100%;
+        padding: var(--spacing-xl) 0;
     }
 
-    /* Tombol Biru Modern dengan efek hover lift + glow shadow */
-    .btn-modern-primary {
+    .hero-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: var(--spacing-md);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        margin-bottom: var(--spacing-xl);
+        opacity: 0.85;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        animation: fadeInUp 1.5s ease-out;
+    }
+
+    .btn-hero {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
         background: linear-gradient(90deg, #154e8d 0%, #0a2c4d 100%);
-        border: none;
         color: white;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(21, 78, 141, 0.4);
-    }
-
-    .btn-modern-primary:hover {
-        transform: translateY(-3px); /* Hover lift */
-        opacity: 0.95;
-        box-shadow: 0 8px 20px rgba(21, 78, 141, 0.6); /* Glow shadow */
-        color: white;
-    }
-
-    /* CUSTOM CLASSES FOR GALLERY */
-    .bg-gradient-primary-custom {
-        background: var(--bs-primary-gradient) !important;
-    }
-
-    .text-primary-custom {
-        color: var(--color-dark-blue) !important;
-    }
-
-    .btn-outline-primary-custom {
-        color: var(--color-medium-blue);
-        border-color: var(--color-medium-blue);
-        transition: all 0.3s ease;
-    }
-    .btn-outline-primary-custom:hover {
-        color: white;
-        background-color: var(--color-medium-blue);
-        border-color: var(--color-medium-blue);
-    }
-
-    .hover-bg-dark-lighten {
-        transition: all 0.3s ease;
-    }
-    .hover-bg-dark-lighten:hover {
-        background-color: var(--color-dark-lighten) !important;
-        cursor: pointer;
-    }
-    
-    /* FILTER BADGE STYLES */
-    .badge-filter {
-        transition: all 0.3s ease;
-        cursor: pointer;
+        border-radius: 50px;
+        text-decoration: none;
         font-weight: 500;
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        box-shadow: 0 4px 15px rgba(21, 78, 141, 0.4);
+        transition: var(--transition);
+        animation: fadeInUp 2s ease-out;
     }
-    .badge-dark-mode {
-        background-color: transparent !important;
-        color: rgba(255, 255, 255, 0.8) !important;
+
+    .btn-hero:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(21, 78, 141, 0.6);
+        color: white;
     }
-    .badge-dark-mode:hover {
-        background-color: rgba(255, 255, 255, 0.1) !important;
-        color: white !important;
+
+    .filter-section {
+        background: linear-gradient(90deg, var(--color-dark-blue) 0%, var(--color-medium-blue) 100%);
+        padding: var(--spacing-lg) 0;
     }
-    .active-filter-badge {
-        background: white !important; 
-        color: var(--color-dark-blue) !important;
-        border: 1px solid white !important;
-        font-weight: bold;
+
+    .filter-title {
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 300;
+        margin-bottom: var(--spacing-md);
+        text-align: center;
+    }
+
+    .filter-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: var(--spacing-sm);
+    }
+
+    .filter-badge {
+        padding: 0.6rem 1.2rem;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: var(--transition);
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+    .filter-badge:hover, .filter-badge.active {
+        background: white;
+        color: var(--color-dark-blue);
+        border-color: white;
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
 
-    /* CARD GALLERY EFFECTS */
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(30px); }
-        to { opacity: 1; transform: translateY(0); }
+    .gallery-section {
+        background: linear-gradient(90deg, var(--color-dark-blue) 0%, var(--color-medium-blue) 100%);
+        padding: var(--spacing-xl) 0;
     }
-    .animate-fade-in {
-        animation: fadeInUp 1s ease-out;
+
+    .gallery-category {
+        margin-bottom: var(--spacing-xl);
     }
+
+    .category-header {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: var(--border-radius);
+        padding: var(--spacing-lg);
+        margin-bottom: var(--spacing-lg);
+        border-left: 4px solid var(--color-accent);
+        display: flex;
+        align-items: center;
+        transition: var(--transition);
+    }
+
+    .category-header:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .category-icon {
+        width: 50px;
+        height: 50px;
+        background: white;
+        color: var(--color-dark-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: var(--spacing-md);
+    }
+
+    .category-name {
+        color: white;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+    }
+
+    .category-count {
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+    }
+
     .gallery-card {
-        transition: all 0.3s ease;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        transition: var(--transition);
+        height: 100%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
+
     .gallery-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important; 
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
-    .card-img-container img {
-        transition: transform 0.3s ease;
+
+    .card-image-container {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
     }
-    .gallery-card:hover .card-img-container img {
+
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .gallery-card:hover .card-image {
         transform: scale(1.05);
     }
-    .card-hover-overlay {
-        transition: opacity 0.3s ease;
+
+    .image-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: var(--spacing-md);
+        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+        color: white;
     }
-    .gallery-card:hover .card-hover-overlay {
-        opacity: 1 !important;
+
+    .image-title {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
     }
-    .image-caption-overlay {
-        transition: all 0.3s ease;
+
+    .image-date {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .hover-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: var(--transition);
+    }
+
+    .gallery-card:hover .hover-overlay {
         opacity: 1;
-        background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); /* Efek gradien baru untuk teks di gambar */
     }
 
-    /* Horizontal Scroll Wrapper */
-    .horizontal-scroll-wrapper {
-        overflow-x: auto; /* Memungkinkan scroll horizontal */
-        -webkit-overflow-scrolling: touch; /* Untuk smooth scrolling di iOS */
-        scrollbar-width: thin; /* Untuk Firefox */
-        scrollbar-color: var(--color-medium-blue) rgba(0,0,0,0.3); /* Untuk Firefox */
+    .btn-expand {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: white;
+        color: var(--color-dark-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        text-decoration: none;
+        margin-bottom: var(--spacing-sm);
     }
 
-    /* Custom scrollbar untuk Webkit (Chrome, Safari) */
-    .horizontal-scroll-wrapper::-webkit-scrollbar {
-        height: 8px; /* Tinggi scrollbar */
+    .btn-expand:hover {
+        transform: scale(1.1);
+        background: var(--color-accent);
+        color: white;
     }
-    .horizontal-scroll-wrapper::-webkit-scrollbar-track {
-        background: rgba(0,0,0,0.3); /* Warna track scrollbar */
+
+    .expand-text {
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    .card-body {
+        padding: var(--spacing-md);
+    }
+
+    .card-text {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .category-badge {
+        background: linear-gradient(90deg, var(--color-dark-blue) 0%, var(--color-medium-blue) 100%);
+        color: white;
+        padding: 0.4rem 0.7rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+
+    .btn-download {
+        color: var(--color-medium-blue);
+        border: 1px solid var(--color-medium-blue);
+        border-radius: 20px;
+        padding: 0.3rem 0.6rem;
+        transition: var(--transition);
+        text-decoration: none;
+    }
+
+    .btn-download:hover {
+        background: var(--color-medium-blue);
+        color: white;
+    }
+
+    .horizontal-scroll-container {
+        overflow-x: auto;
+        padding-bottom: var(--spacing-sm);
+        scrollbar-width: thin;
+        scrollbar-color: var(--color-medium-blue) rgba(0,0,0,0.1);
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .horizontal-scroll-container::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.1);
         border-radius: 10px;
     }
-    .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
-        background-color: var(--color-medium-blue); /* Warna thumb scrollbar */
+
+    .horizontal-scroll-container::-webkit-scrollbar-thumb {
+        background-color: var(--color-medium-blue);
         border-radius: 10px;
-        border: 2px solid rgba(0,0,0,0.3);
     }
 
-    /* Filtering Transition for visibility */
-    .gallery-item { /* Ganti .article-item menjadi .gallery-item agar spesifik */
-        transition: all 0.5s ease-in-out;
+    .scroll-content {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: var(--spacing-md);
     }
+
+    .scroll-item {
+        flex: 0 0 auto;
+        width: 280px;
+    }
+
+    .modal-content {
+        border: none;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
+
+    .modal-header {
+        border-bottom: 1px solid #eee;
+    }
+
+    .modal-image {
+        width: 100%;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery-item {
+        animation: fadeInUp 0.5s ease-out;
+    }
+
     .gallery-item.hidden {
         opacity: 0;
-        /* Menggunakan max-height agar transisi tinggi bisa berjalan halus */
         max-height: 0;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
+        margin: 0;
+        padding: 0;
         overflow: hidden;
         pointer-events: none;
         transform: scale(0.9);
     }
-    
-    /* Hover lift */
-    .hover-lift {
-        transition: transform 0.3s ease;
-    }
-    .hover-lift:hover {
-        transform: translateY(-2px);
+
+    @media (max-width: 992px) {
+        .hero-title {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 992px) {
-        .hero-section h1 {
-            font-size: 2.5rem !important;
+    @media (max-width: 768px) {
+        .hero-section {
+            min-height: 60vh;
         }
         
-        .hero-section p.lead {
-            font-size: 1.25rem !important;
+        .hero-title {
+            font-size: 1.75rem;
+        }
+        
+        .category-header {
+            padding: var(--spacing-md);
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        
+        .scroll-item {
+            width: 250px;
         }
     }
-    
-    @media (max-width: 768px) {
-        .hero-section h1 {
-            font-size: 2rem !important;
+
+    @media (max-width: 576px) {
+        .scroll-item {
+            width: 220px;
         }
         
-        .hero-section p.lead {
-            font-size: 1.1rem !important;
+        .card-image-container {
+            height: 180px;
         }
         
-        .badge-filter {
-            padding: 0.5rem 1rem !important;
+        .filter-badge {
+            padding: 0.5rem 1rem;
             font-size: 0.85rem;
         }
     }
@@ -360,8 +528,7 @@
 @push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        
-        // --- Image Modal Logic ---
+        // Image Modal Logic
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('imageModalLabel');
@@ -377,65 +544,56 @@
             });
         }
 
-        // --- Category Filtering Logic ---
-        const filterBadges = document.querySelectorAll('.badge-filter');
+        // Category Filtering Logic
+        const filterBadges = document.querySelectorAll('.filter-badge');
+        const galleryItems = document.querySelectorAll('.gallery-item');
         const galleryCategories = document.querySelectorAll('.gallery-category');
-        
+
         function filterGallery(filter) {
-            const galleryItems = document.querySelectorAll('.gallery-item'); // Mengganti .article-item
-            
-            // 1. Filter Item (Photos)
+            // Filter Photos
             galleryItems.forEach(item => {
                 const isMatch = (filter === 'all' || item.getAttribute('data-category') === filter);
-                
-                if (isMatch) {
-                    item.classList.remove('hidden');
-                    item.style.animation = 'none';
-                    item.offsetHeight; // Trigger reflow
-                    item.style.animation = 'fadeInUp 0.5s ease-out';
-                } else {
-                    item.classList.add('hidden');
-                }
+                item.classList.toggle('hidden', !isMatch);
             });
 
-            // 2. Show/Hide Categories (Headers)
+            // Show/Hide Categories
             galleryCategories.forEach(cat => {
                 const catCategory = cat.getAttribute('data-category');
-                const isVisible = (filter === 'all' || catCategory === filter);
+                const hasVisibleItems = Array.from(cat.querySelectorAll('.gallery-item'))
+                    .some(item => !item.classList.contains('hidden'));
                 
-                cat.classList.toggle('d-none', !isVisible); 
+                const isVisible = (filter === 'all' || catCategory === filter || hasVisibleItems);
+                cat.style.display = isVisible ? 'block' : 'none';
             });
-            
-            // Scroll to the content after filtering
+
+            // Scroll to content after filtering
             if (filter !== 'all') {
-                document.getElementById('gallery-content').scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => {
+                    document.getElementById('gallery-content').scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 300);
             }
         }
 
-        // --- Event Listener ---
+        // Event Listeners
         filterBadges.forEach(badge => {
             badge.addEventListener('click', function(e) {
-                e.preventDefault(); 
-                
+                e.preventDefault();
                 const filter = this.getAttribute('data-filter');
 
-                filterBadges.forEach(b => {
-                    b.classList.remove('active-filter-badge');
-                    b.classList.add('badge-dark-mode'); 
-                });
-                this.classList.add('active-filter-badge');
-                this.classList.remove('badge-dark-mode');
+                filterBadges.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
 
                 filterGallery(filter);
             });
         });
 
-        // --- Initialize: Set 'Semua Foto' sebagai default aktif ---
+        // Initialize
         const allPhotosBadge = document.querySelector('[data-filter="all"]');
         if (allPhotosBadge) {
-            filterGallery('all'); 
-            allPhotosBadge.classList.add('active-filter-badge');
-            allPhotosBadge.classList.remove('badge-dark-mode');
+            filterGallery('all');
         }
     });
 </script>

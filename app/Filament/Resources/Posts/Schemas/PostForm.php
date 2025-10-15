@@ -34,6 +34,9 @@ class PostForm
                     ->unique(ignoreRecord: true)
                     ->maxLength(255)
                     ->rules(['regex:/^[a-z0-9\-]+$/'])
+                    ->validationMessages([
+                        'regex' => 'Slug hanya boleh berisi huruf kecil, angka, dan tanda hubung (-).',
+                    ])
                     ->helperText('URL / Link (hanya huruf kecil, angka, dan tanda hubung). Akan otomatis dibuat dari judul jika kosong.'),
 
                 Textarea::make('content')

@@ -24,12 +24,12 @@
         </p>
 
         <div class="hero-buttons d-flex justify-content-center gap-3">
-    <a href="{{ route('about') }}" 
+    <a href="{{ route('about') }}"
         class="btn btn-primary px-4 py-2 fs-6 shadow custom-gradient-button"
         style="animation: fadeInUp 2s ease-out;">
         <i class="fas fa-info-circle me-2"></i>Pelajari Lebih Lanjut
     </a>
-    <a href="{{ route('contact') }}" 
+    <a href="{{ route('contact') }}"
         class="btn btn-outline-light px-4 py-2 fs-6 shadow"
         style="animation: fadeInUp 2.5s ease-out;">
         <i class="fas fa-envelope me-2"></i>Hubungi Kami
