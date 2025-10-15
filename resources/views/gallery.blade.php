@@ -3,23 +3,48 @@
 @section('title', 'Galeri - Pereng Mina GAP')
 
 @section('content')
-    <section class="hero-section">
-        <div class="hero-background"></div>
-        <div class="hero-overlay"></div>
-        
-        <div class="hero-content">
-            <h1 class="hero-title">Dokumentasi Kegiatan Budidaya Ikan Pereng Mina</h1>
-            <p class="hero-subtitle">Koleksi foto lengkap kegiatan budidaya ikan modern dari kolam hingga panen.</p>
-            <a href="#gallery-content" class="btn-hero">
-                <i class="fas fa-arrow-down me-2"></i> Lihat Foto
-            </a>
+    <section class="hero-section position-relative overflow-hidden d-flex align-items-center justify-content-center"
+        style="min-height: 89vh;">
+
+        <!-- Gambar Background -->
+        <img src="{{ asset('assets/kolam.jpg') }}" alt="Background"
+            class="position-absolute top-0 start-0 w-100 h-100"
+            style="object-fit: cover; filter: brightness(55%); z-index: -2;">
+
+        <!-- Overlay gradasi hitam -->
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+            style="background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); z-index: -1;"></div>
+
+        <!-- Konten -->
+        <div class="container text-center text-white px-4">
+            <h1 class="fw-bold mb-3 animate-fadeInUp"
+                style="font-size: 2.5rem; text-shadow: 0 4px 15px rgba(0,0,0,0.9);">
+                Dokumentasi Kegiatan Budidaya Ikan Pereng Mina
+            </h1>
+
+            <p class="lead mb-4 mx-auto animate-fadeInUp-delay"
+                style="max-width: 750px; font-size: 1.1rem; line-height: 1.7;
+                text-shadow: 0 2px 8px rgba(0,0,0,0.8);">
+                Koleksi foto lengkap kegiatan budidaya ikan modern dari kolam hingga panen.
+            </p>
+
+            <div class="hero-buttons d-flex justify-content-center gap-3 animate-fadeInUp-delay2">
+                <a href="#gallery-content" class="btn-hero">
+                    <i class="fas fa-arrow-down me-2"></i> Lihat Foto
+                </a>
+            </div>
         </div>
     </section>
 
     <section class="filter-section">
         <div class="container">
-            <h4 class="filter-title">Filter Kategori:</h4>
-            <div class="filter-container">
+            <div class="filter-header">
+                <h4 class="filter-title">Filter Kategori Foto:</h4>
+                <button class="filter-toggle d-md-none" id="filterToggle">
+                    <i class="fas fa-filter"></i>
+                </button>
+            </div>
+            <div class="filter-container" id="filterContainer">
                 <a href="#" class="filter-badge active" data-filter="all">
                     <i class="fas fa-grip-horizontal me-1"></i> Semua Foto
                 </a>
@@ -34,26 +59,14 @@
 
     <section class="gallery-section" id="gallery-content">
         <div class="container">
-            @foreach($categories as $category)
-            <div id="category-{{ Str::slug($category['name']) }}" class="gallery-category" data-category="{{ Str::slug($category['name']) }}">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="{{ $category['icon'] ?? 'fas fa-camera' }}"></i>
-                    </div>
-                    <div>
-                        <h3 class="category-name">{{ $category['name'] }}</h3>
-                        <p class="category-count">{{ count($category['photos']) }} foto tersedia</p>
-                    </div>
-                </div>
-
-                <div class="horizontal-scroll-container">
-                    <div class="scroll-content">
-                        @foreach($category['photos'] as $photo)
-                        <div class="scroll-item gallery-item" data-category="{{ Str::slug($category['name']) }}">
+            <div class="row g-4">
+                @foreach($categories as $category)
+                    @foreach($category['photos'] as $photo)
+                        <div class="col-lg-4 col-md-6 col-sm-4 gallery-item" data-category="{{ Str::slug($category['name']) }}">
                             <div class="gallery-card">
                                 <div class="card-image-container">
                                     <img src="{{ $photo['image'] }}" class="card-image" alt="{{ $photo['title'] }}">
-                                    
+
                                     <div class="image-overlay">
                                         <h6 class="image-title">{{ $photo['title'] }}</h6>
                                         <small class="image-date">{{ $photo['date'] }}</small>
@@ -81,11 +94,9 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                    </div>
-                </div>
+                    @endforeach
+                @endforeach
             </div>
-            @endforeach
         </div>
     </section>
 
@@ -119,60 +130,6 @@
         --transition: all 0.3s ease;
     }
 
-    .hero-section {
-        min-height: 70vh;
-        display: flex;
-        align-items: center;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat;
-        filter: brightness(60%);
-        z-index: -1;
-    }
-
-    .hero-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.85) 100%);
-        z-index: 1;
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        color: white;
-        width: 100%;
-        padding: var(--spacing-xl) 0;
-    }
-
-    .hero-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: var(--spacing-md);
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        animation: fadeInUp 1s ease-out;
-    }
-
-    .hero-subtitle {
-        font-size: 1.25rem;
-        margin-bottom: var(--spacing-xl);
-        opacity: 0.85;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        animation: fadeInUp 1.5s ease-out;
-    }
-
     .btn-hero {
         display: inline-block;
         padding: 0.75rem 1.5rem;
@@ -197,11 +154,33 @@
         padding: var(--spacing-lg) 0;
     }
 
+    .filter-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--spacing-md);
+    }
+
     .filter-title {
         color: rgba(255, 255, 255, 0.8);
         font-weight: 300;
-        margin-bottom: var(--spacing-md);
-        text-align: center;
+        margin: 0;
+    }
+
+    .filter-toggle {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        padding: 0.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+
+    .filter-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
     }
 
     .filter-container {
@@ -209,6 +188,25 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: var(--spacing-sm);
+        max-height: 500px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    @media (min-width: 768px) {
+        .filter-container {
+            max-height: none;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .filter-container {
+            max-height: 0;
+        }
+
+        .filter-container.show {
+            max-height: 500px;
+        }
     }
 
     .filter-badge {
@@ -232,48 +230,6 @@
     .gallery-section {
         background: linear-gradient(90deg, var(--color-dark-blue) 0%, var(--color-medium-blue) 100%);
         padding: var(--spacing-xl) 0;
-    }
-
-    .gallery-category {
-        margin-bottom: var(--spacing-xl);
-    }
-
-    .category-header {
-        background: rgba(255, 255, 255, 0.08);
-        border-radius: var(--border-radius);
-        padding: var(--spacing-lg);
-        margin-bottom: var(--spacing-lg);
-        border-left: 4px solid var(--color-accent);
-        display: flex;
-        align-items: center;
-        transition: var(--transition);
-    }
-
-    .category-header:hover {
-        background: rgba(255, 255, 255, 0.12);
-    }
-
-    .category-icon {
-        width: 50px;
-        height: 50px;
-        background: white;
-        color: var(--color-dark-blue);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: var(--spacing-md);
-    }
-
-    .category-name {
-        color: white;
-        font-weight: 700;
-        margin-bottom: 0.25rem;
-    }
-
-    .category-count {
-        color: rgba(255, 255, 255, 0.7);
-        margin: 0;
     }
 
     .gallery-card {
@@ -408,37 +364,7 @@
         color: white;
     }
 
-    .horizontal-scroll-container {
-        overflow-x: auto;
-        padding-bottom: var(--spacing-sm);
-        scrollbar-width: thin;
-        scrollbar-color: var(--color-medium-blue) rgba(0,0,0,0.1);
-    }
 
-    .horizontal-scroll-container::-webkit-scrollbar {
-        height: 6px;
-    }
-
-    .horizontal-scroll-container::-webkit-scrollbar-track {
-        background: rgba(0,0,0,0.1);
-        border-radius: 10px;
-    }
-
-    .horizontal-scroll-container::-webkit-scrollbar-thumb {
-        background-color: var(--color-medium-blue);
-        border-radius: 10px;
-    }
-
-    .scroll-content {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: var(--spacing-md);
-    }
-
-    .scroll-item {
-        flex: 0 0 auto;
-        width: 280px;
-    }
 
     .modal-content {
         border: none;
@@ -474,49 +400,29 @@
         transform: scale(0.9);
     }
 
-    @media (max-width: 992px) {
-        .hero-title {
-            font-size: 2rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.1rem;
-        }
-    }
-
     @media (max-width: 768px) {
         .hero-section {
             min-height: 60vh;
         }
-        
-        .hero-title {
-            font-size: 1.75rem;
-        }
-        
-        .category-header {
-            padding: var(--spacing-md);
-        }
-        
-        .category-icon {
-            width: 40px;
-            height: 40px;
-            font-size: 1rem;
-        }
-        
-        .scroll-item {
+
+        .col-lg-4 {
             width: 250px;
         }
     }
 
     @media (max-width: 576px) {
-        .scroll-item {
+        .col-lg-4 {
             width: 220px;
         }
-        
+
+        .col-sm-4 {
+            width: 50%;
+        }
+
         .card-image-container {
             height: 180px;
         }
-        
+
         .filter-badge {
             padding: 0.5rem 1rem;
             font-size: 0.85rem;
@@ -547,7 +453,8 @@
         // Category Filtering Logic
         const filterBadges = document.querySelectorAll('.filter-badge');
         const galleryItems = document.querySelectorAll('.gallery-item');
-        const galleryCategories = document.querySelectorAll('.gallery-category');
+        const filterToggle = document.getElementById('filterToggle');
+        const filterContainer = document.getElementById('filterContainer');
 
         function filterGallery(filter) {
             // Filter Photos
@@ -556,25 +463,33 @@
                 item.classList.toggle('hidden', !isMatch);
             });
 
-            // Show/Hide Categories
-            galleryCategories.forEach(cat => {
-                const catCategory = cat.getAttribute('data-category');
-                const hasVisibleItems = Array.from(cat.querySelectorAll('.gallery-item'))
-                    .some(item => !item.classList.contains('hidden'));
-                
-                const isVisible = (filter === 'all' || catCategory === filter || hasVisibleItems);
-                cat.style.display = isVisible ? 'block' : 'none';
-            });
-
             // Scroll to content after filtering
             if (filter !== 'all') {
                 setTimeout(() => {
-                    document.getElementById('gallery-content').scrollIntoView({ 
+                    document.getElementById('gallery-content').scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
                 }, 300);
             }
+        }
+
+        // Filter Toggle for Mobile
+        if (filterToggle && filterContainer) {
+            filterToggle.addEventListener('click', function() {
+                filterContainer.classList.toggle('show');
+                this.querySelector('i').classList.toggle('fa-filter');
+                this.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Close filter when clicking outside on mobile
+            document.addEventListener('click', function(e) {
+                if (window.innerWidth < 768 && !filterToggle.contains(e.target) && !filterContainer.contains(e.target)) {
+                    filterContainer.classList.remove('show');
+                    filterToggle.querySelector('i').classList.remove('fa-times');
+                    filterToggle.querySelector('i').classList.add('fa-filter');
+                }
+            });
         }
 
         // Event Listeners
@@ -587,6 +502,13 @@
                 this.classList.add('active');
 
                 filterGallery(filter);
+
+                // Close filter on mobile after selection
+                if (window.innerWidth < 768 && filterContainer) {
+                    filterContainer.classList.remove('show');
+                    filterToggle.querySelector('i').classList.remove('fa-times');
+                    filterToggle.querySelector('i').classList.add('fa-filter');
+                }
             });
         });
 
