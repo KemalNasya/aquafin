@@ -74,7 +74,8 @@
 
                                     <div class="hover-overlay">
                                         <a href="#" class="btn-expand" data-bs-toggle="modal" data-bs-target="#imageModal"
-                                           data-image="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}">
+                                           data-image="{{ $photo['image'] }}" data-title="{{ $photo['title'] }}"
+                                           data-description="{{ $photo['description'] }}">
                                             <i class="fas fa-expand"></i>
                                         </a>
                                         <small class="expand-text">Klik untuk memperbesar</small>
@@ -109,6 +110,7 @@
                 </div>
                 <div class="modal-body">
                     <img id="modalImage" src="" alt="" class="modal-image">
+                    <div id="modalDescription" class="modal-description mt-3"></div>
                 </div>
             </div>
         </div>
@@ -328,12 +330,22 @@
 
     .card-body {
         padding: var(--spacing-md);
+        height: 120px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
     }
 
     .card-text {
         color: #666;
         font-size: 0.9rem;
         margin-bottom: var(--spacing-md);
+        flex: 1;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        line-height: 1.4;
     }
 
     .card-footer {
@@ -381,6 +393,18 @@
         border-radius: 0 0 var(--border-radius) var(--border-radius);
     }
 
+    .modal-description {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.6;
+        max-height: 200px;
+        overflow-y: auto;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: var(--border-radius);
+        border: 1px solid #e9ecef;
+    }
+
     @keyframes fadeInUp {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
@@ -423,6 +447,10 @@
             height: 180px;
         }
 
+        .card-body {
+            height: 100px;
+        }
+
         .filter-badge {
             padding: 0.5rem 1rem;
             font-size: 0.85rem;
@@ -438,15 +466,18 @@
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const modalTitle = document.getElementById('imageModalLabel');
+        const modalDescription = document.getElementById('modalDescription');
 
         if (imageModal) {
             imageModal.addEventListener('show.bs.modal', function (event) {
                 const button = event.relatedTarget;
                 const imageSrc = button.getAttribute('data-image');
                 const imageTitle = button.getAttribute('data-title');
+                const imageDescription = button.getAttribute('data-description');
 
                 modalImage.src = imageSrc;
                 modalTitle.textContent = imageTitle;
+                modalDescription.innerHTML = imageDescription;
             });
         }
 
