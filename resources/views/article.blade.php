@@ -56,7 +56,7 @@
                                                     <i class="far fa-clock me-1"></i>{{ $article['read_time'] }}
                                                 </small>
                                                 <small class="text-muted">
-                                                    <i class="far fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($article['published_at'])->format('M d, Y') }}
+                                                    <i class="far fa-calendar me-1"></i>{{ $article['published_at']->locale('id')->isoFormat('D MMMM Y') }}
                                                 </small>
                                             </div>
                                             <h5 class="card-title fw-bold mb-3">
@@ -112,7 +112,7 @@
                                         <div class="flex-grow-1">
                                             <h6 class="mb-1 fw-bold text-dark">{{ \Str::limit($popular['title'], 50) }}</h6>
                                             <small class="text-muted">
-                                                <i class="far fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($popular['published_at'])->format('M d, Y') }}
+                                                <i class="far fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($popular['published_at'])->locale('id')->isoFormat('D MMMM Y') }}
                                             </small>
                                         </div>
                                         <span class="badge bg-gradient-primary ms-2">{{ $popular['read_time'] }}</span>
@@ -152,7 +152,7 @@
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="fw-bold text-white">Artikel Lampau</h2>
-                <p class="text-white-50">Artikel yang sudah lama dipublikasikan (minimal seminggu)</p>
+                <p class="text-white-50">Artikel yang sudah lama dipublikasikan</p>
             </div>
             <div class="row">
                 @php
@@ -178,7 +178,7 @@
                                             <i class="far fa-clock me-1"></i>{{ $oldArticle['read_time'] }}
                                         </small>
                                         <small class="text-muted">
-                                            <i class="far fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($oldArticle['published_at'])->format('M d, Y') }}
+                                            <i class="far fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($oldArticle['published_at'])->locale('id')->isoFormat('D MMMM Y') }}
                                         </small>
                                     </div>
                                     <h6 class="card-title fw-bold text-dark mb-2" style="font-size: 0.95rem; line-height: 1.3;">

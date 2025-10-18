@@ -22,7 +22,7 @@
                         style="animation: fadeInUp 1.3s ease-out;">
                         <span class="text-white-50"><i class="fas fa-user me-1 text-primary-light"></i> {{ $article['author'] }}</span>
                         <span class="text-muted">•</span>
-                        <span class="text-white-50"><i class="fas fa-calendar me-1 text-primary-light"></i> {{ $article['published_at'] }}</span>
+                        <span class="text-white-50"><i class="fas fa-calendar me-1 text-primary-light"></i> {{ $article['published_at']->locale('id')->isoFormat('D MMMM Y') }}</span>
                         <span class="text-muted">•</span>
                         <span class="text-white-50"><i class="fas fa-clock me-1 text-primary-light"></i> {{ $article['read_time'] }}</span>
                     </div>
@@ -103,7 +103,7 @@
                                         </div>
                                         <small class="text-muted">
                                             <i class="fas fa-calendar me-1"></i>
-                                            {{ \Carbon\Carbon::parse($popular['published_at'] ?? now())->format('M d, Y') }}
+                                            {{ \Carbon\Carbon::parse($popular['published_at'] ?? now())->locale('id')->isoFormat('D MMMM Y') }}
                                         </small>
                                     </a>
                                 @endforeach

@@ -55,10 +55,6 @@
             <div class="col-md-6">
                 <p class="mb-0 text-white-75 small">&copy; 2025 Pereng Mina GAP. All rights reserved.</p>
             </div>
-            <div class="col-md-6 text-md-end">
-                <a href="#" class="text-white-75 text-decoration-none me-3 footer-link small">Privacy Policy</a>
-                <a href="#" class="text-white-75 text-decoration-none footer-link small">Terms of Service</a>
-            </div>
         </div>
     </div>
 

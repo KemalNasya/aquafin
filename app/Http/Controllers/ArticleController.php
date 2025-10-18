@@ -27,7 +27,8 @@ class ArticleController extends Controller
 
         $articles = $posts->through(function ($post) {
             $wordCount = str_word_count(strip_tags($post->content));
-            $readTime = ceil($wordCount / 200); // Assuming 200 words per minute
+            // More accurate reading speed for Indonesian text (150-180 words per minute)
+            $readTime = max(1, ceil($wordCount / 150)); // Minimum 1 minute, assuming 150 words per minute
 
             return [
                 'id' => $post->id,
@@ -37,9 +38,9 @@ class ArticleController extends Controller
                 'content' => $post->content,
                 'author' => $post->user->name ?? 'Unknown Author',
                 'author_image' => $post->user->profile_photo_path ?? 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face',
-                'published_at' => $post->published_at->format('Y-m-d'),
+                'published_at' => $post->published_at,
                 'category' => $post->category->name ?? 'Uncategorized',
-                'read_time' => $readTime . ' min read',
+                'read_time' => $readTime . ' menit baca',
                 'image' => $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('assets/2.jpg'),
                 'tags' => [] // Add tags if needed later
             ];
@@ -57,7 +58,8 @@ class ArticleController extends Controller
         $post = Post::with(['category', 'user'])->where('is_published', true)->where('slug', $slug)->firstOrFail();
 
         $wordCount = str_word_count(strip_tags($post->content));
-        $readTime = ceil($wordCount / 200); // Assuming 200 words per minute
+        // More accurate reading speed for Indonesian text (150-180 words per minute)
+        $readTime = max(1, ceil($wordCount / 150)); // Minimum 1 minute, assuming 150 words per minute
 
         $article = [
             'id' => $post->id,
@@ -66,9 +68,9 @@ class ArticleController extends Controller
             'content' => $post->content,
             'author' => $post->user->name ?? 'Unknown Author',
             'author_image' => $post->user->profile_photo_path ?? 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face',
-            'published_at' => $post->published_at->format('M d, Y'),
+            'published_at' => $post->published_at,
             'category' => $post->category->name ?? 'Uncategorized',
-            'read_time' => $readTime . ' min read',
+            'read_time' => $readTime . ' menit baca',
             'image' => $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('assets/2.jpg'),
             'tags' => [] // Add tags if needed later
         ];
@@ -81,7 +83,9 @@ class ArticleController extends Controller
             ->get()
             ->map(function ($post) {
                 $wordCount = str_word_count(strip_tags($post->content));
-                $readTime = ceil($wordCount / 200);
+                // More accurate reading speed for Indonesian text (150-180 words per minute)
+                $readTime = max(1, ceil($wordCount / 150)); // Minimum 1 minute, assuming 150 words per minute
+
                 return [
                     'id' => $post->id,
                     'slug' => $post->slug,
@@ -89,7 +93,8 @@ class ArticleController extends Controller
                     'excerpt' => Str::limit(strip_tags($post->content), 150),
                     'image' => $post->thumbnail ? asset('storage/' . $post->thumbnail) : asset('assets/2.jpg'),
                     'category' => $post->category->name ?? 'Uncategorized',
-                    'read_time' => $readTime . ' min read',
+                    'read_time' => $readTime . ' menit baca',
+                    'published_at' => $post->published_at,
                 ];
             });
 

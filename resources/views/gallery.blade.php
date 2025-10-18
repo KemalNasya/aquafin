@@ -220,6 +220,10 @@
         transition: var(--transition);
         text-decoration: none;
         font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
     }
 
     .filter-badge:hover, .filter-badge.active {
@@ -415,13 +419,7 @@
     }
 
     .gallery-item.hidden {
-        opacity: 0;
-        max-height: 0;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        pointer-events: none;
-        transform: scale(0.9);
+        display: none;
     }
 
     @media (max-width: 768px) {
@@ -454,6 +452,7 @@
         .filter-badge {
             padding: 0.5rem 1rem;
             font-size: 0.85rem;
+            max-width: 150px;
         }
     }
 </style>
