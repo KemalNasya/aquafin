@@ -16,7 +16,7 @@ class WalletsTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name Wallet')
+                    ->label('Nama Dompet')
                     ->searchable(),
                 TextColumn::make('total_saldo')
                     ->label('Total Saldo')

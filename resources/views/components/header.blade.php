@@ -43,7 +43,7 @@
     </script>
     <style>
         .glass {
-            /* Warna glass disesuaikan agar sesuai dengan tema biru gelap baru */
+            
             background: rgba(10, 44, 77, 0.5) !important; /* Menggunakan warna gelap dari gradasi baru dengan transparansi */
             backdrop-filter: blur(15px) !important;
             -webkit-backdrop-filter: blur(15px) !important;

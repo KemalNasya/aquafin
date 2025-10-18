@@ -15,6 +15,7 @@ class WalletForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->label('nama dompet')
                     ->required()
                     ->unique(table: 'wallets', column: 'name', ignoreRecord: true)
                     ->validationMessages(['unique' => 'Nama wallet sudah digunakan. Silakan gunakan nama lain.']),
@@ -30,6 +31,7 @@ class WalletForm
                     })
                     ->required(),
                 Toggle::make('is_active')
+                    ->label('Aktif')
                     ->required(),
             ]);
     }

@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $logoPath = public_path('D:\website-aquafin\aquafin\public\assets\logo_PMGAP.png');
-        
+
         if (file_exists($logoPath)) {
             config([
                 'filament.brand' => 'Pereng Mina GAP',

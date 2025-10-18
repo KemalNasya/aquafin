@@ -121,7 +121,7 @@ class TransactionForm
                 \Filament\Forms\Components\Hidden::make('color'),
 
                 Select::make('wallet_id')
-                    ->label('Wallet')
+                    ->label('Dompet')
                     ->relationship('wallet', 'name', function ($query) {
                         return $query->where('is_active', true);
                     })
