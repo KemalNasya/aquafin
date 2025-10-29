@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $article['title'] . ' - Company Name')
+@section('title', $article['title'] . ' - Pereng Mina GAP')
 
 @section('content')
     <section class="article-header position-relative overflow-hidden d-flex align-items-center justify-content-center text-white text-center"

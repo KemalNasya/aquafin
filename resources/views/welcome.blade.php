@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home - Company Name')
+@section('title', 'Home - Pereng Mina GAP')
 
 @section('content')
     <!-- Hero Section -->

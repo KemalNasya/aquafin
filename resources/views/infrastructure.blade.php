@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Infrastructure - Company Name')
+@section('title', 'Infrastructure - Pereng Mina GAP')
 
 @section('content')
     <section class="hero-section position-relative overflow-hidden"

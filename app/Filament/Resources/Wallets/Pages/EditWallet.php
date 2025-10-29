@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Wallets\Pages;
 
 use App\Filament\Resources\Wallets\WalletResource;
+use Filament\Actions;
 use Filament\Actions\DeleteAction;
 use Filament\Resources\Pages\EditRecord;
 
@@ -23,7 +24,21 @@ class EditWallet extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            DeleteAction::make(),
+            DeleteAction::make()
+                ->label('Hapus'),
+        ];
+    }
+
+    protected function getFormActions(): array
+    {
+        return [
+            Actions\Action::make('save')
+                ->label('Perbarui')
+                ->submit('save'),
+
+            Actions\Action::make('cancel')
+                ->label('Batal')
+                ->url($this->getResource()::getUrl('index')),
         ];
     }
 
