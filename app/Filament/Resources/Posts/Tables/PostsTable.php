@@ -28,7 +28,10 @@ class PostsTable
                 ImageColumn::make('thumbnail')
                     ->label('Foto')
                     ->disk('public')
-                    ->height(50),
+                    ->height(50)
+                    ->getStateUsing(function ($record) {
+                        return $record->thumbnail ? asset('storage/' . $record->thumbnail) : null;
+                    }),
 
                 TextColumn::make('category.name')
                     ->label('Kategori')
@@ -63,12 +66,15 @@ class PostsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->label('Ubah'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                    DeleteBulkAction::make()
+                        ->label('Hapus Terpilih'),
+                ])
+                    ->label('Aksi Massal'),
             ]);
     }
 }

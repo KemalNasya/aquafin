@@ -56,12 +56,15 @@ class TransactionsTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->label('Ubah'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                    DeleteBulkAction::make()
+                        ->label('Hapus Terpilih'),
+                ])
+                    ->label('Aksi Massal'),
             ])
             ->defaultSort('transaction_date', 'desc');
     }

@@ -31,7 +31,7 @@ class CreateWallet extends CreateRecord
     protected function getCreateFormAction(): Actions\Action
     {
         return Actions\Action::make('create')
-            ->label('Simpan ')
+            ->label('Simpan Dompet')
             ->submit('create')
             ->keyBindings(['mod+s']);
     }

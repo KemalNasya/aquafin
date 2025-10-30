@@ -23,10 +23,10 @@ class TransactionsExport implements FromView
     public function view(): View
     {
         $transactions = Transaction::whereBetween('transaction_date', [
-                $this->startDate, 
+                $this->startDate,
                 $this->endDate
             ])
-            ->with('user')
+            ->with(['user', 'category'])
             ->orderBy('transaction_date', 'desc')
             ->get();
 

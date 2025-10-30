@@ -18,18 +18,17 @@ class StatsOverview extends BaseWidget
 
         $stats = [];
 
-        // Stats untuk semua role
 
-        $stats[] = Stat::make('Total Users', User::count())
-            ->description('Registered users')
+        $stats[] = Stat::make('Total Pengguna', User::count())
+            ->description('Pengguna terdaftar')
             ->icon('heroicon-o-users');
 
-        $stats[] = Stat::make('Total Posts', Post::count())
-            ->description('All published posts')
+        $stats[] = Stat::make('Total Postingan', Post::count())
+            ->description('postingan artikel')
             ->icon('heroicon-o-document-text');
 
-        $stats[] = Stat::make('Total Galleries', Gallery::count())
-            ->description('All gallery items')
+        $stats[] = Stat::make('Total Galeri', Gallery::count())
+            ->description('Semua item galeri')
             ->icon('heroicon-o-photo');
 
         return $stats;

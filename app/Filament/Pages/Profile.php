@@ -27,7 +27,7 @@ class Profile extends Page implements HasForms
 
     protected static ?int $navigationSort = 1;
 
-    protected static string|UnitEnum|null $navigationGroup = 'Settings';
+    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan';
 
     protected string $view = 'filament.pages.profile';
 
@@ -71,31 +71,13 @@ class Profile extends Page implements HasForms
                         ->email()
                         ->required()
                         ->maxLength(255),
-                ]),
-            Section::make('Keamanan Password')
-                ->schema([
                     TextInput::make('current_password')
                         ->password()
                         ->label('Kata Sandi Saat Ini')
                         ->required(fn ($get) => filled($get('password')))
                         ->dehydrated(false)
                         ->revealable(),
-                    TextInput::make('password')
-                        ->password()
-                        ->label('Kata Sandi Baru')
-                        ->minLength(8)
-                        ->confirmed()
-                        ->dehydrated(fn ($state) => filled($state))
-                        ->revealable(),
-                    TextInput::make('password_confirmation')
-                        ->password()
-                        ->label('Konfirmasi Kata Sandi Baru')
-                        ->required(fn ($get) => filled($get('password')))
-                        ->dehydrated(false)
-                        ->revealable(),
-                ])
-                ->collapsible()
-                ->collapsed(),
+                ]),
         ];
     }
 
@@ -126,6 +108,18 @@ class Profile extends Page implements HasForms
             // Only update password if provided
             if (!empty($data['password'])) {
                 $updateData['password'] = Hash::make($data['password']);
+            }
+
+            // If current_password is provided but no new password, just validate it
+            if (!empty($data['current_password']) && empty($data['password'])) {
+                // Do nothing, just validate the current password
+                if (!Hash::check($data['current_password'], $user->password)) {
+                    Notification::make()
+                        ->title('Kata sandi saat ini tidak sesuai')
+                        ->danger()
+                        ->send();
+                    return;
+                }
             }
 
             $user->update($updateData);

@@ -14,12 +14,12 @@ class CreateGallery extends CreateRecord
         protected static string $resource = GalleryResource::class;
         public function getTitle(): string | Htmlable
         {
-            return 'Tambah Postingan';
+            return 'Tambah Galeri';
         }
-    
+
         public function getBreadcrumb(): string
         {
-            return 'Tambah Postingan';
+            return 'Tambah Galeri';
         }
     
         protected function getRedirectUrl(): string
@@ -31,7 +31,7 @@ class CreateGallery extends CreateRecord
         {
             return [
                 Actions\Action::make('create')
-                    ->label('Simpan Postingan')
+                    ->label('Simpan Galeri')
                     ->submit('create')
                     ->keyBindings(['mod+s']),
     

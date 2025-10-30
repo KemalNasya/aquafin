@@ -21,11 +21,11 @@ class UserResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static string|UnitEnum|null $navigationGroup = 'pengaturan';
+    protected static string|UnitEnum|null $navigationGroup = 'Pengaturan';
 
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-users';
 
-    protected static ?string $navigationLabel = 'All Users';
+    protected static ?string $navigationLabel = 'Pengguna';
 
     protected static ?string $recordTitleAttribute = 'user';
 

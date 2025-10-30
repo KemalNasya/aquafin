@@ -27,7 +27,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->brandName('Pereng Mina GAP')
-            ->brandLogoHeight('40px') 
+            ->brandLogoHeight('40px')
             ->id('admin')
             ->path('admin')
             ->login()
@@ -39,7 +39,7 @@ class AdminPanelProvider extends PanelProvider
                 'Postingan',
                 'Dokumentasi',
                 'Keuangan',
-                'Settings',
+                'Pengaturan',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

@@ -35,7 +35,7 @@ class CreateTransactionCategory extends CreateRecord
     {
         return [
             Actions\Action::make('create')
-                ->label('Simpan Postingan')
+                ->label('Simpan Kategori Transaksi')
                 ->submit('create')
                 ->keyBindings(['mod+s']),
 

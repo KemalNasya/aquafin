@@ -20,18 +20,19 @@ class GalleriesTable
                 TextColumn::make('photo')
                     ->label('Foto')
                     ->searchable(),
-                TextColumn::make('gallery_category_id')
-                    ->label('Id_Kategori')
-                    ->numeric()
-                    ->sortable(),
+                TextColumn::make('category.name')
+                    ->label('Kategori')
+                    ->searchable(),
                 TextColumn::make('user.name')
                     ->label('Pengguna')
                     ->searchable(),
                 TextColumn::make('created_at')
+                    ->label('Dibuat Pada')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('updated_at')
+                    ->label('Diperbarui Pada')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
@@ -40,12 +41,15 @@ class GalleriesTable
                 //
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->label('Ubah'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
+                    DeleteBulkAction::make()
+                        ->label('Hapus Terpilih'),
+                ])
+                    ->label('Aksi Massal'),
             ]);
     }
 }
