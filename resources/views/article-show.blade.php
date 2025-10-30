@@ -11,7 +11,6 @@
         <div class="container position-relative z-1">
             <div class="row justify-content-center">
                 <div class="col-lg-9">
-                    {{-- Ganti bg-primary dengan class kustom bg-primary-gradient --}}
                     <span class="badge bg-primary-gradient mb-3 px-3 py-2 rounded-pill">{{ $article['category'] }}</span>
 
                     <h1 class="display-4 fw-bold mb-4"
@@ -58,7 +57,6 @@
                                 @endif
                             </div>
 
-                            <!-- Share Buttons -->
                             <div class="share-buttons d-flex gap-2">
                                 <span class="text-muted me-2">Share:</span>
                                 <a href="#" id="copy-link" class="btn btn-outline-success btn-sm rounded-pill" title="Copy Link"><i class="fas fa-link"></i></a>
@@ -71,7 +69,6 @@
 
                     <div class="d-flex justify-content-center w-100 mt-5">
                         <a href="{{ route('article') }}"
-                            {{-- Ganti btn-outline-primary dengan class kustom btn-primary-outline --}}
                             class="btn btn-primary-outline rounded-pill px-4 py-2 shadow-sm"
                             style="min-width: 230px; text-align: center;">
                             <i class="fas fa-arrow-left me-3"></i> Kembali ke Artikel
@@ -96,7 +93,6 @@
                                             <h6 class="fw-bold mb-1 text-dark">
                                                 {{ \Str::limit($popular['title'], 50) }}
                                             </h6>
-                                            {{-- Ganti bg-gradient-primary dengan class kustom bg-primary-gradient --}}
                                             <small class="badge bg-primary-gradient">
                                                 {{ $popular['read_time'] ?? '5 min' }}
                                             </small>
@@ -131,7 +127,6 @@
                                 <img src="{{ $related['image'] }}" alt="{{ $related['title'] }}"
                                     class="card-img-top" style="height: 220px; object-fit: cover;">
                                 <div class="card-body">
-                                    {{-- Ganti badge bg-primary dengan class kustom bg-primary-gradient --}}
                                     <span class="badge bg-primary-gradient mb-2">{{ $related['category'] }}</span>
                                     <h5 class="card-title fw-bold">{{ Str::limit($related['title'], 50) }}</h5>
                                     <p class="card-text text-muted">{{ $related['excerpt'] }}</p>
@@ -151,18 +146,15 @@
     </section>
 
     <style>
-        /* Global Color Variables (New Gradient) */
         :root {
-            --color-dark-gradient: #0d47a1; /* Biru gelap */
-            --color-light-gradient: #00bcd4; /* Biru muda / Teal */
-            --primary-shadow-color: rgba(13, 71, 161, 0.5); /* Shadow yang disesuaikan */
+            --color-dark-gradient: #0d47a1;
+            --color-light-gradient: #00bcd4;
+            --primary-shadow-color: rgba(13, 71, 161, 0.5);
         }
 
-        /* Utility Classes for Text Color */
         .text-primary-dark { color: var(--color-dark-gradient) !important; }
         .text-primary-light { color: var(--color-light-gradient) !important; }
 
-        /* Animations */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -173,7 +165,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Cards Hover */
         .card-hover { transition: all 0.3s ease; }
         .card-hover:hover {
             transform: translateY(-6px);
@@ -183,24 +174,18 @@
         .hover-lift { transition: transform 0.3s ease; }
         .hover-lift:hover { transform: translateY(-2px); }
 
-        /* ====== GRADIENT STYLES ====== */
-
-        /* Background Gradient for Badges and Sidebar Items */
         .bg-primary-gradient {
             background: linear-gradient(90deg, var(--color-dark-gradient) 0%, var(--color-light-gradient) 100%) !important;
             color: white !important;
             border: none !important;
         }
 
-        /* Background Gradient for Related Posts Section */
         .bg-gradient-related-posts {
-            background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%); /* Pertahankan gradien biru tua/sedang untuk kontras */
+            background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);
             border-bottom: 2px solid rgba(255,255,255,0.2);
             transition: all 0.3s ease;
         }
 
-
-        /* Solid Button (e.g., Baca Selengkapnya) */
         .btn-primary-gradient {
             background: linear-gradient(90deg, var(--color-dark-gradient) 0%, var(--color-light-gradient) 100%);
             border: none;
@@ -213,28 +198,24 @@
             opacity: 0.9;
             transform: translateY(-2px);
             box-shadow: 0 8px 15px var(--primary-shadow-color);
-            color: white; /* Pastikan warna teks tetap putih saat hover */
+            color: white;
         }
 
-        /* Outline Button (e.g., Kembali ke Artikel) */
         .btn-primary-outline {
-            border: 2px solid var(--color-dark-gradient); /* Border dengan warna gradien gelap */
-            color: var(--color-dark-gradient); /* Warna teks dengan warna gradien gelap */
+            border: 2px solid var(--color-dark-gradient);
+            color: var(--color-dark-gradient);
             background-color: transparent;
             transition: all 0.3s ease;
         }
 
         .btn-primary-outline:hover {
-            /* Saat hover, terapkan gradien sebagai background */
             background: linear-gradient(90deg, var(--color-dark-gradient) 0%, var(--color-light-gradient) 100%);
-            color: white; /* Ubah warna teks menjadi putih */
-            border-color: var(--color-dark-gradient); /* Pertahankan border */
+            color: white;
+            border-color: var(--color-dark-gradient);
             transform: translateY(-2px);
             box-shadow: 0 4px 10px var(--primary-shadow-color);
         }
 
-
-        /* Article Text */
         .article-content {
             font-size: 1.1rem;
             line-height: 1.8;
@@ -242,7 +223,7 @@
         }
 
         .article-content h2, .article-content h3, .article-content h4 {
-            color: var(--color-dark-gradient); /* Heading dalam konten menggunakan warna gradien gelap */
+            color: var(--color-dark-gradient);
             margin-top: 2rem;
             margin-bottom: 1rem;
             font-weight: 700;
@@ -256,14 +237,13 @@
         }
 
         .article-content blockquote {
-            border-left: 4px solid var(--color-light-gradient); /* Blockquote menggunakan warna gradien muda */
+            border-left: 4px solid var(--color-light-gradient);
             padding-left: 1rem;
             margin: 2rem 0;
             font-style: italic;
             color: #555;
         }
 
-        /* Share Buttons */
         .share-buttons .btn {
             transition: all 0.3s ease;
         }

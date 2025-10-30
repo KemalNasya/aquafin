@@ -11,7 +11,6 @@
                 <p class="text-white-75 small mb-3">Website dokumentasi kegiatan Kelompok Budidaya Ikan Pereng Mina GAP</p>
 
                 <div class="social-links d-flex gap-2 mt-3">
-                    <!-- Social media icons can be added here -->
                 </div>
             </div>
 
@@ -32,17 +31,17 @@
                 <div class="d-flex flex-column gap-2">
                     {{-- Alamat --}}
                     <div class="d-flex align-items-start">
-                        <i class="fas fa-map-marker-alt text-yellow me-2 flex-shrink-0 mt-1" style="font-size: 0.9rem;"></i>
-                        <span class="text-white-75 small">Nogotirto, Gamping, Sleman, DIY</span>
+                        <i class="fas fa-map-marker-alt text-yellow me-2 shrink-0 mt-1" style="font-size: 0.9rem;"></i>
+                        <span class="text-white-75 small">Perum Griya Arga Permai JL Kelut J 7, Kwarasan, Nogotirto, Gamping, Sleman</span>
                     </div>
                     {{-- Telepon --}}
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-phone text-yellow me-2 flex-shrink-0" style="font-size: 0.9rem;"></i>
+                        <i class="fas fa-phone text-yellow me-2 shrink-0" style="font-size: 0.9rem;"></i>
                         <span class="text-white-75 small">+6281344535062</span>
                     </div>
                     {{-- Email --}}
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-envelope text-yellow me-2 flex-shrink-0" style="font-size: 0.9rem;"></i>
+                        <i class="fas fa-envelope text-yellow me-2 shrink-0" style="font-size: 0.9rem;"></i>
                         <span class="text-white-75 small">perengmina@gmail.com</span>
                     </div>
                 </div>

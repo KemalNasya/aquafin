@@ -3,7 +3,6 @@
 @section('title', 'Home - Pereng Mina GAP')
 
 @section('content')
-    <!-- Hero Section -->
 
     <x-hero-section />
 

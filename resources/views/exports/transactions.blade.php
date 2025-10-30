@@ -101,6 +101,7 @@
             <tr>
                 <th>ID</th>
                 <th>Pengguna</th>
+                <th>Kategori</th>
                 <th>Jumlah</th>
                 <th>Tipe</th>
                 <th>Deskripsi</th>
@@ -112,6 +113,7 @@
                 <tr>
                     <td>{{ $t->id }}</td>
                     <td>{{ $t->user->name ?? '-' }}</td>
+                    <td>{{ $t->category->name ?? '-' }}</td>
                     <td style="text-align: right;">Rp {{ number_format($t->amount, 0, ',', '.') }}</td>
                     <td>
                         @if($t->type === 'income')

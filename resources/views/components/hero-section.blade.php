@@ -1,16 +1,13 @@
 <section class="hero-section position-relative overflow-hidden d-flex align-items-center justify-content-center"
     style="min-height: 88vh;">
     
-    <!-- Gambar Background -->
     <img src="{{ asset('assets/jj.jpg') }}" alt="Background"
         class="position-absolute top-0 start-0 w-100 h-100"
         style="object-fit: cover; z-index: -2; filter: brightness(60%) contrast(110%);">
 
-    <!-- Overlay gradient lembut -->
     <div class="position-absolute top-0 start-0 w-100 h-100"
         style="background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%); z-index: -1;"></div>
 
-    <!-- Konten -->
     <div class="container text-center text-white px-4">
         <h1 class="fw-bold mb-3" 
             style="font-size: 2.2rem; text-shadow: 0 4px 15px rgba(0,0,0,0.9); animation: fadeInUp 1s ease-out;">

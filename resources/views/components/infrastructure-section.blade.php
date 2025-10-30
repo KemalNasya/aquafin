@@ -8,7 +8,6 @@
         </div>
 
         <div class="row g-4">
-            <!-- Kolam Budidaya -->
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-lg rounded-3 overflow-hidden hover-lift bg-white">
                     <div class="position-relative">
@@ -39,7 +38,6 @@
                 </div>
             </div>
 
-            <!-- Mesin Pengolah Pakan -->
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-lg rounded-3 overflow-hidden hover-lift bg-white">
                     <div class="position-relative">
@@ -70,7 +68,6 @@
                 </div>
             </div>
 
-            <!-- Instalasi PLTS -->
             <div class="col-lg-4 col-md-6">
                 <div class="card h-100 border-0 shadow-lg rounded-3 overflow-hidden hover-lift bg-white">
                     <div class="position-relative">

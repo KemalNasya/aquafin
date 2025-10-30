@@ -3,7 +3,6 @@
 @section('title', 'Artikel - Pereng Mina GAP')
 
 @section('content')
-    <!-- Hero Section -->
     <section class="hero-section position-relative overflow-hidden"
              style="min-height: 88vh;
                     background: url('{{ asset('assets/kolam.jpg') }}') center/cover no-repeat;
@@ -29,11 +28,9 @@
         </div>
     </section>
 
-    <!-- Main Articles Section -->
     <section class="py-5 section-padding" id="articles-list">
         <div class="container">
             <div class="row">
-                <!-- Articles List -->
                 <div class="col-lg-8">
                     @if(count($articles) > 0)
                         @foreach($articles as $article)
@@ -65,7 +62,7 @@
                                                     {{ $article['title'] }}
                                                 </a>
                                             </h5>
-                                            <p class="card-text text-muted flex-grow-1 mb-3">{{ $article['excerpt'] }}</p>
+                                            <p class="card-text text-muted grow mb-3">{{ $article['excerpt'] }}</p>
                                             <div class="d-flex justify-content-between align-items-center mt-auto">
                                                 <div class="tags">
                                                     @foreach(array_slice($article['tags'], 0, 2) as $tag)
@@ -94,9 +91,7 @@
                     @endif
                 </div>
 
-                <!-- Sidebar -->
                 <div class="col-lg-4">
-                    <!-- Popular Articles -->
                     <div class="card border-0 shadow-sm mb-4 rounded-3 overflow-hidden card-hover"
                          style="animation: fadeInUp 1.5s ease-out;">
                         <div class="card-header bg-gradient-primary border-0 py-3">
@@ -109,7 +104,7 @@
                                 @foreach($articles->take(3) as $popular)
                                     <a href="{{ route('article.show', $popular['slug']) }}"
                                        class="list-group-item list-group-item-action border-0 px-3 py-3 hover-lift d-flex align-items-start">
-                                        <div class="flex-grow-1">
+                                        <div class="grow">
                                             <h6 class="mb-1 fw-bold text-dark">{{ \Str::limit($popular['title'], 50) }}</h6>
                                             <small class="text-muted">
                                                 <i class="far fa-calendar me-1"></i>{{ \Carbon\Carbon::parse($popular['published_at'])->locale('id')->isoFormat('D MMMM Y') }}
@@ -122,7 +117,6 @@
                         </div>
                     </div>
 
-                    <!-- Categories -->
                     <div class="card border-0 shadow-sm mb-4 rounded-3 overflow-hidden card-hover"
                          style="animation: fadeInUp 1.7s ease-out;">
                         <div class="card-header bg-gradient-primary border-0 py-3">
@@ -147,7 +141,6 @@
         </div>
     </section>
 
-    <!-- Old Articles Section -->
     <section class="py-5" style="background: linear-gradient(90deg, #0a2c4d 0%, #154e8d 100%);">
         <div class="container">
             <div class="text-center mb-5">
@@ -187,7 +180,7 @@
                                             {{ Str::limit($oldArticle['title'], 60) }}
                                         </a>
                                     </h6>
-                                    <p class="card-text text-muted small flex-grow-1" style="font-size: 0.85rem; line-height: 1.4;">
+                                    <p class="card-text text-muted small grow" style="font-size: 0.85rem; line-height: 1.4;">
                                         {{ Str::limit($oldArticle['excerpt'], 100) }}
                                     </p>
                                     <div class="d-flex justify-content-between align-items-center mt-auto">

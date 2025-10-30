@@ -99,7 +99,7 @@
                                     </div>
                                     <div>
                                         <h6 class="fw-bold mb-1">Alamat</h6>
-                                        <p class="text-muted mb-0 small">Nogotirto, Gamping<br>Sleman, DIY</p>
+                                        <p class="text-muted mb-0 small">Perum Griya Arga Permai JL Kelut J 7, Kwarasan, Nogotirto, Gamping, Sleman</p>
                                     </div>
                                 </div>
                                 <div class="d-flex mb-3 pb-2 border-bottom">

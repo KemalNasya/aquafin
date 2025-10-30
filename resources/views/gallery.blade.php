@@ -6,16 +6,13 @@
     <section class="hero-section position-relative overflow-hidden d-flex align-items-center justify-content-center"
         style="min-height: 89vh;">
 
-        <!-- Gambar Background -->
         <img src="{{ asset('assets/kolam.jpg') }}" alt="Background"
             class="position-absolute top-0 start-0 w-100 h-100"
             style="object-fit: cover; filter: brightness(55%); z-index: -2;">
 
-        <!-- Overlay gradasi hitam -->
         <div class="position-absolute top-0 start-0 w-100 h-100"
             style="background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); z-index: -1;"></div>
 
-        <!-- Konten -->
         <div class="container text-center text-white px-4">
             <h1 class="fw-bold mb-3 animate-fadeInUp"
                 style="font-size: 2.5rem; text-shadow: 0 4px 15px rgba(0,0,0,0.9);">

@@ -3,20 +3,18 @@
 @section('title', 'Tentang Kami - Pereng Mina GAP')
 
 @section('content')
-    {{-- HERO SECTION --}}
+
     <section class="hero-section position-relative overflow-hidden d-flex align-items-center justify-content-center"
         style="min-height: 89vh;">
         
-        <!-- Gambar Background -->
+   
         <img src="{{ asset('assets/berem.jpg') }}" alt="Background"
             class="position-absolute top-0 start-0 w-100 h-100"
             style="object-fit: cover; filter: brightness(55%); z-index: -2;">
         
-        <!-- Overlay gradasi hitam -->
         <div class="position-absolute top-0 start-0 w-100 h-100"
             style="background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)); z-index: -1;"></div>
 
-        <!-- Konten -->
         <div class="container text-center text-white px-4">
             <h1 class="fw-bold mb-3 animate-fadeInUp" 
                 style="font-size: 2.5rem; text-shadow: 0 4px 15px rgba(0,0,0,0.9);">
@@ -47,7 +45,6 @@
         </div>
     </section>
 
-    {{-- SECTION PROFIL PERENG MINA --}}
     <section id="profile" class="section-padding position-relative overflow-hidden bg-gradient-custom text-white">
         <div class="container">
             <div class="row align-items-center">
@@ -81,8 +78,6 @@
                 <div class="col-lg-6 animate-fadeUp">
                     <h2 class="fw-bold mb-4 text-white">Visi & Misi</h2>
                     
-                    <!-- Motto Section -->
-
                     <div class="vision-mission">
                         <div class="feature-item d-flex mb-4 p-4 rounded-4 shadow-sm hover-lift glass-card">
                             <i class="fas fa-eye text-warning me-3 mt-1 fs-2"></i>

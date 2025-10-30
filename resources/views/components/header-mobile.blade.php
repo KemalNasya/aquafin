@@ -8,7 +8,6 @@
         <x-nav-link href="/contact" class="mobile-nav-link">Contact</x-nav-link>
     </div>
 
-    <!-- Custom CSS -->
     <style>
         .mobile-nav-link {
             padding: 12px 16px;

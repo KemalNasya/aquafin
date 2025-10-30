@@ -1,14 +1,12 @@
 <section id="about" class="section-padding py-5 position-relative overflow-hidden">
     <div class="container">
         <div class="row align-items-center">
-            <!-- Gambar -->
             <div class="col-lg-6 mb-4 mb-lg-0" style="animation: slideInLeft 1s ease-out;">
                 <img src="{{ asset('assets/logo_PMGAP.png') }}" alt="Sejarah Budidaya"
                     class="img-fluid rounded shadow-lg hover-scale"
                     style="border: 4px solid rgba(255,255,255,0.2);">
             </div>
 
-            <!-- Konten -->
             <div class="col-lg-6 text-white" style="animation: fadeInUp 1.2s ease-out;">
                 <h1 class="fw-bold mb-3" 
                     style="font-size: 2.2rem; text-shadow: 0 3px 10px rgba(0,0,0,0.8);">
